@@ -1,0 +1,209 @@
+page-suggestions-form {
+ .toolbar {
+        .toolbar-background {
+          background: #000000;
+        }
+      }
+      
+    ion-header {
+        border-bottom: 1px solid #1d72c1;
+    }
+     /* Footer new css */
+     footer .footer-right  a {
+        display: block;
+        color: #fff;
+        text-decoration: underline;
+        font-weight: 100;
+        margin-top: 10px;
+        width: 100%;
+        margin: 10px 0 0 0;
+        float: left;
+    }
+    .footer-left {
+        width: 20%;
+        float: left;
+        min-height: 58px;
+    }
+    .footer-right {
+        width: 80%;
+        float: left;
+        min-height: 58px;
+        padding-left: 0;
+        text-align: center;
+    }
+    .tag-bottom {
+        color: #fff;
+        font-weight: 100;
+        display: block;
+        float: left;
+        margin-top: 7px;
+        font-size: 14px;
+        width: 100%;
+    }
+/* Footer new css ../ */
+    h3 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 16px;
+        color: #fff;
+        margin: 0 0 0px 0;
+        text-transform: capitalize;
+    }
+    .button-as{
+        background: #ed1c24;
+    color: #fff;
+    padding: 10px 15px;
+    margin: 0 auto;
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    text-transform: capitalize;
+    }
+    /* ban css */
+    .ban {
+     background: #fff;
+     padding: 10px 10px;
+     margin: 0px -16px 30px -16px;
+}
+.active-job {
+    float: left;
+    width: 100%;
+    text-transform: capitalize;
+    margin: 0 0;
+    font-size: 15px;
+    padding: 7px 0;
+}
+.ban .cancel {
+    background: red;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: capitalize;
+    border-radius: 5px;
+}
+.ban .submit {
+    background: green;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: capitalize;
+    border-radius: 5px;
+}
+/* ban css ../ */
+/* Header css */
+ion-header .header-logo img {
+    margin-top: 0px;
+    max-height: 50px;
+    margin-left: 0px;
+}
+.tagline {
+    width: 160px;
+    display: block;
+    float: left;
+    color: #fff;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 14px;
+    border-left: 1px solid #fff;
+    padding-left: 10px;
+    margin-top: 14px;
+    margin-left: 10px;
+}
+ion-header .header-logo {
+    display: block;
+    float: left;
+}
+.toolbar-background-md {
+    border-color: #b2b2b2;
+    background: #000000;
+}
+.toolbar-title-md {
+    color: #fff;
+}
+.back-button {
+    color: #fff !important;
+    position: absolute;
+    right: 0;
+    display: block;
+}
+ion-content.content-md {
+    color: #000;
+    background-color: #000000;
+}
+.content-ios {
+    background-color: #000000 !important;
+}
+/* Header css ../ */
+/* Footer css */
+footer {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    max-height: 60px;
+    width: 100%;
+    padding: 0 27px;
+    background: #000;
+    min-width: 60px;
+    height: 60px;
+    border-top: 1px solid #1d72c1;
+}
+.footer-logo {
+    height: 45px;
+        display: block;
+        float: left;
+        margin-top: 10px;
+}
+.copy-right {
+    width: 30%;
+    display: block;
+    float: left;
+    line-height: 30px;
+    color: #fff;
+    text-align: right;
+    margin-top: 12px;
+    font-weight: 100;
+    padding-left: 5%;
+    box-sizing: border-box;
+}
+.tag-bottom {
+    color: #fff;
+        font-weight: 100;
+        display: block;
+        float: left;
+        margin-top: 7px;
+        font-size: 14px;
+        width: 100%;
+}
+/* Footer css ../ */
+ /* Breadcums css */
+ ul.breadcums-cntr {
+    margin: 0px 0 0px 0;
+    width: 100%;
+    float: left;
+    padding: 0 0 0 0px;
+}
+ul.breadcums-cntr li {
+    display: block;
+    color: #000;
+    font-size: 14px;
+    text-transform: capitalize;
+    font-weight: 100;
+    float: left;
+    text-decoration: underline;
+}
+ul.breadcums-cntr li:last-child() {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+}
+ul.breadcums-cntr li span {
+    display: inline-block;
+    margin: 0 5px;
+}
+ul.breadcums-cntr li:last-child span {
+    display: none;
+}
+.last-opned-detail {
+    margin: 10px 0 0 0;
+}
+
+}

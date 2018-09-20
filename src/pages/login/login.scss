@@ -1,0 +1,133 @@
+page-login {
+	ion-header {
+        border-bottom: 1px solid #1d72c1;
+    }
+    /* header css */
+    ion-header ion-title .toolbar-title img {
+ margin-top: 0px;
+ max-height: 50px;
+ margin-left: -10px;
+}
+.login-as .tagline {
+	width: 100%;
+	display: block;
+	float: left;
+	color: #fff;
+	font-size: 18px;
+	line-height: 14px;
+	border-left: 0px solid #fff;
+	padding-left: 0;
+	margin-top: 5px;
+	margin-left: 0;
+	text-align: center;
+	font-weight: 600;
+	text-transform: capitalize;
+	letter-spacing: .5px;
+}
+ion-header ion-title {
+	display: block;
+	float: left;
+	width: 100%;
+	text-align: center;
+}
+page-home ion-header ion-icon {
+	float: right;
+	font-size: 2em;
+	color: #fff;
+	display: block;
+	margin-top: 13px;
+	margin-right: 10px;
+	width: auto;
+}
+ion-header ion-icon {
+	float: right;
+	font-size: 2em;
+	color: #fff;
+	display: block;
+	margin-top: 13px;
+	margin-right: 10px;
+	width: auto;
+}
+/* header css ../ */
+.toolbar-background-md {
+	border-color: #000000;
+	background: #000000;
+	color: #fff;
+	;
+}
+.toolbar-title-md {
+	color: #fff;
+	margin: 10px 0 0 0;
+}
+.content-md {
+	color: #fff;
+	background: #000;
+}
+.as-login {
+	background: #ed1c24;
+	color: #fff;
+	padding: 10px 30px;
+	margin: 0 auto;
+	font-size: 18px;
+	text-decoration: none;
+	color: #fff;
+}
+.logo-login {
+	margin-top: 25%;
+	margin-bottom: 12%;
+	text-align: center;
+}
+.logo-login img {
+	max-width: 250px;
+}
+.item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+	color: #fff;
+}
+.item-md {
+	color: #fff;
+	background-color: #000;
+}
+.or {
+	font-size: 28px;
+	text-align: center;
+	margin: 20% 0 0px 0;
+	color: #fff;
+}
+.demo {
+	font-size: 18px;
+	text-align: center;
+	margin: 15px 0 15px 0;
+	color: #fff;
+}
+.mrg-20 {
+	margin-top: 20%;
+}
+.login-form ion-item:nth-child(1) {
+	margin-bottom: 15px;
+}
+.demo .lgn {
+	background: #ed1c24;
+	color: #fff;
+	padding: 20px 40px;
+	margin: 0 auto;
+	font-size: 24px;
+	text-decoration: none;
+	display: inline-block;
+}
+.list-md .item-input:last-child {
+    border-bottom: 0px solid #dedede;
+}
+.list-md .item-input.item-input-has-focus:last-child, .list-md .item-input.input-has-focus:last-child {
+    border-bottom-color: unset;
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
+}
+.list-md .item-input:last-child .input-wrapper {
+    border-bottom: 1px solid #dedede;
+}
+.item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner, .list-md .item-input.item-input-has-focus:last-child, .list-md .item-input.input-has-focus:last-child {
+    border-bottom-color: unset;
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
+}
+}
