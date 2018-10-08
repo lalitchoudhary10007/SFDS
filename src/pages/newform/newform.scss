@@ -7,10 +7,78 @@ page-newform {
           background: #000000;
         }
 	  }
-	  
-	ion-header {
-        border-bottom: 1px solid #1d72c1;
+	  .new-form .item-inner .input-wrapper {
+		text-align: left;
 	}
+	  /* Footer new css */
+    
+	  footer {
+        max-height: 60px;
+        width: 100%;
+        padding: 0 27px;
+        background: #000;
+        min-width: 60px;
+        height: 60px;
+        border-top: 1px solid #1d72c1;
+        position: absolute;
+        bottom: 0;
+        z-index: 9;
+    }
+    footer .footer-right a {
+        display: block;
+        width: 100%;
+        float: left;
+        color: #fff;
+        text-decoration: underline;
+        font-weight: 100;
+        margin-top: 3px;
+    }
+    .footer-left {
+        width: 75px;
+        float: left;
+        min-height: 58px;
+    }
+    .footer-right {
+        width: 100%;
+        float: left;
+        min-height: 58px;
+        padding-left: 0;
+        margin-left: -75px;
+        text-align: center;
+    }
+    .footer-logo {
+        max-height: 30px;
+        display: block;
+        float: left;
+        margin-top: 10px;
+    }
+    .tag-bottom {
+        color: #fff;
+        font-weight: 100;
+        display: block;
+        float: left;
+        margin-top: 7px;
+        font-size: 14px;
+        width: 100%;
+    }
+/* Footer new css ../ */
+	
+
+
+/* Checkboxes css */
+.checkbox-ios-dark .checkbox-checked .checkbox-inner {
+	border-color: #000;
+	}
+	.checkbox-ios-dark .checkbox-checked {
+		border-color: #ccc;
+		background-color: #ccc;
+		}
+		.label-ios {
+			margin: 11px 8px 11px 0;
+			color: #fff;
+			}
+			.item-ios { background-color: transparent;}
+/* Checkboxes css ../ */
 	.disabled {
 		pointer-events: none !important;
 	}
@@ -18,7 +86,7 @@ page-newform {
     h3 {
         text-align: center;
         font-weight: 400;
-        font-size: 18px;
+        font-size: 22px;
         color: #fff;
         margin: 0 0 15px 0;
         text-transform: capitalize;
@@ -213,6 +281,9 @@ ion-content.content-md {
 .content-ios {
 	background-color: #000000 !important;
 }
+ion-header {
+	border-bottom: 1px solid #1d72c1;
+}
 /* Header css ../ */
 /* Breadcums css */
 ul.breadcums-cntr {
@@ -243,51 +314,7 @@ ul.breadcums-cntr li:last-child span {
 	display: none;
 }
 /* Breadcums css ../ */
-/* Footer css */
-footer {
-	max-height: 60px;
-	width: 100%;
-	padding: 0 27px;
-	background: #000;
-	min-width: 60px;
-	height: 60px;
-	border-top: 1px solid #1d72c1;
-}
-footer .footer-right a {
-	display: block;
-	width: 100%;
-	float: left;
-	color: #fff;
-	text-decoration: underline;
-	font-weight: 100;
-	margin-top: 3px;
-}
-.footer-left {
-	width: 20%;
-	float: left;
-	min-height: 58px;
-}
-.footer-right {
-	width: 80%;
-	float: left;
-	min-height: 58px;
-	padding-left: 7%;
-}
-.footer-logo {
-	max-height: 30px;
-	display: block;
-	float: left;
-	margin-top: 10px;
-}
-.tag-bottom {
-	color: #fff;
-	font-weight: 100;
-	display: block;
-	float: left;
-	margin-top: 7px;
-	font-size: 14px;
-}
-/* Footer css ../ */
+
 input[type="checkbox"], input[type="radio"] {
     padding: 16px;
     -webkit-box-sizing: border-box;
@@ -337,6 +364,11 @@ input[type="checkbox"], input[type="radio"] {
     min-width: 170px;
     width: 170px;
     margin: 0 auto;
+}
+@media (max-width: 380px) {
+	.footer-right {
+		padding-left: 75px;
+	}
 }
 
 }

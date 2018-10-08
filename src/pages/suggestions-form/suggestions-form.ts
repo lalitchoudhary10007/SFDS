@@ -1,8 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App , AlertController} from 'ionic-angular';
 import { ApiHelperProvider, DbHelperProvider, AppUtilsProvider, SessionHelperProvider } from '../../providers/providers';
 import * as $ from "jquery";
-
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { Page } from '../../models/Page';
+import { Navbar } from 'ionic-angular';
 /**
  * Generated class for the SuggestionsFormPage page.
  *
@@ -15,16 +17,16 @@ import * as $ from "jquery";
   selector: 'page-suggestions-form',
   templateUrl: 'suggestions-form.html',
 })
-export class SuggestionsFormPage {
-
+export class SuggestionsFormPage extends Page {
+  @ViewChild(Navbar) navBar: Navbar;
   public Suggestions: any = [];
+  public TempSuggestions: any = [];
   SelectedUser: any = {};
   isDrawing = false;
   FromNewOrUpdate: any ;
   SelectedJob: any = {};
   FormPrimaryKey: any = 0 ;
 
- 
 
   callback = data => {
     this.Suggestions.Photos = data ;
@@ -32,9 +34,13 @@ export class SuggestionsFormPage {
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dbHelper: DbHelperProvider,
-    public sessionHelper: SessionHelperProvider, public appUtils: AppUtilsProvider, public appCtrl: App) {
+    public sessionHelper: SessionHelperProvider, public appUtils: AppUtilsProvider, public appCtrl: App,
+    nativePageTransitions: NativePageTransitions, private alertCtrl: AlertController) {
  
+      super(nativePageTransitions);
+
       this.Suggestions = this.navParams.get("SuggestionJSON");
+      this.TempSuggestions = this.navParams.get("SuggestionJSON");
       this.FromNewOrUpdate = this.navParams.get("FROM"); 
       this.FormPrimaryKey = this.navParams.get("FormPrimaryID");
       console.log("js", this.Suggestions);
@@ -56,9 +62,27 @@ export class SuggestionsFormPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SuggestionsFormPage');
-  }
+   this.appUtils.GetDeviceCurrentTimeZone().then((res) =>{
+      console.log("** CURRENT TIME ZONE" , res);
+      this.Suggestions.TimeZone = res ;
+    //  this.TempSuggestions.TimeZone = res ;
+    });
 
- 
+    this.navBar.backButtonClick = (e:UIEvent)=>{
+      // todo something
+       if(JSON.stringify(this.TempSuggestions) === JSON.stringify(this.Suggestions)){
+         this.cancel();
+       }else{
+        this.presentConfirm();
+       }
+
+     }
+
+ }
+
+  public ionViewWillEnter() {
+    this.animateTransition();
+  }
 
   OpenAddPhotoPage(){
     console.log("**" ,this.Suggestions.Photos);
@@ -69,7 +93,6 @@ export class SuggestionsFormPage {
   }
 
   OpenAddSignaturePage() {
-
     this.navCtrl.push('AddSignaturePage', {
       SignatureJSON: JSON.stringify(this.Suggestions.Signatures),
       signatureCallback: this.Signaturecallback,
@@ -86,13 +109,12 @@ export class SuggestionsFormPage {
     var d1 = this.appUtils.GetCurrentDateTime();
     this.Suggestions.DateCreated = d1 ;
     this.Suggestions.DateChanged = d1 ;
-    let query = 'INSERT INTO FormSubmission VALUES(null,?,?,?,?,?,?,?,?)' ;
-
+ 
     if(submitordraft == 'submit'){
-      this.dbHelper.SaveNewForm("Suggestions", 3 , "" , this.Suggestions, query , 'Ready To Submit' , this.SelectedUser.FirstName+" "+this.SelectedUser.LastName);
+      this.dbHelper.SaveNewForm("Suggestions", 3 , "" , this.Suggestions , 'Ready To Submit' , this.SelectedUser.FirstName+" "+this.SelectedUser.LastName, this.SelectedJob.jobId);
       this.navCtrl.pop();
     }else{
-      this.dbHelper.SaveNewForm("Suggestions", 3 , "" , this.Suggestions, query , 'Save To Draft' , this.SelectedUser.FirstName+" "+this.SelectedUser.LastName);
+      this.dbHelper.SaveNewForm("Suggestions", 3 , "" , this.Suggestions , 'Save As Draft' , this.SelectedUser.FirstName+" "+this.SelectedUser.LastName, this.SelectedJob.jobId);
       this.navCtrl.pop();
     }
 
@@ -106,7 +128,7 @@ export class SuggestionsFormPage {
       this.dbHelper.UpdateExistForm(this.FormPrimaryKey , "Suggestions" , UpdateQuery , this.Suggestions , d , 'Ready To Submit' , this.SelectedUser.FirstName+" "+this.SelectedUser.LastName); 
       this.navCtrl.pop();
       }else{
-      this.dbHelper.UpdateExistForm(this.FormPrimaryKey , "Suggestions" , UpdateQuery , this.Suggestions , d , 'Save To Draft' , this.SelectedUser.FirstName+" "+this.SelectedUser.LastName); 
+      this.dbHelper.UpdateExistForm(this.FormPrimaryKey , "Suggestions" , UpdateQuery , this.Suggestions , d , 'Save As Draft' , this.SelectedUser.FirstName+" "+this.SelectedUser.LastName); 
       this.navCtrl.pop();
       }
       
@@ -128,6 +150,29 @@ export class SuggestionsFormPage {
 
   cancel(){
     this.navCtrl.pop();
+  }
+
+  presentConfirm() {
+    let alert = this.alertCtrl.create({
+      title: 'Exit',
+      message: 'There are unsaved changes',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save & Exit',
+          handler: () => {
+            this.SubmitSuggestions("draft")
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

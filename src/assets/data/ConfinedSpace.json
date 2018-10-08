@@ -1,0 +1,185 @@
+{
+  "SelectedUser": "",
+  "SelectedJob": "",
+  "Location": "",
+  "Purpose": "",
+  "Supervisors": [
+    {
+      "Supervisor": "dhdn xvxbx",
+      "TypeCrew": "x VC bx",
+      "Phone": "xbxbxn"
+    },
+    {
+      "Supervisor": "",
+      "TypeCrew": "",
+      "Phone": ""
+    }
+  ],
+  "Duration": "",
+  "CommProc": "",
+  "RecueProc": "",
+  "Lockout/De-energize": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Lines_Broken": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Purge": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Ventilation": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Secure_Area": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Lighting": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Hot_Work_Permit": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Fire_Extinguisher": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Air_Respirator": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Respirator_Air_Purifying": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Protective_clothing": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Full_body_harness": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Emergency_escape": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Lifelines": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Standby_safely": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Resuscitator_ihalator": {
+    "Date": "",
+    "Time": "",
+    "N/A": false
+  },
+  "Other_Items": [
+    {
+      "Time": "05:05",
+      "ItemName": "",
+      "Remarks": "",
+      "Date": "10/17/2016"
+    },
+    {
+      "Time": "22:05",
+      "ItemName": "",
+      "Remarks": "",
+      "Date": "10/15/2016"
+    }
+  ],
+  "OxygenAmts": [
+    {
+      "Level": "",
+      "Time": "22:05"
+    },
+    {
+      "Level": "",
+      "Time": "22:05"
+    }
+  ],
+  "LEL_Amts": [
+    {
+      "Level": "",
+      "Time": "22:05"
+    },
+    {
+      "Level": "",
+      "Time": "22:05"
+    }
+  ],
+  "Additional_Toxins": [
+    {
+      "Toxin": "",
+      "PEL": "",
+      "STEL": "",
+      "Time_level": [
+        {
+          "Level": "",
+          "Time": "22:05"
+        },
+        {
+          "Level": "",
+          "Time": "22:05"
+        }
+      ]
+    }
+  ],
+  "Remarks1": "",
+  "AirTesterData": [
+    {
+      "Name": "tesster",
+      "Model": "1\n2",
+      "IdNumber": "99",
+      "Serial": "3\n4",
+      "Instrument": "inst 1\ninst 2"
+    }
+  ],
+  "Attendents": [
+    {
+      "AttendantName": "Jimm",
+      "IdNumber": "999"
+    }
+  ],
+  "Entrants":[{"IdNumber":"889","EntrantName":"Paul"}],
+  "Remarks2": "",
+  "PhoneAmbulance":123,
+  "PhoneFire":123,
+  "PhoneSafety":123,
+  "PhoneRescue":123,
+  "PhoneOther":123,
+  "SubmittedBy":"",
+  "ApprovedBy":"",
+  "DateCreated": "09/05/2018",
+  "DateChanged": "09/05/2018",
+  "TimeZone":"",
+  "Template": "",
+  "Locked": "Locked",
+  "Status": "Active",
+  "Photos": [],
+  "Signatures": ""
+}

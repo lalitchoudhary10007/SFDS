@@ -9,15 +9,17 @@ import { DatePipe } from '@angular/common';
 import { DecimalPipe } from '@angular/common';
 import { SQLite } from '@ionic-native/sqlite';
 import { IonicStorageModule } from '@ionic/storage';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiHelperProvider , SessionHelperProvider , AppUtilsProvider , DbHelperProvider } from '../providers/providers';
-import { File } from '@ionic-native/file'
+import { File } from '@ionic-native/file';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { Globalization } from '@ionic-native/globalization';
 
 @NgModule({
   declarations: [
-    MyApp,
-   
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,7 @@ import { File } from '@ionic-native/file'
   bootstrap: [IonicApp],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   entryComponents: [
-    MyApp,
+    MyApp
  ],
   providers: [
     StatusBar,
@@ -45,8 +47,10 @@ import { File } from '@ionic-native/file'
     SQLite,
     Camera,
     File,
+    FileTransfer,
     DbHelperProvider,
-    
+    NativePageTransitions,
+    Globalization
   ]
 })
 export class AppModule {}

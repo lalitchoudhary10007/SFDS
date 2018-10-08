@@ -1,5 +1,5 @@
 page-suggestions-form {
- .toolbar {
+    .toolbar {
         .toolbar-background {
           background: #000000;
         }
@@ -64,7 +64,7 @@ page-suggestions-form {
     .ban {
      background: #fff;
      padding: 10px 10px;
-     margin: 0px -16px 30px -16px;
+     margin: 0px 0 30px 0;
 }
 .active-job {
     float: left;
@@ -205,5 +205,4 @@ ul.breadcums-cntr li:last-child span {
 .last-opned-detail {
     margin: 10px 0 0 0;
 }
-
 }

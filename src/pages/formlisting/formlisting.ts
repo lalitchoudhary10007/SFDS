@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, App } from 'ionic-angular';
-import { ApiHelperProvider, DbHelperProvider } from '../../providers/providers';
-import { DatePipe } from '@angular/common';
+import { ApiHelperProvider, DbHelperProvider, AppUtilsProvider, SessionHelperProvider } from '../../providers/providers';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { Page } from '../../models/Page';
 /**
  * Generated class for the FormlistingPage page.
  *
@@ -14,15 +15,23 @@ import { DatePipe } from '@angular/common';
   selector: 'page-formlisting',
   templateUrl: 'formlisting.html',
 })
-export class FormlistingPage {
+export class FormlistingPage extends Page {
 
   SavedForms: any = [];
   huddle: any = [];
   FormName: any;
+  SelectedJob: any = {};
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public DbHelper: DbHelperProvider,
-    public apiHelper: ApiHelperProvider, private alertCtrl: AlertController, public appCtrl: App) {
+    public apiHelper: ApiHelperProvider, private alertCtrl: AlertController, public appCtrl: App, public sessionHelper: SessionHelperProvider,
+    nativePageTransitions: NativePageTransitions, public appUtils: AppUtilsProvider) {
+    super(nativePageTransitions);
+
+  
   }
+
+
 
 
   goTonewForm() {
@@ -55,6 +64,26 @@ export class FormlistingPage {
             });
           });
         break;
+        
+        case 'Site Safety':
+        this.apiHelper.GetFormAssets('SiteSafety.json')
+          .subscribe((response) => {
+            this.navCtrl.push('SiteSafetyPage', {
+              SiteSafetyJSON: response,
+              FROM: 1
+            });
+          });
+        break;
+
+        case 'Confined Space':
+        // this.apiHelper.GetFormAssets('ConfinedSpace.json')
+        //   .subscribe((response) => {
+        //     this.navCtrl.push('ConfinedSpacePage', {
+        //       DailyJobJSON: response,
+        //       FROM: 1
+        //     });
+        //   });
+        break;
 
       default:
 
@@ -62,37 +91,63 @@ export class FormlistingPage {
 
   }
 
-  OpenRecentForm(formJSON, FormPrimaryId) {
+  OpenRecentForm(formJSON, FormPrimaryId , FormStatus) {
+     let type = 2 ;
+    if(FormStatus === 'Ready To Submit'){
+      type = 2 ;
+    }else{
+      type = 3 ;
+    }
 
     switch (this.FormName) {
       case 'Huddle':
         this.navCtrl.push('NewformPage', {
           HuddleJSON: formJSON,
-          FROM: 2,
+          FROM: type,
           FormPrimaryID: FormPrimaryId
         });
         break;
       case 'Job Safety Analysis':
+
         this.navCtrl.push('JobSafetyAnalysisPage', {
           JobSafetyJSON: JSON.parse(formJSON),
-          FROM: 2,
+          FROM: type,
           FormPrimaryID: FormPrimaryId
         });
         break;
       case 'Suggestions':
+
         this.navCtrl.push('SuggestionsFormPage', {
           SuggestionJSON: JSON.parse(formJSON),
-          FROM: 2,
+          FROM: type,
           FormPrimaryID: FormPrimaryId
         });
         break;
-        case 'Daily Job Log':
+      case 'Daily Job Log':
+
         this.navCtrl.push('DailyJobLogFormPage', {
           DailyJobJSON: JSON.parse(formJSON),
-          FROM: 2,
+          FROM: type,
           FormPrimaryID: FormPrimaryId
         });
         break;
+        
+        case 'Site Safety':
+        this.navCtrl.push('SiteSafetyPage', {
+          SiteSafetyJSON: JSON.parse(formJSON),
+          FROM: type,
+          FormPrimaryID: FormPrimaryId
+        });
+        break;
+
+        case 'Confined Space':
+        // this.navCtrl.push('ConfinedSpacePage', {
+        //   DailyJobJSON: JSON.parse(formJSON),
+        //   FROM: type,
+        //   FormPrimaryID: FormPrimaryId
+        // });
+        break;
+
       default:
 
     }
@@ -101,9 +156,8 @@ export class FormlistingPage {
 
 
   ionViewDidLoad() {
-
+    
     this.FormName = this.navParams.get("FormName");
-
     console.log('**ionViewDidLoad FormlistingPage', this.FormName);
     switch (this.FormName) {
       case 'Huddle':
@@ -122,40 +176,66 @@ export class FormlistingPage {
 
   }
   ionViewWillEnter() {
-    this.SavedForms = [];
-    let query = 'SELECT * FROM FormSubmission WHERE FormID=? ORDER BY id DESC';
-    switch (this.FormName) {
-      case 'Huddle':
-         this.DbHelper.GetSavedForms(query, 1).subscribe(res => {
-          for (var i = 0; i < res.rows.length; i++) {
-            this.SavedForms.push(res.rows.item(i));
-          }
-        });
-        break;
-      case 'Job Safety Analysis':
-        this.DbHelper.GetSavedForms(query, 2).subscribe(res => {
-          for (var i = 0; i < res.rows.length; i++) {
-            this.SavedForms.push(res.rows.item(i));
-          }
-        });
-        break;
-      case 'Suggestions':
-        this.DbHelper.GetSavedForms(query, 3).subscribe(res => {
-          for (var i = 0; i < res.rows.length; i++) {
-            this.SavedForms.push(res.rows.item(i));
-          }
-        });
-        break;
-        case 'Daily Job Log':
-        this.DbHelper.GetSavedForms(query, 4).subscribe(res => {
-          for (var i = 0; i < res.rows.length; i++) {
-            this.SavedForms.push(res.rows.item(i));
-          }
-        });
-        break;
-      default:
+    console.log('**ionViewWILL ENTER FormlistingPage', this.FormName);
+    this.animateTransition();
 
-    }
+    this.sessionHelper.GetValuesFromSession("SelectedJob").then((val) => {
+      this.SelectedJob = JSON.parse(val);
+
+      this.SavedForms = [];
+      let query = 'SELECT * FROM FormSubmission WHERE FormID=? AND SubmittedJob=? ORDER BY id DESC';
+      switch (this.FormName) {
+        case 'Huddle':
+          this.DbHelper.GetSavedForms(query, 1, this.SelectedJob.jobId).subscribe(res => {
+            for (var i = 0; i < res.rows.length; i++) {
+              console.log("**HUDDLES", res.rows.item(i));
+              this.SavedForms.push(res.rows.item(i));
+            }
+          });
+          break;
+        case 'Job Safety Analysis':
+          this.DbHelper.GetSavedForms(query, 2, this.SelectedJob.jobId).subscribe(res => {
+            for (var i = 0; i < res.rows.length; i++) {
+              this.SavedForms.push(res.rows.item(i));
+            }
+          });
+          break;
+        case 'Suggestions':
+          this.DbHelper.GetSavedForms(query, 3, this.SelectedJob.jobId).subscribe(res => {
+            for (var i = 0; i < res.rows.length; i++) {
+              this.SavedForms.push(res.rows.item(i));
+            }
+          });
+          break;
+        case 'Daily Job Log':
+          this.DbHelper.GetSavedForms(query, 4, this.SelectedJob.jobId).subscribe(res => {
+            for (var i = 0; i < res.rows.length; i++) {
+              this.SavedForms.push(res.rows.item(i));
+            }
+          });
+          break;
+          case 'Site Safety':
+          this.DbHelper.GetSavedForms(query, 5, this.SelectedJob.jobId).subscribe(res => {
+            for (var i = 0; i < res.rows.length; i++) {
+              this.SavedForms.push(res.rows.item(i));
+            }
+          });
+          break;
+
+          case 'Confined Space':
+          this.DbHelper.GetSavedForms(query, 6, this.SelectedJob.jobId).subscribe(res => {
+            for (var i = 0; i < res.rows.length; i++) {
+              this.SavedForms.push(res.rows.item(i));
+            }
+          });
+          break;
+        default:
+  
+      }
+
+    });
+
+   
 
   }
 
@@ -211,7 +291,6 @@ export class FormlistingPage {
 
   goback() {
     this.navCtrl.pop();
-
   }
 
 }

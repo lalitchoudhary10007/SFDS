@@ -12,30 +12,31 @@
       <span class="tagline">Construction safety compliance app </span>
       <!-- <span class="logedin-user">intelli logic</span> -->
     </ion-navbar>
+    <div class="ban">
+      <ul class="breadcums-cntr">
+        <li (click)="OpenHome()">home
+          <span>></span>
+        </li>
+        <li (click)="goback()">safety forms
+          <span>></span>
+        </li>
+        <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">daily job log<span>></span>
+        </li>
+      </ul>
+      <div class="active-job">active job: {{SelectedJob.jobNumber +"-"+ SelectedJob.jobName}}</div>
+      <button class="cancel" (click)="cancel()">cancel</button>
+      <button class="submit" (click)="SubmitDailyJobLog('submit')">submit</button>
+      <button class="submit" (click)="SubmitDailyJobLog('draft')">draft</button>
+      
+      <div class="last-opned-detail">
+        <span>2018-09-12</span>
+        <span>15:34:54</span>
+      </div>
+    </div>
   </ion-header>
   
   <ion-content padding>
-      <div class="ban">
-          <ul class="breadcums-cntr">
-            <li (click)="OpenHome()">home
-              <span>></span>
-            </li>
-            <li (click)="goback()">safety forms
-              <span>></span>
-            </li>
-            <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">daily job log<span>></span>
-            </li>
-          </ul>
-          <div class="active-job">active job: 456-job-jane-demo street</div>
-          <button class="cancel" (click)="cancel()">cancel</button>
-          <button class="submit" (click)="SubmitDailyJobLog('submit')">submit</button>
-          <button class="submit" (click)="SubmitDailyJobLog('draft')">draft</button>
-          
-          <div class="last-opned-detail">
-            <span>2018-09-12</span>
-            <span>15:34:54</span>
-          </div>
-        </div>
+     
   <!-- Middle Content -->
   
          <ion-grid>
@@ -203,7 +204,8 @@
             <ion-grid>
                 <ion-row>
                     <ion-col col-12 col-sm-12 style="text-align: center;">
-                        <button class="button-as" (click)="OpenAddPhotoPage()"><ion-icon name="add" style="color: #fff;"></ion-icon> photo</button>
+                        <button class="button-as" (click)="OpenAddPhotoPage()">
+                          <ion-icon name="add" style="color: #fff;"></ion-icon> photo({{DailyJobLogs.Photos.length}})</button>
                     </ion-col>
                 </ion-row>
               </ion-grid>

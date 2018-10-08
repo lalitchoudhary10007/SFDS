@@ -177,6 +177,18 @@ ul.breadcums-cntr li:last-child span {
     font-size: 16px;
     border-radius: 5px;
 }
+ion-select, .select-ios {
+    color: #000;
+    width: 100%;
+    max-width: unset;
+    padding: 11px 8px 11px 0px;
+}
+ion-list ion-item ion-label{
+width: 100px;
+display: block;
+color: #000;
+overflow: visible;
+}
 /* Content css ../ */
 
 }

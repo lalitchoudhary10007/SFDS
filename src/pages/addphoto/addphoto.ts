@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController , Events} from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { IonicPage, NavController, NavParams, ActionSheetController, Events } from 'ionic-angular';
+import { Camera } from '@ionic-native/camera';
+import { AppUtilsProvider } from '../../providers/providers';
 import * as $ from "jquery";
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { Page } from '../../models/Page';
 
 /**
  * Generated class for the AddphotoPage page.
@@ -15,14 +18,14 @@ import * as $ from "jquery";
   selector: 'page-addphoto',
   templateUrl: 'addphoto.html',
 })
-export class AddphotoPage {
+export class AddphotoPage extends Page {
 
   photos: any = [];
-  callback: any ;
- 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera,
-    public actionSheetCtrl: ActionSheetController, public events: Events) {
- 
+  callback: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera, private appUtils: AppUtilsProvider,
+    public actionSheetCtrl: ActionSheetController, public events: Events, nativePageTransitions: NativePageTransitions) {
+      super(nativePageTransitions);
   }
 
   ionViewDidLoad() {
@@ -32,13 +35,18 @@ export class AddphotoPage {
     console.log("**", this.photos);
   }
 
+  ionViewWillEnter() {
+    // Entering/resume view transition animation
+    this.animateTransition();
+  }
+
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Pick your profile photo',
       buttons: [
         {
           text: 'From Gallery',
-           handler: () => {
+          handler: () => {
             this.openGallery();
           }
         },
@@ -63,30 +71,34 @@ export class AddphotoPage {
 
   openGallery() {
     var options = {
-      quality: 70 ,
+      quality: 30,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.camera.DestinationType.DATA_URL,
-      saveToPhotoAlbum:false 
+      saveToPhotoAlbum: false,
+      targetWidth:100,
+      targetHeight:100
     };
     this.camera.getPicture(options).then((imageData) => {
-     
+
       console.log("**Image Data", imageData);
       let photoForm = { photo_path: "", photo_comment: "" };
-      photoForm.photo_path = 'data:image/jpeg;base64,'+imageData;
+      photoForm.photo_path = 'data:image/jpeg;base64,' + imageData;
       this.photos.push(photoForm);
-   });
+    });
 
 
   }
-  
+
 
   opencamera() {
 
     let options = {
-      quality: 70,
+      quality: 30,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      targetWidth:100,
+      targetHeight:100
     };
 
 
@@ -95,27 +107,29 @@ export class AddphotoPage {
       // If it's base64:
       console.log("**Image Data", imageData);
       let photoForm = { photo_path: "", photo_comment: "" };
-      photoForm.photo_path = 'data:image/jpeg;base64,'+imageData;
+      photoForm.photo_path = 'data:image/jpeg;base64,' + imageData;
       this.photos.push(photoForm);
-  
+
     });
 
 
   }
 
-RemovePhoto(index){
- this.photos.splice(index, 1);
+  RemovePhoto(index) {
+    this.photos.splice(index, 1);
 
-}
+  }
 
 
-SavePhotos(){
-console.log("**" , this.photos);
+  SavePhotos() {
+    console.log("**", this.photos);
 
-this.navCtrl.pop().then(() => {
-  this.navParams.get('callback')(this.photos);
-});
-}
+    this.navCtrl.pop().then(() => {
+      this.navParams.get('callback')(this.photos);
+    });
+  }
+
+
 
 
 }

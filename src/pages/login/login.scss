@@ -1,12 +1,18 @@
 page-login {
+	.toolbar {
+        .toolbar-background {
+          background: transparent;
+        }
+	  } 
+	  
 	ion-header {
         border-bottom: 1px solid #1d72c1;
     }
     /* header css */
-    ion-header ion-title .toolbar-title img {
+    ion-header .header-logo img {
  margin-top: 0px;
  max-height: 50px;
- margin-left: -10px;
+ margin-left: 0px;
 }
 .login-as .tagline {
 	width: 100%;
@@ -24,7 +30,10 @@ page-login {
 	text-transform: capitalize;
 	letter-spacing: .5px;
 }
-ion-header ion-title {
+.login-as {
+	padding-bottom: 10px;
+}
+ion-header .header-logo {
 	display: block;
 	float: left;
 	width: 100%;
@@ -59,7 +68,7 @@ ion-header ion-icon {
 	color: #fff;
 	margin: 10px 0 0 0;
 }
-.content-md {
+.content-md, .content-ios {
 	color: #fff;
 	background: #000;
 }

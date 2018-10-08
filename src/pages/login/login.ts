@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { ApiHelperProvider, SessionHelperProvider, AppUtilsProvider,DbHelperProvider } from '../../providers/providers';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
+import { ApiHelperProvider, SessionHelperProvider,  DbHelperProvider } from '../../providers/providers';
+import { Page } from '../../models/Page';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 
 /**
  * Generated class for the LoginPage page.
@@ -14,13 +18,14 @@ import { ApiHelperProvider, SessionHelperProvider, AppUtilsProvider,DbHelperProv
   selector: 'page-login',
   templateUrl: 'login.html',
 })
-export class LoginPage {
+export class LoginPage extends Page {
 
   login_data = { UserName: '', Password: '' };
 
   constructor(private navCtrl: NavController, private alertCtrl: AlertController, public ApiHelper: ApiHelperProvider,
-    public sessionProvider: SessionHelperProvider, public dbHelper: DbHelperProvider) {
-
+    public sessionProvider: SessionHelperProvider, public dbHelper: DbHelperProvider, nativePageTransitions: NativePageTransitions,
+    private transfer: FileTransfer, private file: File) {
+    super(nativePageTransitions);
 
   }
   goToHome() {
@@ -35,6 +40,11 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  ionViewWillEnter() {
+    // Entering/resume view transition animation
+    this.animateTransition();
+  }
+
 
   UserLogin() {
 
@@ -44,18 +54,14 @@ export class LoginPage {
       this.presentBasicAlert('Password', 'Enter Password')
     } else {
       console.log("Submit Click", this.login_data);
-       let url = "Login/login/"+this.login_data.Password+"/"+this.login_data.UserName;
+      let url = "Login/login/" + this.login_data.Password + "/" + this.login_data.UserName;
       this.ApiHelper.RequestGetHttp(this.login_data, url, true).then(result => {
-  
+
         if (result.code == "200") {
-          this.sessionProvider.SaveValueInSession("LoginDetails", JSON.stringify(result));
-          this.dbHelper.SaveJobs(result.details.jobs).subscribe(res => {
-            this.goToHome();
-          });
-          
+          this.DownloadLogo(result);
         } else {
           this.presentBasicAlert('Error', result.msg);
-         }
+        }
 
       },
         error => {
@@ -77,5 +83,28 @@ export class LoginPage {
     });
     alert.present();
   }
+
+
+
+  DownloadLogo(loginResult) {
+    let logoUrl = loginResult.details.contractor.logo.trim();
+    let fileUrl = this.ApiHelper.LogoBaseUrl + logoUrl;
+    console.log("File Url", fileUrl);
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    fileTransfer.download(fileUrl, this.file.dataDirectory + "LoginLogo.png").then((entry) => {
+      console.log("Logo Download", entry.toURL());
+      this.sessionProvider.SaveValueInSession("LoginDetails", JSON.stringify(loginResult));
+      this.dbHelper.SaveJobs(loginResult.details.jobs).subscribe(res => {
+        this.goToHome();
+      });
+
+    }, (error) => {
+      // handle error
+      console.log('**download error: ');
+    });
+
+
+  }
+
 
 }

@@ -1,7 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { LoadingController } from 'ionic-angular' ;
 import 'rxjs/add/operator/map';
 
@@ -14,32 +13,36 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ApiHelperProvider {
   loading = null ;
-  apiUrl = 'http://52.66.128.247/safety_first/project/index.php/api/';
+  loading1 = null ;
+  apiUrl = 'http://stores.purplestores.in/sfds/index.php/api/';
+  LogoBaseUrl = 'http://stores.purplestores.in/sfds/';
 
   constructor(public http: HTTP , public loadingCtrl: LoadingController, public Ahttp: HttpClient) {
     console.log('Hello ApiHelperProvider Provider');
     this.http.setRequestTimeout(100000);
     this.http.useBasicAuth('safety_first' , '123456');
+
+    this.loading1 = this.loadingCtrl.create({
+      content: 'Please wait...',
+    });
   }
 
   public RequestPostHttp(data1: any , endpoint , loaderShow){
-
+    let header = {"Content-Type": "application/json"};
+    console.log("POST DATA" , data1);
     if(loaderShow){
-      this.loading = this.loadingCtrl.create({
-        content: 'Please wait...',
-      });
-     this.loading.present();
+     this.loading1.present();
     }
 
-    return this.http.get(this.apiUrl+endpoint, data1,{})
+    return this.http.post(this.apiUrl+endpoint, data1, header)
         .then(data => {
-          this.loading.dismiss();
+          this.loading1.dismiss();
           console.log("**URL:- "+this.apiUrl+endpoint , "**Response:- "+data.data);
           return JSON.parse(data.data);
         
         })
         .catch(error => {
-          this.loading.dismiss();
+          this.loading1.dismiss();
           console.log("Error",error.status);
           console.log("Error error",error.error); // error message as string
       

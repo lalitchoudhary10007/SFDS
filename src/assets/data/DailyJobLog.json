@@ -19,8 +19,9 @@
     "TruckInspection": "",
     "DateCreated": "09/05/2018",
     "DateChanged": "09/05/2018",
+    "TimeZone":"",
     "Template": "",
-    "Locked": false,
+    "Locked": "Locked",
     "Status": "Active",
     "Photos": [],
     "Signatures": ""

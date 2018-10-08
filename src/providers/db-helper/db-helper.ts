@@ -40,7 +40,7 @@ export class DbHelperProvider {
 
   CreateFormSubmissionTable() {
 
-    this.db.executeSql('CREATE TABLE IF NOT EXISTS FormSubmission(id INTEGER PRIMARY KEY, FormJSON TEXT, FormType TEXT, FormID INTEGER , FormSubmissionPrimaryKey TEXT ,  createdAt TEXT, updatedAt TEXT , FormStatus TEXT , SubmittedBy TEXT)', [])
+    this.db.executeSql('CREATE TABLE IF NOT EXISTS FormSubmission(id INTEGER PRIMARY KEY, FormJSON TEXT, FormType TEXT, FormID INTEGER , FormSubmissionPrimaryKey TEXT ,  createdAt TEXT, updatedAt TEXT , FormStatus TEXT , SubmittedBy TEXT , SubmittedJob TEXT)', [])
       .then(res => {
         console.log('**FormSubmission ENTITY CREATED')
         this.CreateFormTemplatesTable();
@@ -77,7 +77,7 @@ export class DbHelperProvider {
     this.db.executeSql(query, [tempName, JSON.stringify(FormJSON), form_type, form_id, defaultform])
       .then(res => {
         console.log("template SAVED" + form_type, res.insertId);
-      
+
       })
       .catch(e => {
         console.log(e);
@@ -100,6 +100,33 @@ export class DbHelperProvider {
 
   }
 
+  UpdateChangeLogStatus(changeLogID, syncedResult, submissionID) {
+
+    this.db.executeSql('UPDATE ChangeLog SET Synced=? WHERE id=?', [true, changeLogID])
+      .then(updateres => {
+        console.log("##ChangeLOG UPDate", updateres);
+      })
+      .catch(e => console.log(e));
+
+  }
+
+  UpdateFormSubmissionIdAndStatus(FormSubMissionId, syncResult, changeLogID) {
+    let now = this.appUtils.GetCurrentDateTime();
+    return Observable.create(observer => {
+    console.log("##DATA FOR FORM SUBMISSION" , FormSubMissionId , syncResult , changeLogID);  
+    this.db.executeSql('UPDATE FormSubmission SET FormSubmissionPrimaryKey=?,FormStatus=?,updatedAt=? WHERE id=?', [syncResult.details.entityID, 'Synced', now , FormSubMissionId])
+      .then(updateres => {
+       this.db.executeSql('UPDATE ChangeLog SET Synced=? WHERE id=?', [true, changeLogID])
+          .then(updateres => {
+            observer.next(updateres);
+            console.log("##ChangeLOG UPDate", updateres);
+          });
+          
+      })
+      .catch(e => console.log(e));
+    }, );
+  }
+
 
   GetAllChangeLog(synced) {
     let query = 'SELECT * FROM ChangeLog WHERE Synced=? ORDER BY CreatedAt ASC';
@@ -118,17 +145,37 @@ export class DbHelperProvider {
 
   }
 
+  GetAllInsertChangeLogs(synced, Action) {
+    let query = 'SELECT * FROM ChangeLog WHERE Synced=? AND Action=? ORDER BY CreatedAt ASC';
+    return Observable.create(observer => {
+      this.db.executeSql(query, [synced, Action])
+        .then(res => {
+          console.log("**", res);
+          observer.next(res);
+        })
+        .catch(e => {
+          observer.next(e);
+          console.log(e);
+        });
+
+    }, );
+
+  }
 
 
 
-  SaveNewForm(form_type, form_id, formSubmissionPK, FormJSON, query, status, submittedBy) {
+
+  SaveNewForm(form_type, form_id, formSubmissionPK, FormJSON, status, submittedBy, jobCode) {
 
     var d = this.appUtils.GetCurrentDateTime();
+    let query1 = 'INSERT INTO FormSubmission VALUES(null,?,?,?,?,?,?,?,?,?)' ;
 
-    this.db.executeSql(query, [JSON.stringify(FormJSON), form_type, form_id, formSubmissionPK, d, d, status, submittedBy])
+    this.db.executeSql(query1, [JSON.stringify(FormJSON), form_type, form_id, formSubmissionPK, d, d, status, submittedBy, jobCode])
       .then(res => {
         console.log("form SAVED" + form_type, res.insertId);
-        this.SaveNewChangeLog(form_type, res.insertId, "INSERT");
+        if(status === 'Ready To Submit'){
+          this.SaveNewChangeLog(form_type, res.insertId, "INSERT");
+        }
       })
       .catch(e => {
         console.log(e);
@@ -142,7 +189,9 @@ export class DbHelperProvider {
     this.db.executeSql(query, [JSON.stringify(FormJson), updatedAt, status, submittedBy, primaryKeyForm])
       .then(res => {
         console.log("form Updated" + query, res);
-        this.SaveNewChangeLog(Form_type, primaryKeyForm, "UPDATE");
+        if(status === 'Ready To Submit'){
+          this.SaveNewChangeLog(Form_type, primaryKeyForm, "INSERT");
+        }
       })
       .catch(e => {
         console.log(e);
@@ -151,10 +200,9 @@ export class DbHelperProvider {
   }
 
 
-  GetSavedForms(query, id) {
-
+  GetSavedForms(query, id , jobIdss) {
     return Observable.create(observer => {
-      this.db.executeSql(query, [id])
+      this.db.executeSql(query, [id , jobIdss])
         .then(res => {
           console.log("**", res);
           observer.next(res);
@@ -166,6 +214,23 @@ export class DbHelperProvider {
 
     }, );
 
+  }
+
+  GetSavedFormsFromPKId(PKid) {
+
+    let query = 'SELECT * FROM FormSubmission WHERE id=?';
+    return Observable.create(observer => {
+      this.db.executeSql(query, [PKid])
+        .then(res => {
+          console.log("**", res);
+          observer.next(res);
+        })
+        .catch(e => {
+          observer.next(e);
+          console.log(e);
+        });
+
+    }, );
   }
 
 

@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
-import { SessionHelperProvider } from '../../providers/providers';
+import { SessionHelperProvider, AppUtilsProvider } from '../../providers/providers';
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
-import { File } from '@ionic-native/file';
-
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { Page } from '../../models/Page';
 /**
  * Generated class for the AddSignaturePage page.
  *
@@ -16,7 +16,7 @@ import { File } from '@ionic-native/file';
   selector: 'page-add-signature',
   templateUrl: 'add-signature.html',
 })
-export class AddSignaturePage {
+export class AddSignaturePage extends Page {
 
   signatures: any = [];
   From: any = 1;
@@ -35,8 +35,8 @@ export class AddSignaturePage {
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public SessionHelper: SessionHelperProvider,
-    public events: Events) {
-
+    public events: Events, nativePageTransitions: NativePageTransitions, public appUtils: AppUtilsProvider) {
+      super(nativePageTransitions);
     this.SessionHelper.GetValuesFromSession("LoginDetails").then((val) => {
       this.Users = JSON.parse(val).details.employees;
     });
@@ -56,6 +56,10 @@ export class AddSignaturePage {
     this.signaturePad.clear()
   }
 
+  ionViewWillEnter() {
+    // Entering/resume view transition animation
+    this.animateTransition();
+  }
 
   drawComplete() {
     this.isDrawing = false;

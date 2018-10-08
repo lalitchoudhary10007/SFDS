@@ -7,84 +7,84 @@
 
 <ion-header class="home">
     <ion-navbar>
-      <ion-title><img src="../../assets/imgs/logo.png" alt="Logo" /></ion-title>
-      <span class="tagline">Construction safety compliance app </span>
-      <ion-icon (click)="openModal()" name="settings"></ion-icon>
+        <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
+        <span class="tagline">{{appUtils.ContractorName}}</span>
       <!-- <span class="logedin-user">intelli logic</span> --> 
     </ion-navbar>
   </ion-header>
-<!-- <ion-header>
-    <ion-navbar style="text-align: center">
-      <ion-title>
-        <ion-icon name="clipboard"></ion-icon>
-        Safety Form</ion-title>
-    </ion-navbar>
-  </ion-header> -->
-  <ion-content padding>
-    <ul class="breadcums-cntr">
-      <li (click)="OpenHome()">home<span>></span></li>
-      <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">safety forms<span>></span></li>
-    </ul>
-    <ion-grid class="as-grid">
-      <ion-row>
-        <ion-col col-6 col-sm-4 class="first">
-          <div class="iner-col" (click)="goToformlist('Huddle')">
-            <ion-icon name="people"></ion-icon>
-            <span>Huddle</span> </div>
-        </ion-col>
-        <ion-col col-6 col-sm-4 class="second">
-          <div class="iner-col" (click)="goToformlist('Job Safety Analysis')">
-            <ion-icon name="analytics"></ion-icon>
-            <span>Job Safety Analysis</span> </div>
-        </ion-col>
-        <ion-col col-6 col-sm-4 class="third">
-          <div class="iner-col" (click)="goToformlist('Suggestions')">
-            <ion-icon name="bulb"></ion-icon>
-            <span>Suggestions</span> </div>
-        </ion-col>
-        <ion-col col-6 col-sm-4 class="fourth">
-          <div class="iner-col" (click)="goToformlist('Daily Job Log')">
-            <ion-icon name="create"></ion-icon>
-            <span>Daily Job Log</span> </div>
-        </ion-col>
-        <ion-col col-6 col-sm-4 class="fifth">
-          <div class="iner-col">
-            <ion-icon name="construct"></ion-icon>
-            <span>Site Safety</span> </div>
-        </ion-col>
-        <ion-col col-6 col-sm-4 class="sixth">
-          <div class="iner-col">
-            <ion-icon name="contact"></ion-icon>
-            <span>Confined Space</span> </div>
-        </ion-col>
-        <ion-col col-6 col-sm-4 class="seventh">
-          <div class="iner-col">
-            <ion-icon name="flame"></ion-icon>
-            <span>Hot Work Permit</span> </div>
-        </ion-col>
-        <ion-col col-6 col-sm-4 class="eight">
-          <div class="iner-col">
-            <ion-icon name="search"></ion-icon>
-            <span>Inspection/Audits </span> </div>
-        </ion-col>
-        <ion-col col-6 col-sm-4 class="ninth">
-          <div class="iner-col">
-            <ion-icon name="folder-open"></ion-icon>
-            <span>Reports</span> </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    <br>
+    <ion-content padding>
+      <ul class="breadcums-cntr">
+        <li (click)="OpenHome()">home<span>></span></li>
+        <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">safety forms<span>></span></li>
+      </ul>
+      <ion-grid class="as-grid">
+        <ion-row>
+          <ion-col col-6 col-sm-4 class="first">
+            <div class="iner-col" (click)="goToformlist('Huddle')">
+              <!-- <ion-icon name="people"></ion-icon> -->
+              <img src="../../assets/imgs/huddle.jpg" alt="" />
+              <span>Huddle</span> </div>
+          </ion-col>
+          <ion-col col-6 col-sm-4 class="second">
+            <div class="iner-col" (click)="goToformlist('Job Safety Analysis')">
+              <!-- <ion-icon name="analytics"></ion-icon> -->
+              <img src="../../assets/imgs/job-safety-analysis.jpg" alt="" />
+              <span>Job Safety Analysis</span> </div>
+          </ion-col>
+          <ion-col col-6 col-sm-4 class="third">
+            <div class="iner-col" (click)="goToformlist('Suggestions')">
+              <!-- <ion-icon name="bulb"></ion-icon> -->
+              <img src="../../assets/imgs/suggestion.jpg" alt="" />
+              <span>Suggestions</span> </div>
+          </ion-col>
+          <ion-col col-6 col-sm-4 class="fourth">
+            <div class="iner-col" (click)="goToformlist('Daily Job Log')">
+              <!-- <ion-icon name="create"></ion-icon> -->
+              <img src="../../assets/imgs/daily-job-log.jpg" alt="" />
+              <span>Daily Job Log</span> </div>
+          </ion-col>
+          <ion-col col-6 col-sm-4 class="fifth">
+            <div class="iner-col" (click)="goToformlist('Site Safety')">
+              <!-- <ion-icon name="construct"></ion-icon> -->
+              <img src="../../assets/imgs/site-safety.jpg" alt="" />
+              <span>Site Safety</span> </div>
+          </ion-col>
+          <ion-col col-6 col-sm-4 class="sixth">
+            <div class="iner-col" (click)="goToformlist('Confined Space')">
+              <!-- <ion-icon name="contact"></ion-icon> -->
+              <img src="../../assets/imgs/confined-space.jpg" alt="" />
+              <span>Confined Space</span> </div>
+          </ion-col>
+          <ion-col col-6 col-sm-4 class="seventh">
+            <div class="iner-col">
+              <!-- <ion-icon name="flame"></ion-icon> -->
+              <img src="../../assets/imgs/hot-work-permit.jpg" alt="" />
+              <span>Hot Work Permit</span> </div>
+          </ion-col>
+          <ion-col col-6 col-sm-4 class="eight">
+            <div class="iner-col">
+              <!-- <ion-icon name="search"></ion-icon> -->
+              <img src="../../assets/imgs/reports.jpg" alt="" />
+              <span>Inspection/Audits </span> </div>
+          </ion-col>
+          <ion-col col-6 col-sm-4 class="ninth">
+            <div class="iner-col">
+              <!-- <ion-icon name="folder-open"></ion-icon> -->
+              <img src="../../assets/imgs/inspection-audits.jpg" alt="" />
+              <span>Reports</span> </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <br>
+      <br>
+      <br>
+      
+    </ion-content>
     <footer> 
       <div class="footer-left"><img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" /></div>
       <!-- <span class="copy-right">Copyright 2018</span> --> 
       <div class="footer-right">
       <span class="tag-bottom">Construction Safety Compliance App</span>
-      <a href="http://www.safetyfirstdata.com">Help and Training</a>
+      <a href="http://www.safetyfirstdata.com" target="_blank">Help and Training</a>
     </div>
-    </footer>
-  </ion-content>
-  <!-- <footer> <img class="footer-logo" src="../../assets/imgs/logo-login.png" alt="Company Logo" /> 
-   <span class="copy-right">Copyright 2018</span> 
-    <span class="tag-bottom">Company Safety Compliance</span> </footer> -->
-  
+    </footer> 

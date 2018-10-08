@@ -86,8 +86,9 @@
   "EquipmentsUsed": "",
   "DateCreated": "",
   "DateChanged": "",
+  "TimeZone":"",
   "Template":"",
-  "Locked":false,
+  "Locked":"Locked",
   "Status":"Active",
   "Photos": [],
   "Signatures": []
