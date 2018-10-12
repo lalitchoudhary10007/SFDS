@@ -21,65 +21,66 @@ page-formlisting {
             }
     
  /* Header css */
-ion-header .header-logo img {
-	margin-top: 0px;
-	max-height: 50px;
-	margin-left: 0px;
-}
-.tagline {
-	width: 160px;
-    display: block;
-    float: left;
-    color: #fff;
-    font-weight: 100;
-    font-size: 14px;
-    line-height: 14px;
-    border-left: 1px solid #fff;
-    padding-left: 10px;
-    margin-top: 14px;
-    margin-left: 10px;
-}
-ion-header .header-logo {
-	display: block;
-	float: left;
-}
-.toolbar-background-md {
-	border-color: #b2b2b2;
-	background: #000000;
-}
-.toolbar-title-md {
-	color: #fff;
-}
-.back-button {
-	color: #fff !important;
-	position: absolute;
-	right: 0;
-	display: block;
-}
-ion-content.content-md {
-	color: #000;
-	background-color: #000000;
-}
-.content-ios {
-	background-color: #000000 !important;
-}
-ion-header ion-navbar {
-    border-bottom: 1px solid #1d72c1;
-}
+// ion-header .header-logo img {
+//     margin-top: 14px;
+//     max-height: 40px;
+//     margin-left: 0px;
+// }
+// .tagline {
+// 	width: 160px;
+//     display: block;
+//     float: left;
+//     color: #fff;
+//     font-weight: 100;
+//     font-size: 14px;
+//     line-height: 14px;
+//     border-left: 1px solid #fff;
+//     padding-left: 10px;
+//     margin-top: 14px;
+//     margin-left: 10px;
+// }
+// ion-header .header-logo {
+// 	display: block;
+// 	float: left;
+// }
+// .toolbar-background-md {
+// 	border-color: #b2b2b2;
+// 	background: #000000;
+// }
+// .toolbar-title-md {
+// 	color: #fff;
+// }
+// .back-button {
+// 	color: #fff !important;
+// 	position: absolute;
+// 	right: 0;
+// 	display: block;
+// }
+// ion-content.content-md {
+// 	color: #000;
+// 	background-color: #000000;
+// }
+// .content-ios {
+// 	background-color: #000000 !important;
+// }
+// ion-header ion-navbar {
+//     border-bottom: 1px solid #1d72c1;
+// }
 /* Header css ../ */
 
     table {
     border-collapse: collapse;
     width: 100%;
+    margin: 30px 0 0 0;
    }
    th, td {
        text-align: left;
        padding: 8px;
        font-size: 14px;
        text-transform: capitalize;
-       min-height: 58px;
-       max-height: 58px;
-       height: 58px;
+       min-height: 45px;
+       max-height: 45px;
+       height: 45px;
    }
    tr:nth-child(even) {
        background-color: transparent;
@@ -100,7 +101,7 @@ ion-header ion-navbar {
     position: absolute;
     z-index: 999;
     right: 15px;
-    top: 18px;
+    top: 12px;
     font-size: 22px;
    }
    .add-new span {
@@ -113,33 +114,43 @@ ion-header ion-navbar {
    }
    
    /* Breadcums css */
-   ul.breadcums-cntr {
-    margin: 5px 0 20px 0;
-    width: 100%;
-    float: left;
-    padding: 0 0 0 0px;
-}
-ul.breadcums-cntr li {
-    display: block;
-    color: #fff;
-    font-size: 14px;
-    text-transform: capitalize;
-    font-weight: 100;
-    float: left;
-    text-decoration: underline;
-}
-ul.breadcums-cntr li:last-child() {
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 14px;
-}
-ul.breadcums-cntr li span {
-    display: inline-block;
-    margin: 0 5px;
-}
-ul.breadcums-cntr li:last-child span {
-    display: none;
-}
+//    ul.breadcums-cntr {
+//     margin: 5px 0 20px 0;
+//     width: 100%;
+//     float: left;
+//     padding: 0 0 0 0px;
+// }
+// ul.breadcums-cntr li {
+//     display: block;
+//     color: #fff;
+//     font-size: 14px;
+//     text-transform: capitalize;
+//     font-weight: 100;
+//     float: left;
+//     text-decoration: underline;
+//     line-height: 22px;
+// }
+// ul.breadcums-cntr li:last-child{
+//     text-transform: uppercase;
+//     text-decoration: none;
+//     font-weight: 600;
+//     padding: 2px 0 0 0;
+//     white-space: nowrap;
+//     width: 112px;
+//     overflow: scroll;
+// }
+// ul.breadcums-cntr li:last-child() {
+//     text-transform: uppercase;
+//     text-decoration: none;
+//     font-size: 14px;
+// }
+// ul.breadcums-cntr li span {
+//     display: inline-block;
+//     margin: 0 5px;
+// }
+// ul.breadcums-cntr li:last-child span {
+//     display: none;
+// }
 /* Breadcums css ../ */
           /* Footer new css */
     

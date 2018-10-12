@@ -8,12 +8,15 @@ page-add-signature {
 	  
 	ion-header {
         border-bottom: 1px solid #1d72c1;
+    }
+    canvas {
+		width: 100%;
 	}
 /* Header css */
 ion-header .header-logo img {
-	margin-top: 0px;
-	max-height: 50px;
-	margin-left: 0px;
+    margin-top: 14px;
+    max-height: 40px;
+    margin-left: 0px;
 }
 .tagline {
 	width: 160px;

@@ -5,10 +5,9 @@
   Ionic pages and navigation.
 -->
 <ion-header class="home">
-    <ion-navbar>
+    <!-- <ion-navbar>
         <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
           <span class="tagline">{{appUtils.ContractorName}}</span>
-      <!-- <span class="logedin-user">intelli logic</span> -->
     </ion-navbar>
     <div class="ban">
       <ul class="breadcums-cntr">
@@ -40,7 +39,11 @@
         <span>2018-09-12</span>
         <span>15:34:54</span>
       </div>
-    </div>
+    </div> -->
+
+    <appheader [headerData]="headerData" (CallBackEvent)="CallBackFromHeader($event);"></appheader>
+
+
   </ion-header>
   
   
@@ -261,7 +264,7 @@
   
     <br>
     <ion-grid>
-      <h3>Explain Control measure for each Hazard Identified</h3>
+      <h3>explain control measure for each hazard identified</h3>
       <br>
       
       <ion-row id="cus-textarea" *ngFor="let hazards of JobSafety.SelectedHazards let i=index">
@@ -272,31 +275,37 @@
           <textarea style="width: 100%; height: 100px;" [(ngModel)]="hazards.Details"></textarea>
         </ion-col>
       </ion-row>
-  
+  <br>
       <ion-row class="checkboxes-as">
-        <ion-col col-7 col-sm-7>
+        <ion-col col-12 col-sm-12>
           <label style="color: #fff;">Have fall protection anchorage points been identified:</label>
         </ion-col>
-        <ion-col col-5 col-sm-5 class="protection">
-          <ion-list radio-group [(ngModel)]="JobSafety.FallProtection.value">
+        </ion-row>
+        <form>
+        <ion-row class="protection" style="margin-top: -10px">
+          
+              <ion-col col-3 col-sm-3>
             <ion-item>
               <ion-radio value="Yes"></ion-radio>
               <ion-label style="color: #fff">Yes</ion-label>
             </ion-item>
-  
+            </ion-col>
+            <ion-col col-3 col-sm-3>
             <ion-item>
               <ion-label style="color: #fff">No</ion-label>
               <ion-radio value="No"></ion-radio>
             </ion-item>
-  
+            </ion-col>
+            <ion-col col-3 col-sm-3>
             <ion-item>
               <ion-label style="color: #fff">N/A</ion-label>
-              <ion-radio value="N/A"></ion-radio>
+              <ion-radio value="NA"></ion-radio>
             </ion-item>
-          </ion-list>
-        </ion-col>
-      </ion-row>
-  
+            </ion-col>
+          
+            </ion-row>
+          </form>
+            <br>
       <ion-row>
         <ion-col col-3 col-sm-3>
           <label style="color: #fff;">Explain:</label>
@@ -316,7 +325,7 @@
         </ion-row>
   
         <ion-row class="checkboxes-as">
-            <h3 style="margin: 30px 0 0 0; text-align: center;width: 100%;">work impact issues</h3>
+            <h3 style="margin: 30px 0 0 0;">work impact issues</h3>
           <ion-col col-6 col-sm-4 style="color: #fff;">
             <ion-item>
               <ion-label>Other Trades</ion-label>
@@ -366,7 +375,7 @@
   
   
               <ion-row class="checkboxes-as">
-                  <h3 style="margin: 30px 0 0 0; text-align: center;width: 100%;">permit required</h3>
+                  <h3 style="margin: 30px 0 0 0;">permit required</h3>
                 <ion-col col-6 col-sm-4 style="color: #fff;">
                   <ion-item>
                     <ion-label>Hot Work</ion-label>
@@ -410,7 +419,7 @@
   
   
                 <ion-row class="checkboxes-as">
-                    <h3 style="margin: 30px 0 0 0; text-align: center;width: 100%;">Requirments</h3>
+                    <h3 style="margin: 30px 0 0 0;">requirments</h3>
                   <ion-col col-6 col-sm-4 style="color: #fff;">
                     <ion-item>
                       <ion-label>Fall Equipment</ion-label>
@@ -475,7 +484,7 @@
         </ion-col>
         <br>
         <ion-col col-12 col-sm-12>
-          <h3>JSA Attendance</h3>
+          <h3 style="text-align: center;">JSA attendance</h3>
         </ion-col>
         <br>
         <br>
@@ -498,19 +507,16 @@
     </ion-grid>
   
     <br>
-    <br>
-    <br>
-    <br>
-  
+    <footer>
+        <div class="footer-left">
+          <img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" />
+        </div>
+        <!-- <span class="copy-right">Copyright 2018</span> -->
+        <div class="footer-right">
+          <span class="tag-bottom">Construction Safety Compliance App</span>
+          <a href="http://www.safetyfirstdata.com">Help &amp; Training</a>
+        </div>
+      </footer>
   </ion-content>
   
-  <footer>
-    <div class="footer-left">
-      <img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" />
-    </div>
-    <!-- <span class="copy-right">Copyright 2018</span> -->
-    <div class="footer-right">
-      <span class="tag-bottom">Construction Safety Compliance App</span>
-      <a href="http://www.safetyfirstdata.com">Help &amp; Training</a>
-    </div>
-  </footer>
+  

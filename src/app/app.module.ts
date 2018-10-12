@@ -32,7 +32,7 @@ import { Globalization } from '@ionic-native/globalization';
   bootstrap: [IonicApp],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   entryComponents: [
-    MyApp
+    MyApp,
  ],
   providers: [
     StatusBar,

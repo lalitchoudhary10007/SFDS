@@ -5,98 +5,98 @@
   "Purpose": "",
   "Supervisors": [
     {
-      "Supervisor": "dhdn xvxbx",
-      "TypeCrew": "x VC bx",
-      "Phone": "xbxbxn"
+      "Supervisor": "",
+      "TypeCrew": "",
+      "Phone": 0
     },
     {
       "Supervisor": "",
       "TypeCrew": "",
-      "Phone": ""
+      "Phone": 0
     }
   ],
   "Duration": "",
   "CommProc": "",
   "RecueProc": "",
-  "Lockout/De-energize": {
+  "Lockout": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Lines_Broken": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Purge": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Ventilation": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Secure_Area": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Lighting": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Hot_Work_Permit": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Fire_Extinguisher": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Air_Respirator": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Respirator_Air_Purifying": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Protective_clothing": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Full_body_harness": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Emergency_escape": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Lifelines": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Standby_safely": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Resuscitator_ihalator": {
     "Date": "",
     "Time": "",
-    "N/A": false
+    "NA": false
   },
   "Other_Items": [
     {

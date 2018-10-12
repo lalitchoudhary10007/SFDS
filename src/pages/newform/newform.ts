@@ -27,6 +27,9 @@ export class NewformPage extends Page {
   FormPrimaryKey: any = 0;
   TempHuddle: any ;
 
+  headerData = { From: 'SAFETY FORMS', headericon: 'arrow-back', FormPage: true, backTerms: [{showName:'Home', NavigateTo:'HomePage'},{showName:'SAFETY FORMS', NavigateTo:'SafeformPage'}]} 
+
+
   callback = data => {
     this.huddle.Photos = data;
     console.log('***data received from other page', this.huddle.Photos);
@@ -62,6 +65,13 @@ export class NewformPage extends Page {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewformPage');
+
+    let page  = {showName:'', NavigateTo:''};
+    page.showName = 'Huddle Form' ;
+    page.NavigateTo = 'NewformPage';
+    this.headerData.From = 'Huddle Form' ;
+    this.headerData.backTerms.push(page);
+
     this.sessionHelper.GetValuesFromSession("SelectedUser").then((val) => {
       this.SelectedUser = JSON.parse(val);
     });
@@ -75,17 +85,17 @@ export class NewformPage extends Page {
       this.TempHuddle.TimeZone = res ;
     });
 
-    this.navBar.backButtonClick = (e:UIEvent)=>{
-      console.log("**BACK CLICK",this.TempHuddle);
-      console.log("**BACK CLICK",this.huddle);
-      // todo something
-       if(JSON.stringify(this.TempHuddle) === JSON.stringify(this.huddle)){
-         this.cancel();
-       }else{
-        this.presentConfirm();
-       }
+    // this.navBar.backButtonClick = (e:UIEvent)=>{
+    //   console.log("**BACK CLICK",this.TempHuddle);
+    //   console.log("**BACK CLICK",this.huddle);
+    //   // todo something
+    //    if(JSON.stringify(this.TempHuddle) === JSON.stringify(this.huddle)){
+    //      this.cancel();
+    //    }else{
+    //     this.presentConfirm();
+    //    }
 
-     }
+    //  }
 
     if(this.FromNewOrUpdate == 2){
       //Submitted Form Not to Edit
@@ -195,5 +205,20 @@ export class NewformPage extends Page {
     });
     alert.present();
   }
+
+ 
+  CallBackFromHeader(event) {
+    console.log("***" , event);
+    if(event === 'manualBack'){
+      if(JSON.stringify(this.TempHuddle) === JSON.stringify(this.huddle)){
+        this.cancel();
+      }else{
+       this.presentConfirm();
+      }
+    }else{
+      this.SaveHuddle(event);
+    }
+  }
+
 
 }

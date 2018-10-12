@@ -1,0 +1,138 @@
+
+.ion-header .header-logo img {
+	margin-top: 0;
+    max-height: 40px;
+    margin-left: 0px;
+}
+.tagline {
+	width: 160px;
+	display: block;
+	float: left;
+	color: #fff;
+	font-weight: 100;
+	font-size: 14px;
+	line-height: 14px;
+	border-left: 1px solid #fff;
+	padding-left: 10px;
+	margin-top: 0px;
+	margin-left: 10px;
+}
+.ion-header .header-logo {
+	display: block;
+	float: left;
+}
+.toolbar-background-md {
+	border-color: #b2b2b2;
+	background: #000000;
+}
+.toolbar-title-md {
+	color: #fff;
+}
+.back-button {
+	color: #fff !important;
+	position: absolute;
+	right: 0;
+	display: block;
+}
+ion-content.content-md {
+	color: #000;
+	background-color: #000000;
+}
+.content-ios {
+	background-color: #000000 !important;
+}
+.ion-header {
+    width: 100%;
+    float: left;
+}
+.ion-navbar {
+    width: 100%;
+    float: left;
+    border-bottom: 0px solid #1d72c1;
+    padding: 5px 10px 5px 10px;
+    margin: 0 0 0 0;
+}
+ion-header {
+    background: #000;
+}
+ion-header .toolbar-background-md {
+    background: rgba(0, 0, 0, 0.81);
+}
+.ion-header ion-icon {
+    float: right;
+    font-size: 2em;
+    color: #fff;
+    display: block;
+    margin-top: 5px;
+    margin-right: 0px;
+    padding: 0 10px 0 15px;
+    width: auto;
+}
+.toolbar-md {
+    padding: 0;
+    min-height: auto;
+}
+.back-button.show-back-button {
+    display: none;
+}
+/* Header css ../ */
+/* Ban and Breadcums css */
+.ban {
+    background: #fff;
+    padding: 10px 10px 1px 10px;
+    margin: 0px 0px 0px 0px;
+    width: 100%;
+    float: left;
+}
+.active-job {
+   float: left;
+   width: 100%;
+   margin: 0 0;
+   font-size: 15px;
+   padding: 7px 0;
+}
+.active-job::first-letter {
+    text-transform: capitalize;
+}
+.ban .cancel {
+   background: red;
+   color: #fff;
+   padding: 10px 20px;
+   text-transform: capitalize;
+   border-radius: 5px;
+}
+.ban .submit {
+   background: green;
+   color: #fff;
+   padding: 10px 20px;
+   text-transform: capitalize;
+   border-radius: 5px;
+}
+ul.breadcums-cntr {
+	margin: 0px 0 0px 0;
+	width: 100%;
+	float: left;
+	padding: 0 0 0 0px;
+}
+ul.breadcums-cntr li {
+	display: block;
+	color: #000;
+	font-size: 14px;
+	text-transform: capitalize;
+	font-weight: 100;
+	float: left;
+	text-decoration: underline;
+}
+ul.breadcums-cntr li:last-child() {
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 14px;
+}
+ul.breadcums-cntr li span {
+	display: inline-block;
+	margin: 0 5px;
+}
+ul.breadcums-cntr li:last-child span {
+	display: none;
+}
+/* Breadcums css ../ */

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, App } from 'ionic-angular';
 import { ApiHelperProvider, SessionHelperProvider,  DbHelperProvider } from '../../providers/providers';
 import { Page } from '../../models/Page';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions';
@@ -24,16 +24,16 @@ export class LoginPage extends Page {
 
   constructor(private navCtrl: NavController, private alertCtrl: AlertController, public ApiHelper: ApiHelperProvider,
     public sessionProvider: SessionHelperProvider, public dbHelper: DbHelperProvider, nativePageTransitions: NativePageTransitions,
-    private transfer: FileTransfer, private file: File) {
+    private transfer: FileTransfer, private file: File, public appCtrl: App) {
     super(nativePageTransitions);
 
   }
   goToHome() {
-
-    this.navCtrl.push('HomePage');
+    this.appCtrl.getRootNav().setRoot('HomePage');
+   // this.navCtrl.push('HomePage');
   }
   goToformlist() {
-    this.navCtrl.push('FormlistingPage');
+   // this.navCtrl.push('FormlistingPage');
   }
 
   ionViewDidLoad() {

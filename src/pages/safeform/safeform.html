@@ -7,12 +7,14 @@
 
 <ion-header class="home">
     <ion-navbar>
-        <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
-        <span class="tagline">{{appUtils.ContractorName}}</span>
+        <!-- <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
+        <span class="tagline">{{appUtils.ContractorName}}</span> -->
       <!-- <span class="logedin-user">intelli logic</span> --> 
+      <appheader [headerData]="headerData" (CallBackEvent)="CallBackFromHeader($event);"></appheader>
+
     </ion-navbar>
   </ion-header>
-    <ion-content padding>
+    <ion-content>
       <ul class="breadcums-cntr">
         <li (click)="OpenHome()">home<span>></span></li>
         <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">safety forms<span>></span></li>
@@ -62,16 +64,16 @@
               <span>Hot Work Permit</span> </div>
           </ion-col>
           <ion-col col-6 col-sm-4 class="eight">
-            <div class="iner-col">
-              <!-- <ion-icon name="search"></ion-icon> -->
-              <img src="../../assets/imgs/reports.jpg" alt="" />
-              <span>Inspection/Audits </span> </div>
+              <div class="iner-col">
+                  <!-- <ion-icon name="folder-open"></ion-icon> -->
+                  <img src="../../assets/imgs/inspection-audits.jpg" alt="" />
+                  <span>Reports</span> </div>
           </ion-col>
           <ion-col col-6 col-sm-4 class="ninth">
-            <div class="iner-col">
-              <!-- <ion-icon name="folder-open"></ion-icon> -->
-              <img src="../../assets/imgs/inspection-audits.jpg" alt="" />
-              <span>Reports</span> </div>
+              <div class="iner-col">
+                  <!-- <ion-icon name="search"></ion-icon> -->
+                  <img src="../../assets/imgs/reports.jpg" alt="" />
+                  <span>Inspection/Audits </span> </div>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -80,11 +82,4 @@
       <br>
       
     </ion-content>
-    <footer> 
-      <div class="footer-left"><img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" /></div>
-      <!-- <span class="copy-right">Copyright 2018</span> --> 
-      <div class="footer-right">
-      <span class="tag-bottom">Construction Safety Compliance App</span>
-      <a href="http://www.safetyfirstdata.com" target="_blank">Help and Training</a>
-    </div>
-    </footer> 
+    <footer [footerData]="headerData" (footerCallBack)="CallBackFromHeader($event);"></footer>

@@ -26,6 +26,9 @@ export class SiteSafetyPage extends Page {
   FormPrimaryKey: any = 0;
   TempSiteSafety: any = [];
 
+  headerData = { From: 'SAFETY FORMS', headericon: 'arrow-back', FormPage: true, backTerms: [{showName:'Home', NavigateTo:'HomePage'},{showName:'SAFETY FORMS', NavigateTo:'SafeformPage'}]} 
+
+
   callback = data => {
     this.siteSafety.Photos = data;
     console.log('***data received from other page', this.siteSafety.Photos);
@@ -37,15 +40,20 @@ export class SiteSafetyPage extends Page {
     public appCtrl: App,private alertCtrl: AlertController) {
     super(nativePageTransitions);
 
-    this.siteSafety = this.navParams.get("SiteSafetyJSON");
-    console.log("**SITE SAFETY JSON" , this.siteSafety);
-    this.TempSiteSafety = this.navParams.get("SiteSafetyJSON");
+    this.siteSafety = JSON.parse(JSON.stringify(this.navParams.get("SiteSafetyJSON")));
+    this.TempSiteSafety = JSON.parse(JSON.stringify(this.navParams.get("SiteSafetyJSON")));
     this.FromNewOrUpdate = this.navParams.get("FROM");
     this.FormPrimaryKey = this.navParams.get("FormPrimaryID");
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SiteSafetyPage');
+    let page  = {showName:'', NavigateTo:''};
+    page.showName = 'Site Safety' ;
+    page.NavigateTo = 'SiteSafetyPage';
+    this.headerData.From = 'Site Safety' ;
+    this.headerData.backTerms.push(page);
+
     this.sessionHelper.GetValuesFromSession("SelectedUser").then((val) => {
       this.SelectedUser = JSON.parse(val);
     });
@@ -59,15 +67,15 @@ export class SiteSafetyPage extends Page {
       this.TempSiteSafety.TimeZone = res ;
     });
 
-    this.navBar.backButtonClick = (e:UIEvent)=>{
-      // todo something
-       if(JSON.stringify(this.TempSiteSafety) === JSON.stringify(this.siteSafety)){
-         this.cancel();
-       }else{
-        this.presentConfirm();
-       }
+    // this.navBar.backButtonClick = (e:UIEvent)=>{
+    //   // todo something
+    //    if(JSON.stringify(this.TempSiteSafety) === JSON.stringify(this.siteSafety)){
+    //      this.cancel();
+    //    }else{
+    //     this.presentConfirm();
+    //    }
 
-     }
+    //  }
 
     if(this.FromNewOrUpdate == 2){
       //Submitted Form Not to Edit
@@ -174,6 +182,19 @@ export class SiteSafetyPage extends Page {
       ]
     });
     alert.present();
+  }
+
+  CallBackFromHeader(event) {
+    console.log("***" , event);
+    if(event === 'manualBack'){
+      if(JSON.stringify(this.TempSiteSafety) === JSON.stringify(this.siteSafety)){
+        this.cancel();
+      }else{
+       this.presentConfirm();
+      }
+    }else{
+      this.SaveSiteSafety(event);
+    }
   }
 
 

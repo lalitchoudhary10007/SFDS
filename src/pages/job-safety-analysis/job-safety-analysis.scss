@@ -5,9 +5,12 @@ page-job-safety-analysis {
           background: #000000;
         }
       }
+      canvas {
+		width: 100%;
+	}
       
     ion-header {
-        border-bottom: 1px solid #1d72c1;
+        border-bottom: 0px solid #1d72c1;
     }
     .new-form .item-inner .input-wrapper {
 		text-align: left;
@@ -46,11 +49,14 @@ page-job-safety-analysis {
     }
 /* Footer new css ../ */
     h3 {
-        text-align: center;
+        text-align: left;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 17px;
         color: #fff;
         margin: 0 0 0px 0;
+        width: 100%;
+    }
+    h3::first-letter {
         text-transform: capitalize;
     }
     .button-as{
@@ -201,96 +207,109 @@ page-job-safety-analysis {
 }
 /* chechbox css ../ */
 /* Header css */
-ion-header .header-logo img {
-    margin-top: 0px;
-    max-height: 50px;
-    margin-left: 0px;
-}
-.tagline {
-    width: 160px;
-    display: block;
-    float: left;
-    color: #fff;
-    font-weight: 100;
-    font-size: 14px;
-    line-height: 14px;
-    border-left: 1px solid #fff;
-    padding-left: 10px;
-    margin-top: 14px;
-    margin-left: 10px;
-}
-ion-header .header-logo {
-    display: block;
-    float: left;
-}
-.toolbar-background-md {
-    border-color: #b2b2b2;
-    background: #000000;
-}
-.toolbar-title-md {
-    color: #fff;
-}
-.back-button {
-    color: #fff !important;
-    position: absolute;
-    right: 0;
-    display: block;
-}
-ion-content.content-md {
-    color: #000;
-    background-color: #000000;
-}
-.content-ios {
-    background-color: #000000 !important;
-}
-/* Header css ../ */
-/* Breadcums css */
-ul.breadcums-cntr {
-    margin: 0px 0 0px 0;
-    width: 100%;
-    float: left;
-    padding: 0 0 0 0px;
-}
-ul.breadcums-cntr li {
-    display: block;
-    color: #000;
-    font-size: 14px;
-    text-transform: capitalize;
-    font-weight: 100;
-    float: left;
-    text-decoration: underline;
-}
-ul.breadcums-cntr li:last-child() {
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 14px;
-}
-ul.breadcums-cntr li span {
-    display: inline-block;
-    margin: 0 5px;
-}
-ul.breadcums-cntr li:last-child span {
-    display: none;
-}
+// ion-header .header-logo img {
+//     margin-top: 14px;
+//     max-height: 40px;
+//     margin-left: 0px;
+// }
+// .tagline {
+//     width: 160px;
+//     display: block;
+//     float: left;
+//     color: #fff;
+//     font-weight: 100;
+//     font-size: 14px;
+//     line-height: 14px;
+//     border-left: 1px solid #fff;
+//     padding-left: 10px;
+//     margin-top: 14px;
+//     margin-left: 10px;
+// }
+// ion-header .header-logo {
+//     display: block;
+//     float: left;
+// }
+// .toolbar-background-md {
+//     border-color: #b2b2b2;
+//     background: #000000;
+// }
+// .toolbar-title-md {
+//     color: #fff;
+// }
+// .back-button {
+//     color: #fff !important;
+//     position: absolute;
+//     right: 0;
+//     display: block;
+// }
+// ion-content.content-md {
+//     color: #000;
+//     background-color: #000000;
+// }
+// .content-ios {
+//     background-color: #000000 !important;
+// }
+// /* Header css ../ */
+// /* Breadcums css */
+// ul.breadcums-cntr {
+//     margin: 0px 0 0px 0;
+//     width: 100%;
+//     float: left;
+//     padding: 0 0 0 0px;
+// }
+// ul.breadcums-cntr li {
+//     display: block;
+//     color: #000;
+//     font-size: 14px;
+//     text-transform: capitalize;
+//     font-weight: 100;
+//     float: left;
+//     text-decoration: underline;
+// }
+// ul.breadcums-cntr li:last-child() {
+//     text-transform: uppercase;
+//     text-decoration: none;
+//     font-size: 14px;
+// }
+// ul.breadcums-cntr li span {
+//     display: inline-block;
+//     margin: 0 5px;
+// }
+// ul.breadcums-cntr li:last-child span {
+//     display: none;
+// }
 /* Breadcums css ../ */
 /* Footer css */
 footer {
-    position: absolute;
+    position: static;
     bottom: 0;
     z-index: 1;
     max-height: 60px;
     width: 100%;
-    padding: 0 27px;
+    padding: 0 15px;
     background: #000;
     min-width: 60px;
     height: 60px;
     border-top: 1px solid #1d72c1;
 }
+.footer-left {
+    width: 75px;
+    float: left;
+    min-height: 58px;
+}
+.footer-right {
+    width: 100%;
+    float: left;
+    min-height: 58px;
+    padding-left: 0;
+    margin-left: -75px;
+    text-align: center;
+}
 .footer-logo {
-    height: 45px;
-        display: block;
-        float: left;
-        margin-top: 10px;
+    max-height: 30px;
+    display: block;
+    float: left;
+    margin-top: 10px;
 }
 .copy-right {
     width: 30%;
@@ -306,12 +325,21 @@ footer {
 }
 .tag-bottom {
     color: #fff;
-        font-weight: 100;
-        display: block;
-        float: left;
-        margin-top: 7px;
-        font-size: 14px;
-        width: 100%;
+    font-weight: 100;
+    display: block;
+    float: left;
+    margin-top: 7px;
+    font-size: 14px;
+    width: 100%;
+}
+footer .footer-right a {
+    display: block;
+    width: 100%;
+    float: left;
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 100;
+    margin-top: 3px;
 }
 /* Footer css ../ */
 input[type="checkbox"], input[type="radio"] {
@@ -342,6 +370,8 @@ input[type="checkbox"], input[type="radio"] {
     margin-left: 0;
     color: #fff;
     font-size: 14px;
+    display: block;
+    white-space: normal;
 }
 
 /* This page css */
@@ -381,6 +411,19 @@ h3 .ion-md-add-circle {
     margin: 4px 0 0 0;
     padding: 6px 6px;
 }
-/* This page css ../ */
-
+.protection .item-md {
+    padding-left: 0;
+}
+.protection .item-md.item-block .item-inner {
+    border-bottom: 0px solid #dedede;
+}
+.protection .item-inner .input-wrapper {
+    text-align: left;
+    font-size: 12px;
+}
+@media (max-width: 380px) {
+ .footer-right {
+    padding-left: 75px;
+}
+}
 }

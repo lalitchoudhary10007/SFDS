@@ -139,4 +139,17 @@ ion-header ion-icon {
     -webkit-box-shadow: unset;
     box-shadow: unset;
 }
+
+/* 10-10-2018  */
+.back-button {
+    color: #fff !important;
+    position: absolute;
+    right: 0;
+    display: block;
+    top: 10px;
+}
+.list-md .item-input .input-wrapper {
+	border-bottom: 1px solid #dedede;
+}
+/* 10-10-2018 ../ */
 }

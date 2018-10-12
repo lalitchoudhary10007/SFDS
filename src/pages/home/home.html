@@ -1,18 +1,23 @@
 
-
-      <ion-header class="home">
+  <ion-header class="home">
+      <ion-navbar>
+        
+        <appheader [headerData]="headerData" (CallBackEvent)="CallBackFromHeader($event);"></appheader>
+    
+      </ion-navbar>
+    </ion-header>
+      <!-- <ion-header class="home">
           <ion-navbar>
             <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
             <span class="tagline">{{appUtils.ContractorName}}</span>
             <ion-icon (click)="openModal()" name="settings"></ion-icon>
-            <!-- <span class="logedin-user">intelli logic</span> --> 
           </ion-navbar>
-        </ion-header>
+        </ion-header> -->
         
         
         
         
-          <ion-content padding> 
+          <ion-content> 
             <!-- <div class="para">construction safety compliance app</div> -->
             <ion-grid class="as-grid">
               <ion-row>
@@ -65,7 +70,7 @@
                   
                   <div class="manage-toggle" style="display: none;">
                       <div class="toggle-cntr">
-                     <!-- <ion-icon name="close"></ion-icon> -->
+                     <ion-icon name="close" class="pop-close"   (click)="HideToggle()"></ion-icon>
                     <div class="manage-heading">frequently used jobs</div>
                     <ion-list *ngFor="let job of jobs">
                      <ion-item>
@@ -147,13 +152,18 @@
             <br>
             <br>
             <br>
+            <br>
+            <br>
              
           </ion-content>
-          <footer> 
+
+          <footer [footerData]="headerData" (footerCallBack)="CallBackFromHeader($event);"></footer>
+
+          <!-- <footer> 
               <div class="footer-left"><img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" /></div>
-              <!-- <span class="copy-right">Copyright 2018</span> --> 
+              
               <div class="footer-right">
               <span class="tag-bottom">Construction Safety Compliance App</span>
               <a href="http://www.safetyfirstdata.com" target="_blank">Help and Training</a>
             </div>
-            </footer>
+            </footer> -->

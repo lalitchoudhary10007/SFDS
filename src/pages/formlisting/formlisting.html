@@ -6,16 +6,18 @@
 -->
 
 <ion-header class="home">
-    <ion-navbar>
+    <!-- <ion-navbar>
         <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
         <span class="tagline">{{appUtils.ContractorName}}</span>
       <!-- <span class="logedin-user">intelli logic</span> --> 
-    </ion-navbar>
+    <!-- </ion-navbar>
     <ion-grid>
       <ion-row>
         <ion-col col-12 class="listing-job">Active Job: {{SelectedJob.jobNumber +"-"+ SelectedJob.jobName}}</ion-col>
       </ion-row>
-    </ion-grid>
+    </ion-grid>  -->
+    <appheader [headerData]="headerData" (CallBackEvent)="CallBackFromHeader($event);"></appheader>
+
   </ion-header>
     <ion-content padding>
       <ul class="breadcums-cntr">
@@ -30,8 +32,8 @@
           <th>Sent to Office</th>
         </tr>
         <tr *ngFor="let huddle of SavedForms" (click)="OpenRecentForm(huddle.FormJSON , huddle.id , huddle.FormStatus)">
-          <td><span class="text-as">{{"By-"+huddle.SubmittedBy}}</span><span class="slash-as">/</span><span class="text-as">{{"At- "+huddle.createdAt}}</span></td>
-          <td><span class="text-as">{{huddle.FormStatus}}</span><span class="slash-as">/</span><span class="text-as">{{"At- "+huddle.updatedAt}}</span></td>
+          <td><span class="text-as">{{huddle.SubmittedBy}}</span><span class="slash-as">/</span><span class="text-as">{{huddle.createdAt}}</span></td>
+          <td><span class="text-as">{{huddle.FormStatus}}</span><span class="slash-as">/</span><span class="text-as">{{huddle.updatedAt}}</span></td>
         </tr>
       </table>
       <br>
@@ -43,11 +45,4 @@
     </ion-content>
   
   
-    <footer> 
-        <div class="footer-left"><img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" /></div>
-        <!-- <span class="copy-right">Copyright 2018</span> --> 
-        <div class="footer-right">
-        <span class="tag-bottom">Construction Safety Compliance App</span>
-        <a href="http://www.safetyfirstdata.com" target="_blank">Help and Training</a>
-      </div>
-      </footer>
+    <footer [footerData]="headerData" (footerCallBack)="CallBackFromHeader($event);"></footer>

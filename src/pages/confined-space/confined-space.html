@@ -5,141 +5,571 @@
   Ionic pages and navigation.
 -->
 <ion-header class="home">
-    <ion-navbar>
-      <div class="header-logo">
-        <img src="../../assets/imgs/logo.png" alt="Logo" />
-      </div>
-      <span class="tagline">Construction safety compliance app </span>
-      <!-- <span class="logedin-user">intelli logic</span> -->
-    </ion-navbar>
-    <div class="ban">
-        <ul class="breadcums-cntr">
-          <li>home
-            <span>></span>
-          </li>
-          <li>safety forms
-            <span>></span>
-          </li>
-          <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">confined space
-            <span>></span>
-          </li>
-        </ul>
-        <div class="active-job">active job: 456-job-jane-demo street</div>
-        <button class="cancel">cancel</button>
-        <button class="submit">submit</button>
-    
-        <div class="last-opned-detail">
-          <span>2018-09-12</span>
-          <span>15:34:54</span>
-        </div>
-      </div>
-  </ion-header>
+  <ion-navbar>
+    <div class="header-logo">
+      <img src={{appUtils.LogoUrl}} alt="Logo" />
+    </div>
+    <span class="tagline">{{appUtils.ContractorName}}</span>
+    <!-- <span class="logedin-user">intelli logic</span> -->
+  </ion-navbar>
+  <div class="ban">
+    <ul class="breadcums-cntr">
+      <li (click)="OpenHome()">home
+        <span>></span>
+      </li>
+      <li (click)="goback()">safety forms
+        <span>></span>
+      </li>
+      <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">confined space
+        <span>></span>
+      </li>
+    </ul>
+    <div class="active-job">active job: {{SelectedJob.jobNumber +"-"+ SelectedJob.jobName}}</div>
+      <button class="cancel" (click)="cancel()">cancel</button>
+      <button class="submit" (click)="SubmitConfinedSpace('submit')">submit</button>
+      <button class="submit" (click)="SubmitConfinedSpace('draft')">draft</button>
+
+    <div class="last-opned-detail">
+      <span>2018-09-12</span>
+      <span>15:34:54</span>
+    </div>
+  </div>
+</ion-header>
 
 
 <ion-content padding>
 
-    <div class="inner-cntr">
-        <ion-grid>
-          <ion-row>
-            <ion-col col-6 col-sm-6>
-              <label style="color: #fff;">location of confined space:</label>
-            </ion-col>
-            <ion-col col-6 col-sm-6>
-              <input type="text" placeholder="" />
-            </ion-col>
-          </ion-row>
-          
-        </ion-grid>
-        <!-- End Grid -->
+  <div class="inner-cntr">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-sm-6>
+          <label style="color: #fff;">location of confined space:</label>
+        </ion-col>
+        <ion-col col-6 col-sm-6>
+          <input [(ngModel)]="ConfinedSpace.Location" type="text" placeholder="" />
+        </ion-col>
+      </ion-row>
 
-        <ion-grid>
-            <ion-row>
-              <ion-col col-12 col-sm-12>
-                <label style="color: #fff;">purpose of entry:</label>
-              </ion-col>
-              <ion-col col-12 col-sm-12>
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 col-sm-12>
+          <label style="color: #fff;">purpose of entry:</label>
+        </ion-col>
+        <ion-col col-12 col-sm-12>
+          <input [(ngModel)]="ConfinedSpace.Purpose" type="text" placeholder="" />
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">supervisors:</label>
+        </ion-col>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">type of crew:</label>
+        </ion-col>
+        <ion-col col-3 col-sm-3>
+          <label style="color: #fff;">phone:</label>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid class="pos-rel">
+      <ion-icon name="add-circle" style="font-size: 1.5em" (click)="AddNewSupervisor()"></ion-icon>
+      <ion-row *ngFor="let supervisor of ConfinedSpace.Supervisors let i=index">
+        <ion-col col-4 col-sm-4>
+          <input [(ngModel)]="supervisor.Supervisor" type="text" placeholder="" />
+        </ion-col>
+        <ion-col col-4 col-sm-4>
+          <input [(ngModel)]="supervisor.TypeCrew" type="text" placeholder="" />
+        </ion-col>
+        <ion-col col-3 col-sm-3>
+          <input type="number" [(ngModel)]="supervisor.Phone" type="text" placeholder="" />
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">permit duration:</label>
+        </ion-col>
+        <ion-col col-8 col-sm-8>
+          <input [(ngModel)]="ConfinedSpace.Duration" type="text" placeholder="" />
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+    <!-- End Grid -->
+
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 col-sm-12>
+          <label style="color: #fff;">communication procedure (including equipment):</label>
+        </ion-col>
+        <ion-col col-12 col-sm-12>
+          <input [(ngModel)]="ConfinedSpace.CommProc" type="text" placeholder="" />
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+    <!-- End Grid -->
+
+
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 col-sm-12>
+          <label style="color: #fff;">rescue procedure (see also emergency contact numbers at end of form):</label>
+        </ion-col>
+        <ion-col col-12 col-sm-12>
+          <input [(ngModel)]="ConfinedSpace.RecueProc" type="text" placeholder="" />
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+    <!-- End Grid -->
+  </div>
+  <!-- End inner container -->
+
+  <div class="inner-cntr cus-check">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <label style="color: #fff;">requirement completed (put N/A if does not apply):</label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>&nbsp;</ion-col>
+        <ion-col col-3>
+          <label style="color: #fff;">date:</label>
+        </ion-col>
+        <ion-col col-3>
+          <label style="color: #fff;">time:</label>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+          <label style="color: #fff;">N/A</label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">lockout / de-energize / try out:</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Lockout.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Lockout.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Lockout.NA}} [(ngModel)]="ConfinedSpace.Lockout.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">line(s) broken-Capped-Blank :</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Lines_Broken.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Lines_Broken.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Lines_Broken.NA}} [(ngModel)]="ConfinedSpace.Lines_Broken.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">Purge - flush and vent:</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Purge.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Purge.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Purge.NA}} [(ngModel)]="ConfinedSpace.Purge.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">ventilation:</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Ventilation.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Ventilation.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Ventilation.NA}} [(ngModel)]="ConfinedSpace.Ventilation.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">secure area (Post and flag):</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Secure_Area.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Secure_Area.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Secure_Area.NA}} [(ngModel)]="ConfinedSpace.Secure_Area.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">lighting (Explosion Proof):</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Lighting.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Lighting.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Lighting.NA}} [(ngModel)]="ConfinedSpace.Lighting.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">hot work permit:</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Hot_Work_Permit.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Hot_Work_Permit.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Hot_Work_Permit.NA}} [(ngModel)]="ConfinedSpace.Hot_Work_Permit.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">fire extinguishers:</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Fire_Extinguisher.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Fire_Extinguisher.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Fire_Extinguisher.NA}} [(ngModel)]="ConfinedSpace.Fire_Extinguisher.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">supplied air respirator (N/A if alternate entry):</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Air_Respirator.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Air_Respirator.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Air_Respirator.NA}} [(ngModel)]="ConfinedSpace.Air_Respirator.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">respirator(s)(Air purifying):</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Respirator_Air_Purifying.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Respirator_Air_Purifying.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Respirator_Air_Purifying.NA}} [(ngModel)]="ConfinedSpace.Respirator_Air_Purifying.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">protective clothing:</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Protective_clothing.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Protective_clothing.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Protective_clothing.NA}} [(ngModel)]="ConfinedSpace.Protective_clothing.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">full body harness w/D ring:</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Full_body_harness.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Full_body_harness.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Full_body_harness.NA}} [(ngModel)]="ConfinedSpace.Full_body_harness.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">emergency escape retrieval equipment:</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Emergency_escape.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Emergency_escape.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Emergency_escape.NA}} [(ngModel)]="ConfinedSpace.Emergency_escape.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">lifelines:</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Lifelines.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Lifelines.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Lifelines.NA}} [(ngModel)]="ConfinedSpace.Lifelines.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">standby safety personal (N/A if alternate entry):</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Standby_safely.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Standby_safely.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Standby_safely.NA}} [(ngModel)]="ConfinedSpace.Standby_safely.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">resuscitator-Inhalator (N/A if alternate entry):</label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="ConfinedSpace.Resuscitator_ihalator.Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <ion-item>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="ConfinedSpace.Resuscitator_ihalator.Time"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-2 class="text-center">
+            <ion-checkbox checked={{ConfinedSpace.Resuscitator_ihalator.NA}} [(ngModel)]="ConfinedSpace.Resuscitator_ihalator.NA" color="dark"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+  <!-- End inner container -->
+  <br>
+  <div class="inner-cntr">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12><label style="color: #fff;">:additional / alternate entries (Add other specific information, if need, or additional instruction or requirements. items shown below are examples that can be edited):</label></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          <label style="color: #fff;">item name:</label>
+        </ion-col>
+        <ion-col col-3>
+              <label style="color: #fff;">date:</label>
+        </ion-col>
+        <ion-col col-3>
+              <label style="color: #fff;">time:</label>
+        </ion-col>
+        <ion-col col-1>&nbsp;</ion-col>
+      </ion-row>
+      </ion-grid>
+      <div class="pos-rel">
+      <ion-grid>
+      <ion-row>
+          <ion-col col-5>
                 <input type="text" placeholder="" />
-              </ion-col>
+          </ion-col>
+          <ion-col col-3>
+            <ion-item>
+              <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col col-3>
+            <ion-item>
+              <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A"></ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col col-1>&nbsp;</ion-col>
+        </ion-row>
+      <ion-row>
+        <ion-col col-4>
+          <label style="color: #fff;">remarks:</label>
+        </ion-col>
+        <ion-col col-8>
+          <input type="text" placeholder="" />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+      <ion-icon name="add-circle" style="color: green;font-size: 1.5em;"></ion-icon>
+    </div>
+  </div>
+  <!-- End inner container -->
+
+  <div class="inner-cntr">
+    <h2>air monitoring</h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+          <ion-row>
+              <ion-col col-12 col-sm-6><label>substance monitored:</label></ion-col>
+              <ion-col col-12 col-sm-6><label>permissible levels:</label></ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-5>
+            <ion-row>
+              <ion-col col-12><label>monitoring result</label></ion-col>
             </ion-row>
-            
-          </ion-grid>
-          <!-- End Grid -->
+        </ion-col>
+        <ion-col col-1>
+            <ion-icon name="add-circle"></ion-icon>
+        </ion-col>
+      </ion-row>
 
-          <ion-grid>
+      <ion-row>
+          <ion-col col-6>
+            <ion-row>
+                <ion-col col-12 col-sm-6><label>&nbsp;</label></ion-col>
+                <ion-col col-12 col-sm-6><label>&nbsp;</label></ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col col-6>
               <ion-row>
-                <ion-col col-4 col-sm-4>
-                  <label style="color: #fff;">supervisors:</label>
-                </ion-col>
-                <ion-col col-4 col-sm-4>
-                    <label style="color: #fff;">type of crew:</label>
-                </ion-col>
-                <ion-col col-3 col-sm-3>
-                    <label style="color: #fff;">phone:</label>
-                </ion-col>
+                  <ion-col col-6 col-sm-6><label>Time</label></ion-col>
+                  <ion-col col-6 col-sm-6><label>Lavel</label></ion-col>
               </ion-row>
-              
-            </ion-grid>
-            <!-- End Grid -->
-
-            <ion-grid class="pos-rel">
-                <ion-icon name="add-circle"></ion-icon>
+          </ion-col>
+        </ion-row>
+      <!-- <ion-row>
+          <ion-col col-5>
+            <ion-row>
+                <ion-col col-6>test</ion-col>
+                <ion-col col-6>test</ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col col-7>
+              <ion-row>
+                <ion-col col-5>test</ion-col>
+                <ion-col col-5>test</ion-col>
+                <ion-col col-2>test</ion-col>
+              </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-5>
+              <ion-row>
+                  <ion-col col-6>test</ion-col>
+                  <ion-col col-6>test</ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col col-7>
                 <ion-row>
-                  <ion-col col-4 col-sm-4>
-                      <input type="text" placeholder="" />
-                  </ion-col>
-                  <ion-col col-4 col-sm-4>
-                      <input type="text" placeholder="" />
-                  </ion-col>
-                  <ion-col col-3 col-sm-3>
-                      <input type="text" placeholder="" />
-                  </ion-col>
+                  <ion-col col-5>test</ion-col>
+                  <ion-col col-5>test</ion-col>
+                  <ion-col col-2>test</ion-col>
                 </ion-row>
-                
-              </ion-grid>
-              <!-- End Grid -->
-
-              <ion-grid>
-                  <ion-row>
-                    <ion-col col-4 col-sm-4>
-                      <label style="color: #fff;">permit duration:</label>
-                    </ion-col>
-                    <ion-col col-8 col-sm-8>
-                      <input type="text" placeholder="" />
-                    </ion-col>
-                  </ion-row>
-                  
-                </ion-grid>
-                <!-- End Grid -->
-
-
-                <ion-grid>
-                    <ion-row>
-                      <ion-col col-12 col-sm-12>
-                        <label style="color: #fff;">communication procedure (including equipment):</label>
-                      </ion-col>
-                      <ion-col col-12 col-sm-12>
-                        <input type="text" placeholder="" />
-                      </ion-col>
-                    </ion-row>
-                    
-                  </ion-grid>
-                  <!-- End Grid -->
-
-
-
-                  <ion-grid>
-                      <ion-row>
-                        <ion-col col-12 col-sm-12>
-                          <label style="color: #fff;">rescue procedure (see also emergency contact numpers at end of form):</label>
-                        </ion-col>
-                        <ion-col col-12 col-sm-12>
-                          <input type="text" placeholder="" />
-                        </ion-col>
-                      </ion-row>
-                      
-                    </ion-grid>
-                    <!-- End Grid -->
-      </div>
-      <!-- End inner container -->
+            </ion-col>
+          </ion-row> -->
+    </ion-grid>
+  </div>
 
 </ion-content>

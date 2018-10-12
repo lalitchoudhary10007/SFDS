@@ -34,7 +34,7 @@ export class HomePage extends Page {
   ChangeLogs: any = [];
   ChangeLogsSize = 0;
   loading: any;
-
+  headerData = { From: 'Home', headericon: 'settings', FormPage: false, backTerms: []} 
   selectedFrequentJobs: any = [];
   jobsArray: Array<any> = [];
   
@@ -47,7 +47,7 @@ export class HomePage extends Page {
     super(nativePageTransitions);
    
 
-    this.appUtils.GetContractorLogoAndName();
+    // this.appUtils.GetContractorLogoAndName();
     
   }
 
@@ -144,7 +144,14 @@ export class HomePage extends Page {
 
 
    HideToggle(){
+    this.jobs = [];
+    this.dbHelper.GetAllJobs().subscribe(res => {
+      for (var i = 0; i < res.rows.length; i++) {
+        this.jobs.push(res.rows.item(i));
+      }
+    });
     $(".manage-toggle").hide();
+   
    }
 
   OpenAllJobs() {
@@ -217,6 +224,7 @@ export class HomePage extends Page {
               }
             });
           } else {
+            this.loading.dismiss();
             this.appUtils.presentToast('Api Error' + result.msg, 'bottom');
           }
         }) .catch(error => {
@@ -235,7 +243,12 @@ export class HomePage extends Page {
     if(elem) elem.innerHTML = text;
   }
 
-
+  CallBackFromHeader(event) {
+    console.log("***" , event);
+    if(event === 'manualBack'){
+      this.navCtrl.pop();
+    }
+  }
 
 
 }

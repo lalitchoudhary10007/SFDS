@@ -22,10 +22,11 @@ export class SuggestionsFormPage extends Page {
   public Suggestions: any = [];
   public TempSuggestions: any = [];
   SelectedUser: any = {};
-  isDrawing = false;
   FromNewOrUpdate: any ;
   SelectedJob: any = {};
   FormPrimaryKey: any = 0 ;
+
+  headerData = { From: 'SAFETY FORMS', headericon: 'arrow-back', FormPage: true, backTerms: [{showName:'Home', NavigateTo:'HomePage'},{showName:'SAFETY FORMS', NavigateTo:'SafeformPage'}]} 
 
 
   callback = data => {
@@ -39,8 +40,8 @@ export class SuggestionsFormPage extends Page {
  
       super(nativePageTransitions);
 
-      this.Suggestions = this.navParams.get("SuggestionJSON");
-      this.TempSuggestions = this.navParams.get("SuggestionJSON");
+      this.Suggestions = JSON.parse(JSON.stringify(this.navParams.get("SuggestionJSON")));
+      this.TempSuggestions = JSON.parse(JSON.stringify(this.navParams.get("SuggestionJSON")));
       this.FromNewOrUpdate = this.navParams.get("FROM"); 
       this.FormPrimaryKey = this.navParams.get("FormPrimaryID");
       console.log("js", this.Suggestions);
@@ -62,21 +63,28 @@ export class SuggestionsFormPage extends Page {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SuggestionsFormPage');
+
+    let page  = {showName:'', NavigateTo:''};
+    page.showName = 'Suggestions' ;
+    page.NavigateTo = 'SuggestionsFormPage';
+    this.headerData.From = 'Suggestions' ;
+    this.headerData.backTerms.push(page);
+
    this.appUtils.GetDeviceCurrentTimeZone().then((res) =>{
       console.log("** CURRENT TIME ZONE" , res);
       this.Suggestions.TimeZone = res ;
-    //  this.TempSuggestions.TimeZone = res ;
+      this.TempSuggestions.TimeZone = res ;
     });
 
-    this.navBar.backButtonClick = (e:UIEvent)=>{
-      // todo something
-       if(JSON.stringify(this.TempSuggestions) === JSON.stringify(this.Suggestions)){
-         this.cancel();
-       }else{
-        this.presentConfirm();
-       }
+    // this.navBar.backButtonClick = (e:UIEvent)=>{
+    //   // todo something
+    //    if(JSON.stringify(this.TempSuggestions) === JSON.stringify(this.Suggestions)){
+    //      this.cancel();
+    //    }else{
+    //     this.presentConfirm();
+    //    }
 
-     }
+    //  }
 
  }
 
@@ -173,6 +181,19 @@ export class SuggestionsFormPage extends Page {
       ]
     });
     alert.present();
+  }
+
+  CallBackFromHeader(event) {
+    console.log("***" , event);
+    if(event === 'manualBack'){
+      if(JSON.stringify(this.TempSuggestions) === JSON.stringify(this.Suggestions)){
+        this.cancel();
+      }else{
+       this.presentConfirm();
+      }
+    }else{
+      this.SubmitSuggestions(event);
+    }
   }
 
 }

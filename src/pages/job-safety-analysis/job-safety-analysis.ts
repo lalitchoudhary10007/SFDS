@@ -27,6 +27,9 @@ export class JobSafetyAnalysisPage extends Page {
   SelectedJob: any = {};
   FormPrimaryKey: any = 0 ;
 
+  headerData = { From: 'SAFETY FORMS', headericon: 'arrow-back', FormPage: true, backTerms: [{showName:'Home', NavigateTo:'HomePage'},{showName:'SAFETY FORMS', NavigateTo:'SafeformPage'}]} 
+
+
 
   callback = data => {
     this.JobSafety.Photos = data ;
@@ -40,8 +43,8 @@ export class JobSafetyAnalysisPage extends Page {
 
     super(nativePageTransitions);
 
-    this.JobSafety = this.navParams.get("JobSafetyJSON");
-    this.TempJobSafety = this.navParams.get("JobSafetyJSON");
+    this.JobSafety = JSON.parse(JSON.stringify(this.navParams.get("JobSafetyJSON")));
+    this.TempJobSafety = JSON.parse(JSON.stringify(this.navParams.get("JobSafetyJSON")));
     this.FromNewOrUpdate = this.navParams.get("FROM"); 
     this.FormPrimaryKey = this.navParams.get("FormPrimaryID");
     console.log("js", this.JobSafety);
@@ -76,23 +79,30 @@ export class JobSafetyAnalysisPage extends Page {
   };
 
   ionViewDidLoad() {
+
+    let page  = {showName:'', NavigateTo:''};
+    page.showName = 'Job Safety Analysis' ;
+    page.NavigateTo = 'JobSafetyAnalysisPage';
+    this.headerData.From = 'Job Safety Analysis' ;
+    this.headerData.backTerms.push(page);
+
     this.appUtils.GetDeviceCurrentTimeZone().then((res) =>{
       console.log("** CURRENT TIME ZONE" , res);
       this.JobSafety.TimeZone = res ;
       this.TempJobSafety.TimeZone = res ;
     });
 
-    this.navBar.backButtonClick = (e:UIEvent)=>{
-      console.log("**BACK CLICK",this.TempJobSafety);
-      console.log("**BACK CLICK",this.JobSafety);
-      // todo something
-       if(JSON.stringify(this.TempJobSafety) === JSON.stringify(this.JobSafety)){
-         this.cancel();
-       }else{
-        this.presentConfirm();
-       }
+    // this.navBar.backButtonClick = (e:UIEvent)=>{
+    //   console.log("**BACK CLICK",this.TempJobSafety);
+    //   console.log("**BACK CLICK",this.JobSafety);
+    //   // todo something
+    //    if(JSON.stringify(this.TempJobSafety) === JSON.stringify(this.JobSafety)){
+    //      this.cancel();
+    //    }else{
+    //     this.presentConfirm();
+    //    }
   
-     }
+    //  }
   }
 
   
@@ -175,7 +185,6 @@ export class JobSafetyAnalysisPage extends Page {
         this.navCtrl.pop();
       }
 
-    
     }
   }
 
@@ -219,6 +228,19 @@ export class JobSafetyAnalysisPage extends Page {
       ]
     });
     alert.present();
+  }
+
+  CallBackFromHeader(event) {
+    console.log("***" , event);
+    if(event === 'manualBack'){
+      if(JSON.stringify(this.TempJobSafety) === JSON.stringify(this.JobSafety)){
+        this.cancel();
+      }else{
+       this.presentConfirm();
+      }
+    }else{
+      this.SubmitJob(event);
+    }
   }
  
 }

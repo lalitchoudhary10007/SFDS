@@ -19,12 +19,14 @@ import { Navbar } from 'ionic-angular';
 export class DailyJobLogFormPage extends Page {
   @ViewChild(Navbar) navBar: Navbar;
   public DailyJobLogs: any = [];
-  public TempDailyJobLogs: any = [];
+  public TempDailyJobLogs: any ;
   SelectedUser: any = {};
   isDrawing = false;
   FromNewOrUpdate: any ;
   SelectedJob: any = {};
   FormPrimaryKey: any = 0 ;
+
+  headerData = { From: 'SAFETY FORMS', headericon: 'arrow-back', FormPage: true, backTerms: [{showName:'Home', NavigateTo:'HomePage'},{showName:'SAFETY FORMS', NavigateTo:'SafeformPage'}]} 
 
 
   callback = data => {
@@ -37,8 +39,8 @@ export class DailyJobLogFormPage extends Page {
     nativePageTransitions: NativePageTransitions, private alertCtrl: AlertController) {
       super(nativePageTransitions);
   
-      this.DailyJobLogs = this.navParams.get("DailyJobJSON");
-      this.TempDailyJobLogs = this.navParams.get("DailyJobJSON");
+      this.DailyJobLogs = JSON.parse(JSON.stringify(this.navParams.get("DailyJobJSON")));
+      this.TempDailyJobLogs = JSON.parse(JSON.stringify(this.navParams.get("DailyJobJSON")));
       this.FromNewOrUpdate = this.navParams.get("FROM"); 
       this.FormPrimaryKey = this.navParams.get("FormPrimaryID");
       this.sessionHelper.GetValuesFromSession("SelectedUser").then((val)=>{
@@ -58,21 +60,28 @@ export class DailyJobLogFormPage extends Page {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DailyJobLogFormPage');
+
+    let page  = {showName:'', NavigateTo:''};
+    page.showName = 'Daily Job Log' ;
+    page.NavigateTo = 'DailyJobLogFormPage';
+    this.headerData.From = 'Daily Job Log' ;
+    this.headerData.backTerms.push(page);
+
     this.appUtils.GetDeviceCurrentTimeZone().then((res) =>{
       console.log("** CURRENT TIME ZONE" , res);
       this.DailyJobLogs.TimeZone = res ;
       this.TempDailyJobLogs.TimeZone = res ;
     });
 
-    this.navBar.backButtonClick = (e:UIEvent)=>{
-      // todo something
-       if(JSON.stringify(this.TempDailyJobLogs) === JSON.stringify(this.DailyJobLogs)){
-         this.cancel();
-       }else{
-        this.presentConfirm();
-       }
+    // this.navBar.backButtonClick = (e:UIEvent)=>{
+    //   // todo something
+    //    if(JSON.stringify(this.TempDailyJobLogs) === JSON.stringify(this.DailyJobLogs)){
+    //      this.cancel();
+    //    }else{
+    //     this.presentConfirm();
+    //    }
 
-     }
+    //  }
 
   }
   ionViewWillEnter() {
@@ -171,6 +180,19 @@ export class DailyJobLogFormPage extends Page {
       ]
     });
     alert.present();
+  }
+
+  CallBackFromHeader(event) {
+    console.log("***" , event);
+    if(event === 'manualBack'){
+      if(JSON.stringify(this.TempDailyJobLogs) === JSON.stringify(this.DailyJobLogs)){
+        this.cancel();
+      }else{
+       this.presentConfirm();
+      }
+    }else{
+      this.SubmitDailyJobLog(event);
+    }
   }
 
 }

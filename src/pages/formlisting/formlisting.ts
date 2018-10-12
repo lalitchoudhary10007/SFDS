@@ -22,6 +22,9 @@ export class FormlistingPage extends Page {
   FormName: any;
   SelectedJob: any = {};
 
+  headerData = { From: 'SAFETY FORMS', headericon: 'arrow-back', FormPage: false, backTerms: [{showName:'Home', NavigateTo:'HomePage'},{showName:'SAFETY FORMS', NavigateTo:'SafeformPage'}]} 
+
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public DbHelper: DbHelperProvider,
     public apiHelper: ApiHelperProvider, private alertCtrl: AlertController, public appCtrl: App, public sessionHelper: SessionHelperProvider,
@@ -75,15 +78,15 @@ export class FormlistingPage extends Page {
           });
         break;
 
-        case 'Confined Space':
+        // case 'Confined Space':
         // this.apiHelper.GetFormAssets('ConfinedSpace.json')
         //   .subscribe((response) => {
         //     this.navCtrl.push('ConfinedSpacePage', {
-        //       DailyJobJSON: response,
+        //       ConfinedSpaceJSON: response,
         //       FROM: 1
         //     });
         //   });
-        break;
+        // break;
 
       default:
 
@@ -105,6 +108,8 @@ export class FormlistingPage extends Page {
           HuddleJSON: formJSON,
           FROM: type,
           FormPrimaryID: FormPrimaryId
+        }).then(() =>{
+          this.appUtils.presentToast('Page Loaded' , 'bottom');
         });
         break;
       case 'Job Safety Analysis':
@@ -137,6 +142,9 @@ export class FormlistingPage extends Page {
           SiteSafetyJSON: JSON.parse(formJSON),
           FROM: type,
           FormPrimaryID: FormPrimaryId
+        }).then(() =>{
+          console.log("** SITE SAFETY", 'OPENED');
+          this.appUtils.presentToast('Page Loaded' , 'bottom');
         });
         break;
 
@@ -159,6 +167,11 @@ export class FormlistingPage extends Page {
     
     this.FormName = this.navParams.get("FormName");
     console.log('**ionViewDidLoad FormlistingPage', this.FormName);
+    let page  = {showName:'', NavigateTo:''};
+    page.showName = this.FormName ;
+    page.NavigateTo = 'FormlistingPage';
+    this.headerData.From = this.FormName ;
+    this.headerData.backTerms.push(page);
     switch (this.FormName) {
       case 'Huddle':
         this.apiHelper.GetFormAssets('huddle.json')
@@ -172,7 +185,7 @@ export class FormlistingPage extends Page {
 
     }
 
-
+   
 
   }
   ionViewWillEnter() {
@@ -291,6 +304,13 @@ export class FormlistingPage extends Page {
 
   goback() {
     this.navCtrl.pop();
+  }
+
+  CallBackFromHeader(event) {
+    console.log("***" , event);
+    if(event === 'manualBack'){
+      this.navCtrl.pop();
+    }
   }
 
 }

@@ -18,6 +18,8 @@ import { Page } from '../../models/Page';
 })
 export class SafeformPage extends Page {
 
+  headerData = { From: 'SAFETY FORMS', headericon: 'arrow-back', FormPage: false, backTerms: [{showName:'Home', NavigateTo:'HomePage'},{showName:'SAFETY FORMS', NavigateTo:'SafeformPage'}]} 
+
   constructor(private navCtrl: NavController, nativePageTransitions: NativePageTransitions,
     private appUtils: AppUtilsProvider) {
       super(nativePageTransitions);
@@ -42,5 +44,13 @@ export class SafeformPage extends Page {
     this.navCtrl.pop();
     
   }
+
+  CallBackFromHeader(event) {
+    console.log("***" , event);
+    if(event === 'manualBack'){
+      this.navCtrl.pop();
+    }
+  }
+
 
 }

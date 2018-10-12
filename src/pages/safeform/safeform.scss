@@ -19,54 +19,52 @@ page-safeform {
             max-width: 100%;
             width: 100%;
             }
-
-
     /* Header css */
-ion-header .header-logo img {
-	margin-top: 0px;
-	max-height: 50px;
-	margin-left: 0px;
-}
-.tagline {
-	width: 160px;
-    display: block;
-    float: left;
-    color: #fff;
-    font-weight: 100;
-    font-size: 14px;
-    line-height: 14px;
-    border-left: 1px solid #fff;
-    padding-left: 10px;
-    margin-top: 14px;
-    margin-left: 10px;
-}
-ion-header .header-logo {
-	display: block;
-	float: left;
-}
-.toolbar-background-md {
-	border-color: #b2b2b2;
-	background: #000000;
-}
-.toolbar-title-md {
-	color: #fff;
-}
-.back-button {
-	color: #fff !important;
-	position: absolute;
-	right: 0;
-	display: block;
-}
-ion-content.content-md {
-	color: #000;
-	background-color: #000000;
-}
-.content-ios {
-	background-color: #000000 !important;
-}
-ion-header {
-    border-bottom: 1px solid #1d72c1;
-}
+// ion-header .header-logo img {
+//     margin-top: 14px;
+//     max-height: 40px;
+//     margin-left: 0px;
+// }
+// .tagline {
+// 	width: 160px;
+//     display: block;
+//     float: left;
+//     color: #fff;
+//     font-weight: 100;
+//     font-size: 14px;
+//     line-height: 14px;
+//     border-left: 1px solid #fff;
+//     padding-left: 10px;
+//     margin-top: 14px;
+//     margin-left: 10px;
+// }
+// ion-header .header-logo {
+// 	display: block;
+// 	float: left;
+// }
+// .toolbar-background-md {
+// 	border-color: #b2b2b2;
+// 	background: #000000;
+// }
+// .toolbar-title-md {
+// 	color: #fff;
+// }
+// .back-button {
+// 	color: #fff !important;
+// 	position: absolute;
+// 	right: 0;
+// 	display: block;
+// }
+// ion-content.content-md {
+// 	color: #000;
+// 	background-color: #000000;
+// }
+// .content-ios {
+// 	background-color: #000000 !important;
+// }
+// ion-header {
+//     border-bottom: 1px solid #1d72c1;
+// }
 /* Header css ../ */
 
     .toolbar-background-md {
@@ -142,7 +140,7 @@ ion-header {
     .iner-col img {
         position: static;
         color: #fff;
-        height: unset;
+        height: 155px;
         }
         .grid .row .iner-col > span {
             color: #fff;
@@ -153,7 +151,7 @@ ion-header {
             display: block;
             margin: -5px 0 0 0;
             line-height: normal;
-            font-size: 1.5em;
+            font-size: 1.3em;
             padding: 0 10px;
             position: static;
             bottom: 2px;
@@ -181,33 +179,33 @@ ion-header {
         margin: 5px 0 0 0;
     }
     /* Breadcums css */
-    ul.breadcums-cntr {
-        margin: -5px 0 10px 0;
-        width: 100%;
-        float: left;
-        padding: 0 0 0 13px;
-    }
-    ul.breadcums-cntr li {
-        display: block;
-        color: #fff;
-        font-size: 14px;
-        text-transform: capitalize;
-        font-weight: 100;
-        float: left;
-        text-decoration: underline;
-    }
-    ul.breadcums-cntr li:last-child() {
-        text-transform: uppercase;
-        text-decoration: none;
-        font-size: 14px;
-    }
-    ul.breadcums-cntr li span {
-        display: inline-block;
-        margin: 0 5px;
-    }
-    ul.breadcums-cntr li:last-child span {
-        display: none;
-    }
+    // ul.breadcums-cntr {
+    //     margin: 16px 0 10px 0;
+    //     width: 100%;
+    //     float: left;
+    //     padding: 0 0 0 13px;
+    // }
+    // ul.breadcums-cntr li {
+    //     display: block;
+    //     color: #fff;
+    //     font-size: 14px;
+    //     text-transform: capitalize;
+    //     font-weight: 100;
+    //     float: left;
+    //     text-decoration: underline;
+    // }
+    // ul.breadcums-cntr li:last-child() {
+    //     text-transform: uppercase;
+    //     text-decoration: none;
+    //     font-size: 14px;
+    // }
+    // ul.breadcums-cntr li span {
+    //     display: inline-block;
+    //     margin: 0 5px;
+    // }
+    // ul.breadcums-cntr li:last-child span {
+    //     display: none;
+    // }
     /* Breadcums css ../ */
     /* Footer new css */
     
@@ -265,6 +263,13 @@ ion-header {
 @media (max-width: 380px) {
     .footer-right {
         padding-left: 75px;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .iner-col img {
+        width: 94%;
     }
 }
     /* Footer css ../ */

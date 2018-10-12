@@ -54,18 +54,19 @@ export class AppUtilsProvider {
   GetCurrentDateTime(){
 
     var datetime = this.datePipe.transform(new Date() , 'yyyy-MM-dd HH:mm:ss');
-    console.log("***TIME ZONE"+new Date().getTimezoneOffset() ,"TIME: - "+ datetime);
-    ;
     return datetime ;
 
   }
 
-  GetFeatureDateFormat(date){
-    var datetime = this.datePipe.transform(date , 'd MMM y');
-  //  console.log("FORMATED",datetime);
+  GetCurrentPickerDate(){
+    var datetime = this.datePipe.transform(new Date() , 'yyyy-MM-dd');
     return datetime ;
   }
 
+  GetCurrentPickerTime(){
+    var datetime = this.datePipe.transform(new Date() , 'HH:mm:ss');
+    return datetime ;
+  }
 
   twoDecimals(number) {
     return this.decimalPipe.transform(number, '1.2-2');

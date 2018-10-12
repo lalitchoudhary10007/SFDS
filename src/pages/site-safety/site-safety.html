@@ -5,10 +5,9 @@
   Ionic pages and navigation.
 -->
 <ion-header class="home">
-    <ion-navbar>
+    <!-- <ion-navbar>
       <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
       <span class="tagline">{{appUtils.ContractorName}}</span>
-      <!-- <span class="logedin-user">intelli logic</span> -->
     </ion-navbar>
     <div class="ban">
         <ul class="breadcums-cntr">
@@ -31,7 +30,11 @@
           <span>2018-09-12</span>
           <span>15:34:54</span>
         </div>
-      </div>
+      </div> -->
+
+      <appheader [headerData]="headerData" (CallBackEvent)="CallBackFromHeader($event);"></appheader>
+
+
   </ion-header>
   
   
@@ -40,7 +43,7 @@
     <!-- Middle Content -->
     <div class="main-cnrt">
       <div class="inner-cntr">
-        <h2>general issues</h2>
+        <h3>general issues</h3>
   
         <ion-grid>
           <ion-row>
@@ -432,7 +435,7 @@
       <br>
       <br>
       <div class="inner-cntr">
-        <h2>housekeeping</h2>
+        <h3>housekeeping</h3>
         <ion-grid>
           <ion-row>
             <ion-col col-6 col-sm-6>
@@ -789,7 +792,7 @@
       <br>
       <br>
       <div class="inner-cntr">
-        <h2>fire prevention / protection</h2>
+        <h3>fire prevention / protection</h3>
         <ion-grid>
           <ion-row>
             <ion-col col-6 col-sm-6>
@@ -1039,14 +1042,14 @@
         <br>
         <br>
         <div class="inner-cntr">
-          <h2>tools</h2>
+          <h3>tools</h3>
           <ion-grid>
             <ion-row>
               <ion-col col-6 col-sm-6>
                 <label style="color: #fff;">are proper tools for the job being used:</label>
               </ion-col>
               <ion-col col-6 col-sm-6>
-                <ion-list radio-group [(ngModel)]="siteSafety.Fire_Prevention.ProperTools">
+                <ion-list radio-group [(ngModel)]="siteSafety.Tools.ProperTools">
                   <ion-row>
                     <ion-col col-6>
                       <ion-item>
@@ -1069,7 +1072,7 @@
                 <label style="color: #fff;">Comment:</label>
               </ion-col>
               <ion-col col-8 col-sm-8>
-                <textarea [(ngModel)]="siteSafety.Fire_Prevention.ProperToolsComment" style="width: 100%; height: 60px;"></textarea>
+                <textarea [(ngModel)]="siteSafety.Tools.ProperToolsComment" style="width: 100%; height: 60px;"></textarea>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -1081,7 +1084,7 @@
                 <label style="color: #fff;">have the tools been inspected before use:</label>
               </ion-col>
               <ion-col col-6 col-sm-6>
-                <ion-list radio-group [(ngModel)]="siteSafety.Fire_Prevention.ToolsInspected">
+                <ion-list radio-group [(ngModel)]="siteSafety.Tools.ToolsInspected">
                   <ion-row>
                     <ion-col col-6>
                       <ion-item>
@@ -1104,7 +1107,7 @@
                 <label style="color: #fff;">Comment:</label>
               </ion-col>
               <ion-col col-8 col-sm-8>
-                <textarea [(ngModel)]="siteSafety.Fire_Prevention.ToolsInspectedComment" style="width: 100%; height: 60px;"></textarea>
+                <textarea [(ngModel)]="siteSafety.Tools.ToolsInspectedComment" style="width: 100%; height: 60px;"></textarea>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -1116,7 +1119,7 @@
                 <label style="color: #fff;">is there adequate storage for tools:</label>
               </ion-col>
               <ion-col col-6 col-sm-6>
-                <ion-list radio-group [(ngModel)]="siteSafety.Fire_Prevention.ToolStorage">
+                <ion-list radio-group [(ngModel)]="siteSafety.Tools.ToolStorage">
                   <ion-row>
                     <ion-col col-6>
                       <ion-item>
@@ -1139,7 +1142,7 @@
                 <label style="color: #fff;">Comment:</label>
               </ion-col>
               <ion-col col-8 col-sm-8>
-                <textarea [(ngModel)]="siteSafety.Fire_Prevention.ToolStorageComment" style="width: 100%; height: 60px;"></textarea>
+                <textarea [(ngModel)]="siteSafety.Tools.ToolStorageComment" style="width: 100%; height: 60px;"></textarea>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -1151,7 +1154,7 @@
                 <label style="color: #fff;">are defective or damaged tools removed from use:</label>
               </ion-col>
               <ion-col col-6 col-sm-6>
-                <ion-list radio-group [(ngModel)]="siteSafety.Fire_Prevention.DefectiveTools">
+                <ion-list radio-group [(ngModel)]="siteSafety.Tools.DefectiveTools">
                   <ion-row>
                     <ion-col col-6>
                       <ion-item>
@@ -1174,7 +1177,7 @@
                 <label style="color: #fff;">Comment:</label>
               </ion-col>
               <ion-col col-8 col-sm-8>
-                <textarea [(ngModel)]="siteSafety.Fire_Prevention.DefectiveToolsComment" style="width: 100%; height: 60px;"></textarea>
+                <textarea [(ngModel)]="siteSafety.Tools.DefectiveToolsComment" style="width: 100%; height: 60px;"></textarea>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -1186,7 +1189,7 @@
                 <label style="color: #fff;">are all appropriate guards on each tool:</label>
               </ion-col>
               <ion-col col-6 col-sm-6>
-                <ion-list radio-group [(ngModel)]="siteSafety.Fire_Prevention.ToolGuards">
+                <ion-list radio-group [(ngModel)]="siteSafety.Tools.ToolGuards">
                   <ion-row>
                     <ion-col col-6>
                       <ion-item>
@@ -1209,7 +1212,7 @@
                 <label style="color: #fff;">Comment:</label>
               </ion-col>
               <ion-col col-8 col-sm-8>
-                <textarea [(ngModel)]="siteSafety.Fire_Prevention.ToolGuardsComment" style="width: 100%; height: 60px;"></textarea>
+                <textarea [(ngModel)]="siteSafety.Tools.ToolGuardsComment" style="width: 100%; height: 60px;"></textarea>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -1221,7 +1224,7 @@
                 <label style="color: #fff;">are cords on the tools in good condition:</label>
               </ion-col>
               <ion-col col-6 col-sm-6>
-                <ion-list radio-group [(ngModel)]="siteSafety.Fire_Prevention.Cords">
+                <ion-list radio-group [(ngModel)]="siteSafety.Tools.Cords">
                   <ion-row>
                     <ion-col col-6>
                       <ion-item>
@@ -1244,7 +1247,7 @@
                 <label style="color: #fff;">Comment:</label>
               </ion-col>
               <ion-col col-8 col-sm-8>
-                <textarea [(ngModel)]="siteSafety.Fire_Prevention.CordsComment" style="width: 100%; height: 60px;"></textarea>
+                <textarea [(ngModel)]="siteSafety.Tools.CordsComment" style="width: 100%; height: 60px;"></textarea>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -1256,7 +1259,7 @@
                 <label style="color: #fff;">have employees been trained in the use of the tools:</label>
               </ion-col>
               <ion-col col-6 col-sm-6>
-                <ion-list radio-group [(ngModel)]="siteSafety.Fire_Prevention.ToolTraining">
+                <ion-list radio-group [(ngModel)]="siteSafety.Tools.ToolTraining">
                   <ion-row>
                     <ion-col col-6>
                       <ion-item>
@@ -1279,7 +1282,7 @@
                 <label style="color: #fff;">Comment:</label>
               </ion-col>
               <ion-col col-8 col-sm-8>
-                <textarea [(ngModel)]="siteSafety.Fire_Prevention.ToolTrainingComment" style="width: 100%; height: 60px;"></textarea>
+                <textarea [(ngModel)]="siteSafety.Tools.ToolTrainingComment" style="width: 100%; height: 60px;"></textarea>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -1291,7 +1294,7 @@
                 <label style="color: #fff;">are the tools properly grounded or double insulated:</label>
               </ion-col>
               <ion-col col-6 col-sm-6>
-                <ion-list radio-group [(ngModel)]="siteSafety.Fire_Prevention.Grounding">
+                <ion-list radio-group [(ngModel)]="siteSafety.Tools.Grounding">
                   <ion-row>
                     <ion-col col-6>
                       <ion-item>
@@ -1314,7 +1317,7 @@
                 <label style="color: #fff;">Comment:</label>
               </ion-col>
               <ion-col col-8 col-sm-8>
-                <textarea [(ngModel)]="siteSafety.Fire_Prevention.GroundingComment" style="width: 100%; height: 60px;"></textarea>
+                <textarea [(ngModel)]="siteSafety.Tools.GroundingComment" style="width: 100%; height: 60px;"></textarea>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -1326,7 +1329,7 @@
                 <label style="color: #fff;">are tools protected from unauthorised use:</label>
               </ion-col>
               <ion-col col-6 col-sm-6>
-                <ion-list radio-group [(ngModel)]="siteSafety.Fire_Prevention.UnauthorizedUse">
+                <ion-list radio-group [(ngModel)]="siteSafety.Tools.UnauthorizedUse">
                   <ion-row>
                     <ion-col col-6>
                       <ion-item>
@@ -1349,7 +1352,7 @@
                 <label style="color: #fff;">Comment:</label>
               </ion-col>
               <ion-col col-8 col-sm-8>
-                <textarea [(ngModel)]="siteSafety.Fire_Prevention.UnauthorizedUseComment" style="width: 100%; height: 60px;"></textarea>
+                <textarea [(ngModel)]="siteSafety.Tools.UnauthorizedUseComment" style="width: 100%; height: 60px;"></textarea>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -1364,7 +1367,7 @@
       <br>
       <br>
       <div class="inner-cntr">
-        <h2>personal protective equipment(PPE)</h2>
+        <h3>personal protective equipment(PPE)</h3>
         <ion-grid>
           <ion-row>
             <ion-col col-6 col-sm-6>
@@ -1545,7 +1548,7 @@
       <br>
       <br>
       <div class="inner-cntr">
-        <h2>ladders</h2>
+        <h3>ladders</h3>
         <ion-grid>
           <ion-row>
             <ion-col col-6 col-sm-6>
@@ -1730,7 +1733,7 @@
       <br>
       <br>
       <div class="inner-cntr three-options">
-        <h2>lockout / tagout</h2>
+        <h3>lockout / tagout</h3>
         <ion-grid>
           <ion-row>
             <ion-col col-5 col-sm-5>
@@ -1902,7 +1905,7 @@
       <br>
       <br>
       <div class="inner-cntr three-options">
-        <h2>confined space</h2>
+        <h3>confined space</h3>
         <ion-grid>
           <ion-row>
             <ion-col col-5 col-sm-5>
@@ -2114,7 +2117,7 @@
       <br>
       <br>
       <div class="inner-cntr three-options">
-        <h2>Demolition</h2>
+        <h3>demolition</h3>
         <ion-grid>
           <ion-row>
             <ion-col col-5 col-sm-5>
@@ -2409,7 +2412,7 @@
       <br>
       <br>
       <div class="inner-cntr three-options">
-        <h2>cranes and rigging</h2>
+        <h3>cranes and rigging</h3>
         <ion-grid>
           <ion-row>
             <ion-col col-5 col-sm-5>
@@ -2949,7 +2952,7 @@
       <br>
       <br>
       <div class="inner-cntr three-options">
-        <h2>scaffolding</h2>
+        <h3>scaffolding</h3>
         <ion-grid>
             <ion-row>
               <ion-col col-5 col-sm-5>
@@ -3565,7 +3568,7 @@
       <br>
       <br>
       <div class="inner-cntr three-options">
-        <h2>fall protection</h2>
+        <h3>fall protection</h3>
         <ion-grid>
           <ion-row>
             <ion-col col-5 col-sm-5>
@@ -3740,7 +3743,7 @@
       <br>
       <br>
       <div class="inner-cntr three-options">
-        <h2>trenches, excavation and shoring</h2>
+        <h3>trenches, excavation and shoring</h3>
         <ion-grid>
           <ion-row>
             <ion-col col-5 col-sm-5>
@@ -4113,7 +4116,7 @@
   
   
       <div class="inner-cntr">
-        <h2>welding / hot work</h2>
+        <h3>welding / hot work</h3>
         <ion-grid>
             <ion-row>
               <ion-col col-5 col-sm-5>
@@ -4407,7 +4410,7 @@
   
   
       <div class="inner-cntr">
-        <h2>concrete construction</h2>
+        <h3>concrete construction</h3>
         <ion-grid>
             <ion-row>
               <ion-col col-5 col-sm-5>
@@ -4611,8 +4614,7 @@
                       </ion-col>
                     </ion-row>
                     <ion-row>
-                      <ion-col col-4 col-sm-4></ion-col>
-                      <ion-col col-8 col-sm-8>
+                      <ion-col col-12 col-sm-12 style="text-align: center;">
                         <button class="button-as" (click)="OpenAddPhotoPage()">
                           <ion-icon name="add" style="color: #fff;" class="icon icon-md ion-md-add">
                            </ion-icon> photo({{siteSafety.Photos.length}})</button>
@@ -4620,6 +4622,10 @@
                     </ion-row>
 
                     <ion-row>
+                        <ion-col col-12 col-sm-12 style="text-align: center;">
+                            <button class="button-as" (click)="OpenAddSignaturePage()">
+                              <ion-icon name="add" style="color: #fff;"></ion-icon> signature</button>
+                          </ion-col>
                       <ion-col col-4 col-sm-4>
                           <label style="color: #fff;">Signature</label>
                         </ion-col>
@@ -4627,22 +4633,10 @@
                           <ion-col col-8 col-sm-8 *ngIf="siteSafety.Signatures == '';else signature">
                           <!-- <textarea style="width: 100%; height: 100px;"></textarea> -->
                            </ion-col>
-                            <ion-col col-12 col-sm-12 style="text-align: center;">
-                                <button class="button-as" (click)="OpenAddSignaturePage()">
-                                  <ion-icon name="add" style="color: #fff;"></ion-icon> signature</button>
-                              </ion-col>
+                            
                          
                        
                   </ion-row>
-
-                    <!-- <ion-row>
-                      <ion-col col-4 col-sm-4>
-                          <label style="color: #fff;">tap to enter signature</label>
-                        </ion-col>
-                      <ion-col col-8 col-sm-8>
-                        <textarea style="width: 100%; height: 100px;"></textarea>
-                      </ion-col>
-                    </ion-row> -->
                   </ion-grid>
 
                   <ng-template #signature>
@@ -4659,19 +4653,18 @@
     <!-- End main container -->
     <!-- Middle Content end -->
     <br>
-    <br>
-    <br>
-    <br>
+    <footer>
+        <div class="footer-left">
+          <img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" />
+        </div>
+        <!-- <span class="copy-right">Copyright 2018</span> -->
+        <div class="footer-right">
+          <span class="tag-bottom">Construction Safety Compliance App</span>
+          <a href="http://www.safetyfirstdata.com">Help &amp; Training</a>
+        </div>
+      </footer>
   </ion-content>
   
   
   
-   <footer>
-    <div class="footer-left">
-      <img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" />
-    </div>
-    <div class="footer-right">
-      <span class="tag-bottom">Construction Safety Compliance App</span>
-      <a href="http://www.safetyfirstdata.com">Help &amp; Training</a>
-    </div>
-  </footer>
+  
