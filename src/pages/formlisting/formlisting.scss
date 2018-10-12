@@ -1,0 +1,228 @@
+page-formlisting {
+    .content-md, .content-ios {
+        color: #fff;
+        background: #000;
+    }
+    .toolbar {
+        .toolbar-background {
+          background: transparent;
+        }
+      }
+      .content-md, .content-ios {
+        color: #fff;
+        background: #000;
+    }
+    .list-ios {
+        margin: 0px 0 0px;
+        }
+        ion-select {
+            max-width: 100%;
+            width: 100%;
+            }
+    
+ /* Header css */
+// ion-header .header-logo img {
+//     margin-top: 14px;
+//     max-height: 40px;
+//     margin-left: 0px;
+// }
+// .tagline {
+// 	width: 160px;
+//     display: block;
+//     float: left;
+//     color: #fff;
+//     font-weight: 100;
+//     font-size: 14px;
+//     line-height: 14px;
+//     border-left: 1px solid #fff;
+//     padding-left: 10px;
+//     margin-top: 14px;
+//     margin-left: 10px;
+// }
+// ion-header .header-logo {
+// 	display: block;
+// 	float: left;
+// }
+// .toolbar-background-md {
+// 	border-color: #b2b2b2;
+// 	background: #000000;
+// }
+// .toolbar-title-md {
+// 	color: #fff;
+// }
+// .back-button {
+// 	color: #fff !important;
+// 	position: absolute;
+// 	right: 0;
+// 	display: block;
+// }
+// ion-content.content-md {
+// 	color: #000;
+// 	background-color: #000000;
+// }
+// .content-ios {
+// 	background-color: #000000 !important;
+// }
+// ion-header ion-navbar {
+//     border-bottom: 1px solid #1d72c1;
+// }
+/* Header css ../ */
+
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 30px 0 0 0;
+   }
+   th, td {
+       text-align: left;
+       padding: 8px;
+       font-size: 14px;
+       text-transform: capitalize;
+       min-height: 45px;
+       max-height: 45px;
+       height: 45px;
+   }
+   tr:nth-child(even) {
+       background-color: transparent;
+       color: #fff;
+       border: 1px solid #fff;
+   }
+   tr:nth-child(odd) {
+       background-color: transparent;
+       color: #fff;
+       border: 1px solid #fff;
+   }
+   th {
+       background-color: #888888;
+       color: #fff;
+   }
+   .add-new {
+    color: #fff;
+    position: absolute;
+    z-index: 999;
+    right: 15px;
+    top: 12px;
+    font-size: 22px;
+   }
+   .add-new span {
+    color: #fff;
+    display: inline-block;
+    text-transform: capitalize;
+    font-size: 15px;
+    vertical-align: 2px;
+    margin-left: 5px;
+   }
+   
+   /* Breadcums css */
+//    ul.breadcums-cntr {
+//     margin: 5px 0 20px 0;
+//     width: 100%;
+//     float: left;
+//     padding: 0 0 0 0px;
+// }
+// ul.breadcums-cntr li {
+//     display: block;
+//     color: #fff;
+//     font-size: 14px;
+//     text-transform: capitalize;
+//     font-weight: 100;
+//     float: left;
+//     text-decoration: underline;
+//     line-height: 22px;
+// }
+// ul.breadcums-cntr li:last-child{
+//     text-transform: uppercase;
+//     text-decoration: none;
+//     font-weight: 600;
+//     padding: 2px 0 0 0;
+//     white-space: nowrap;
+//     width: 112px;
+//     overflow: scroll;
+// }
+// ul.breadcums-cntr li:last-child() {
+//     text-transform: uppercase;
+//     text-decoration: none;
+//     font-size: 14px;
+// }
+// ul.breadcums-cntr li span {
+//     display: inline-block;
+//     margin: 0 5px;
+// }
+// ul.breadcums-cntr li:last-child span {
+//     display: none;
+// }
+/* Breadcums css ../ */
+          /* Footer new css */
+    
+    footer {
+        max-height: 60px;
+        width: 100%;
+        padding: 0 27px;
+        background: #000;
+        min-width: 60px;
+        height: 60px;
+        border-top: 1px solid #1d72c1;
+        position: absolute;
+        bottom: 0;
+        z-index: 9;
+    }
+    footer .footer-right a {
+        display: block;
+        width: 100%;
+        float: left;
+        color: #fff;
+        text-decoration: underline;
+        font-weight: 100;
+        margin-top: 3px;
+    }
+    .footer-left {
+        width: 75px;
+        float: left;
+        min-height: 58px;
+    }
+    .footer-right {
+        width: 100%;
+        float: left;
+        min-height: 58px;
+        padding-left: 0;
+        margin-left: -75px;
+        text-align: center;
+    }
+    .footer-logo {
+        max-height: 30px;
+        display: block;
+        float: left;
+        margin-top: 10px;
+    }
+    .tag-bottom {
+        color: #fff;
+        font-weight: 100;
+        display: block;
+        float: left;
+        margin-top: 7px;
+        font-size: 12px;
+        width: 100%;
+    }
+    .listing-job {
+        color: #000;
+        background: #fff;
+        padding: 10px 10px;
+    }
+/* Footer new css ../ */
+   @media (max-width: 480px) {
+       .text-as {
+           font-family: inherit;
+           display: block;
+           line-height: 20px;
+       }
+       .slash-as {
+           display: none;
+       }
+   }
+   @media (max-width: 380px) {
+    .footer-right {
+        padding-left: 75px;
+    }
+}
+   }
+   

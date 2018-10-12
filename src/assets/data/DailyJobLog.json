@@ -1,0 +1,34 @@
+{
+    "SelectedUser": "",
+    "SelectedJob": "",
+    "Environment": {
+        "Weather": "",
+        "Temperature": ""
+    },
+    "Manpower": {
+        "Forman": "",
+        "Journeyman": "",
+        "Apprentice": ""
+    },
+    "Subcontractor_List": {
+        "Sub1": "",
+        "Sub2": "",
+        "Sub3": ""
+    },
+    "Delays": "",
+    "DelaysNote": "",
+    "HouseKeeping": "",
+    "HouseKeepingNote": "",
+    "Accidents": "",
+    "AccidentsNote": "",
+    "AreasWorked": "",
+    "TruckInspection": "",
+    "DateCreated": "09/05/2018",
+    "DateChanged": "09/05/2018",
+    "TimeZone": "",
+    "Template": "",
+    "Locked": "Locked",
+    "Status": "Active",
+    "Photos": [],
+    "Signatures": ""
+}

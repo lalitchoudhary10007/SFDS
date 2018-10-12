@@ -1,30 +1,56 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import { HTTP } from '@ionic-native/http';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { DatePipe } from '@angular/common';
+import { DecimalPipe } from '@angular/common';
+import { SQLite } from '@ionic-native/sqlite';
+import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiHelperProvider , SessionHelperProvider , AppUtilsProvider , DbHelperProvider } from '../providers/providers';
+import { File } from '@ionic-native/file';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { Globalization } from '@ionic-native/globalization';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(MyApp, {
+      preloadModules: true
+    }),
+     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   entryComponents: [
     MyApp,
-    HomePage
-  ],
+ ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SessionHelperProvider,
+    AppUtilsProvider,
+    ApiHelperProvider,
+    DatePipe,
+    DecimalPipe,
+    HTTP,
+    SQLite,
+    Camera,
+    File,
+    FileTransfer,
+    DbHelperProvider,
+    NativePageTransitions,
+    Globalization
   ]
 })
 export class AppModule {}

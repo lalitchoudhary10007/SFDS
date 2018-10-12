@@ -1,0 +1,248 @@
+<!--
+  Generated template for the NewformPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="login-as">
+  <!-- <ion-navbar> -->
+      <!-- <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
+          <span class="tagline">{{appUtils.ContractorName}}</span>
+     <span class="logedin-user">intelli logic</span>
+  </ion-navbar>
+  <div class="ban">
+      <ul class="breadcums-cntr">
+        <li (click)="OpenHome()">home
+          <span>></span>
+        </li>
+        <li (click)="goback()">safety forms
+          <span>></span>
+        </li>
+        <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">huddle form
+          <span>></span>
+        </li>
+      </ul>
+      <div class="active-job">active job: {{SelectedJob.jobNumber +"-"+ SelectedJob.jobName}}</div>
+      <button class="cancel" (click)="cancel()">cancel</button>
+      <button class="submit" (click)="SaveHuddle('submit')">submit</button>
+      <button class="submit" (click)="SaveHuddle('draft')">draft</button>
+    </div> -->
+
+    <appheader [headerData]="headerData" (CallBackEvent)="CallBackFromHeader($event);"></appheader>
+
+
+</ion-header>
+
+
+<ion-content padding class="new-form">
+  
+  <ion-grid>
+    <h3>huddle topic discussed</h3>
+    <ion-row class="checkboxes-as">
+
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Safety Data Sheets</ion-label>
+          <ion-checkbox checked={{huddle.Topics_Discussed.SDS}} [(ngModel)]="huddle.Topics_Discussed.SDS" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Housekeeping</ion-label>
+          <ion-checkbox checked={{huddle.Topics_Discussed.HouseKeeping}} [(ngModel)]="huddle.Topics_Discussed.HouseKeeping" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>PPE</ion-label>
+          <ion-checkbox checked={{huddle.Topics_Discussed.PPE}} [(ngModel)]="huddle.Topics_Discussed.PPE" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Hand Safety</ion-label>
+          <ion-checkbox checked={{huddle.Topics_Discussed.HandSafety}} [(ngModel)]="huddle.Topics_Discussed.HandSafety" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Tools &amp; Equipment</ion-label>
+          <ion-checkbox checked={{huddle.Topics_Discussed.Tools}} [(ngModel)]="huddle.Topics_Discussed.Tools" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Confined Space</ion-label>
+          <ion-checkbox checked={{huddle.Topics_Discussed.ConfinedSpaces}} [(ngModel)]="huddle.Topics_Discussed.ConfinedSpaces" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Lifts</ion-label>
+          <ion-checkbox checked={{huddle.Topics_Discussed.Lifts}} [(ngModel)]="huddle.Topics_Discussed.Lifts" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Fall Protection</ion-label>
+          <ion-checkbox checked={{huddle.Topics_Discussed.FallProtection}} [(ngModel)]="huddle.Topics_Discussed.FallProtection" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Hot Work</ion-label>
+          <ion-checkbox checked={{huddle.Topics_Discussed.HotWork}} [(ngModel)]="huddle.Topics_Discussed.HotWork" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Ladders</ion-label>
+          <ion-checkbox checked={{huddle.Topics_Discussed.Ladders}} [(ngModel)]="huddle.Topics_Discussed.Ladders" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Scaffolding</ion-label>
+          <ion-checkbox checked={{huddle.Topics_Discussed.Scaffolding}} [(ngModel)]="huddle.Topics_Discussed.Scaffolding" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Lockout/Tagout</ion-label>
+          <ion-checkbox checked={{huddle.Topics_Discussed.Lockout}} [(ngModel)]="huddle.Topics_Discussed.Lockout" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
+
+  <br>
+  <ion-grid>
+    <h3>potential hazards</h3>
+    <ion-row class="checkboxes-as">
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Falls</ion-label>
+          <ion-checkbox checked={{huddle.Potential_Hazards.Falls}} [(ngModel)]="huddle.Potential_Hazards.Falls" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Back injury</ion-label>
+          <ion-checkbox checked={{huddle.Potential_Hazards.Backs}} [(ngModel)]="huddle.Potential_Hazards.Backs" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Pinch Points</ion-label>
+          <ion-checkbox checked={{huddle.Potential_Hazards.PinchPoints}} [(ngModel)]="huddle.Potential_Hazards.PinchPoints" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Falling Objects</ion-label>
+          <ion-checkbox checked={{huddle.Potential_Hazards.FallingObjects}} [(ngModel)]="huddle.Potential_Hazards.FallingObjects" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Electric Shock</ion-label>
+          <ion-checkbox checked={{huddle.Potential_Hazards.Shock}} [(ngModel)]="huddle.Potential_Hazards.Shock" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Sprains/Strains</ion-label>
+          <ion-checkbox checked={{huddle.Potential_Hazards.Sprains}} [(ngModel)]="huddle.Potential_Hazards.Sprains" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Hazardous Materials</ion-label>
+          <ion-checkbox checked={{huddle.Potential_Hazards.HazardousMaterials}} [(ngModel)]="huddle.Potential_Hazards.HazardousMaterials" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Cuts/Abrasions</ion-label>
+          <ion-checkbox checked={{huddle.Potential_Hazards.Cuts}} [(ngModel)]="huddle.Potential_Hazards.Cuts" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>slips/Trips</ion-label>
+          <ion-checkbox checked={{huddle.Potential_Hazards.Slips}} [(ngModel)]="huddle.Potential_Hazards.Slips" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Eye Injuries</ion-label>
+          <ion-checkbox checked={{huddle.Potential_Hazards.Eyes}} [(ngModel)]="huddle.Potential_Hazards.Eyes" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Hearing Loss</ion-label>
+          <ion-checkbox checked={{huddle.Potential_Hazards.Hearing}} [(ngModel)]="huddle.Potential_Hazards.Hearing" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Fires</ion-label>
+          <ion-checkbox checked={{huddle.Potential_Hazards.Fires}} [(ngModel)]="huddle.Potential_Hazards.Fires" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2 col-sm-2>
+        <label style="color: #fff;">Notes:</label>
+      </ion-col>
+      <ion-col col-10 col-sm-10>
+        <textarea [(ngModel)]="huddle.Note" style="width: 100%; height: 100px;"></textarea>
+      </ion-col>
+      <br>
+      <ion-col col-12 col-sm-12 style="text-align: center;margin: 15px 0 25px 0;">
+        <button class="button-as" (click)="OpenAddPhotoPage()">
+          <ion-icon name="add" style="color: #fff;"></ion-icon> photo({{huddle.Photos.length}})</button>
+      </ion-col>
+      <br>
+      <ion-col col-12 col-sm-12>
+        <h3>Huddle attendance</h3>
+        </ion-col>
+      <br>
+      <ion-col col-12 col-sm-12 style="text-align: center;">
+        <button class="button-as" (click)="OpenAddSignaturePage()">
+          <ion-icon name="add" style="color: #fff;"></ion-icon> signature</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ <ion-grid *ngFor="let signature of huddle.Signatures let i=index" class="signature-cntr">
+   <ion-row>
+   <ion-col col-12 class="name">
+    {{signature.employee_name}}
+   </ion-col>
+   </ion-row>
+   <ion-row>
+   <ion-col col-12 class="img">
+      <img src={{signature.signature_path}} alt="" />
+    </ion-col>
+  </ion-row>
+ </ion-grid>
+ 
+  <br>
+  <footer> 
+      <div class="footer-left"><img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" /></div>
+      <!-- <span class="copy-right">Copyright 2018</span> --> 
+      <div class="footer-right">
+      <span class="tag-bottom">Construction Safety Compliance App</span>
+      <a href="http://www.safetyfirstdata.com" target="_blank">Help and Training</a>
+    </div>
+    </footer> 
+
+</ion-content>
+  
+

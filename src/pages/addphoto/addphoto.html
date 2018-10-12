@@ -1,0 +1,62 @@
+<!--
+  Generated template for the AddphotoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="home">
+    <ion-navbar>
+        <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
+        <span class="tagline">{{appUtils.ContractorName}}</span>
+      <!-- <span class="logedin-user">intelli logic</span> --> 
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+      <ul class="breadcums-cntr">
+          <li>home<span>></span></li>
+          <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">add photo<span>></span></li>
+      </ul>
+      
+      <ion-grid>
+          <ion-row>
+              <ion-col col-12 style="text-align: center;" class="upload-btn">
+                  <button class="button-as" (click)="presentActionSheet()">add photo</button>
+              </ion-col>
+          </ion-row>
+          <br />
+          <br />
+          <ion-row class="image-detail">
+              <ion-col col-6 col-sm-4 col-md-4 *ngFor="let photo of photos let i=index">
+                <div class="uploaded-img">
+                    <ion-icon name="close-circle" (click)="RemovePhoto(i)" class="signature-icon"></ion-icon>
+                    <img class="signature-image" src={{photo.photo_path}} alt="Signature Image" />
+                </div>
+                <div class="about-uploaded-img">
+                  <textarea [(ngModel)]="photo.photo_comment" placeholder="Comment..."></textarea>
+                </div>
+              </ion-col>
+              
+          </ion-row>
+          <ion-grid id="save-gallery">
+              <ion-row>
+                <ion-col col-12 style="text-align: center;">
+          <button class="button-as" (click)="SavePhotos()">Save</button>
+        </ion-col>
+        </ion-row>
+        </ion-grid>
+      </ion-grid>
+      <br />
+      <br />
+      <br />
+      <br />
+  </ion-content>
+  
+  
+  <footer>
+    <div class="footer-left"><img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" /></div>
+    <!-- <span class="copy-right">Copyright 2018</span> -->
+    <div class="footer-right"> <span class="tag-bottom">Construction Safety Compliance App</span> <a href="http://www.safetyfirstdata.com" target="_blank">Help &amp; Training</a> </div>
+  </footer>
+

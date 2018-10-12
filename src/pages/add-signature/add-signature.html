@@ -1,0 +1,65 @@
+<!--
+  Generated template for the AddSignaturePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="home">
+    <ion-navbar>
+        <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
+        <span class="tagline">{{appUtils.ContractorName}}</span>
+      <!-- <span class="logedin-user">intelli logic</span> --> 
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ul class="breadcums-cntr">
+        <li>home<span>></span></li>
+        <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">add signature<span>></span></li>
+    </ul>
+    
+    
+    <ion-grid *ngIf="From == 2;else signature">
+        <ion-row>
+            <ion-col col-12>
+                <ion-list>
+                    <ion-item style="width: 100%">
+                      <ion-label>Select Your Name</ion-label>
+                      <ion-select [(ngModel)]="selectedEmployee" style="width: 100%">
+                        <ion-option *ngFor="let users of Users" [value]="users">{{users.FirstName + " " + users.LastName}}</ion-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+  
+    <!-- <ng-template #signature>
+      <img class="" src={{Suggestions.Signatures}} alt="" />
+    </ng-template> -->
+  
+    <ion-grid>
+    <ion-row [ngClass]="{'drawing-active': isDrawing}">
+            <ion-col col-12 style=" text-align: center;">
+              <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row style="margin-top: 15px;text-align: center; display: block;">
+        <button class="button-as" (click)="savePad()">Save</button>
+        <button class="button-as" (click)="clearPad()">Clear</button>
+    </ion-row>
+  </ion-grid>
+  </ion-content>
+  
+  
+  <footer>
+    <div class="footer-left"><img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" /></div>
+    <!-- <span class="copy-right">Copyright 2018</span> -->
+    <div class="footer-right"> <span class="tag-bottom">Construction Safety Compliance App</span> <a href="http://www.safetyfirstdata.com" target="_blank">Help &amp; Training</a> </div>
+  </footer>
+  
+

@@ -1,0 +1,95 @@
+{
+  "SelectedUser":"",
+  "SelectedJob":"",
+  "TaskDescription": "",
+  "JobSteps": [
+    {
+      "job_id": 1,
+      "job_comment": ""
+    },
+    {
+      "job_id": 2,
+      "job_comment": ""
+    },
+    {
+      "job_id": 3,
+      "job_comment": ""
+    }
+  ],
+  "Hazards": {
+    "Falls": true,
+    "Shock": false,
+    "Cuts": false,
+    "FallingObjects": false,
+    "ChemExposure": false,
+    "Slips": false,
+    "Crane": false,
+    "Fire": false,
+    "Welding": false,
+    "Energy": false,
+    "HeavyEquipment": false,
+    "PowerActivatedTools": false,
+    "ConfinedSpace": false,
+    "LadderUse": false,
+    "SkinContact": false,
+    "AerialLifts": false,
+    "Strains": false,
+    "Excavation": false,
+    "Shoring": false,
+    "Gas": false,
+    "Respiratory": false,
+    "Tools": false,
+    "HazardousMat": false,
+    "Scaffolds": false,
+    "PublicExposure": false,
+    "PinchPoints": false,
+    "VehicleTraffic": false,
+    "MaterialDelivery": false,
+    "MaterialHandling": false,
+    "OtherHazard": false
+  },
+  "SelectedHazards": [
+    {
+      "hazard": "Falls",
+      "Details": "Test Falls Hazard"
+    }
+  ],
+  "FallProtection": {
+    "value": "yes",
+    "Explain": ""
+  },
+  "WorkAccessIssues": "",
+  "WorkImpactIssues": {
+    "Trades": false,
+    "Facilities": false,
+    "Environmental": false,
+    "Public": false,
+    "Roads": false,
+    "OtherIssues": false,
+    "Explain": ""
+  },
+  "PermitsRequired": {
+    "HotWorkPermit": false,
+    "CriticalLiftPermit": false,
+    "GuardrailRemovalPermit": false,
+    "ExcavationPermit": false,
+    "OffHoursPermit": false,
+    "ConfinedSpacePermit": false
+  },
+  "Requirements": {
+    "FallEquipInsp": false,
+    "ScaffoldInsp": false,
+    "LadderInsp": false,
+    "CrainInsp": false,
+    "OtherInsp": false
+  },
+  "EquipmentsUsed": "",
+  "DateCreated": "",
+  "DateChanged": "",
+  "TimeZone":"",
+  "Template":"",
+  "Locked":"Locked",
+  "Status":"Active",
+  "Photos": [],
+  "Signatures": []
+}
