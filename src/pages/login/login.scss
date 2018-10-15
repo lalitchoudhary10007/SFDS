@@ -5,9 +5,7 @@ page-login {
         }
 	  } 
 	  
-	ion-header {
-        border-bottom: 1px solid #1d72c1;
-    }
+	
     /* header css */
     ion-header .header-logo img {
  margin-top: 0px;
@@ -149,7 +147,6 @@ footer {
 	background: #000;
 	min-width: 60px;
 	height: 60px;
-	border-top: 1px solid #1d72c1;
 	position: absolute;
 	bottom: 0;
 	z-index: 9;

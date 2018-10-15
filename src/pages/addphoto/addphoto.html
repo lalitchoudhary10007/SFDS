@@ -6,9 +6,9 @@
 -->
 <ion-header class="home">
     <ion-navbar>
-        <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
-        <span class="tagline">{{appUtils.ContractorName}}</span>
-      <!-- <span class="logedin-user">intelli logic</span> --> 
+        <!-- <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
+        <span class="tagline">{{appUtils.ContractorName}}</span> -->
+        <appheader [headerData]="headerData" (CallBackEvent)="CallBackFromHeader($event);"></appheader>
     </ion-navbar>
   </ion-header>
   
@@ -52,11 +52,13 @@
       <br />
       <br />
   </ion-content>
+  <footer [footerData]="headerData" (footerCallBack)="CallBackFromHeader($event);"></footer>
   
-  
-  <footer>
+  <!-- <footer> 
     <div class="footer-left"><img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" /></div>
-    <!-- <span class="copy-right">Copyright 2018</span> -->
-    <div class="footer-right"> <span class="tag-bottom">Construction Safety Compliance App</span> <a href="http://www.safetyfirstdata.com" target="_blank">Help &amp; Training</a> </div>
-  </footer>
+    <div class="footer-right">
+    <span class="tag-bottom">Construction Safety Compliance App</span>
+    <a href="http://www.safetyfirstdata.com" target="_blank">Help and Training</a>
+  </div>
+  </footer>  -->
 

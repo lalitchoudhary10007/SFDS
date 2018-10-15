@@ -51,7 +51,7 @@
   "SelectedHazards": [
     {
       "hazard": "Falls",
-      "Details": "Test Falls Hazard"
+      "Details": ""
     }
   ],
   "FallProtection": {

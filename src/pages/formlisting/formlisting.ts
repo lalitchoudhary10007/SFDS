@@ -109,7 +109,7 @@ export class FormlistingPage extends Page {
           FROM: type,
           FormPrimaryID: FormPrimaryId
         }).then(() =>{
-          this.appUtils.presentToast('Page Loaded' , 'bottom');
+        //  this.appUtils.presentToast('Page Loaded' , 'bottom');
         });
         break;
       case 'Job Safety Analysis':

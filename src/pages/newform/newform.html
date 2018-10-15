@@ -211,7 +211,7 @@
       </ion-col>
       <br>
       <ion-col col-12 col-sm-12>
-        <h3>Huddle attendance</h3>
+        <h3 style="text-align: center;">Huddle attendance</h3>
         </ion-col>
       <br>
       <ion-col col-12 col-sm-12 style="text-align: center;">
@@ -220,7 +220,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
- <ion-grid *ngFor="let signature of huddle.Signatures let i=index" class="signature-cntr">
+ <!-- <ion-grid>
    <ion-row>
    <ion-col col-12 class="name">
     {{signature.employee_name}}
@@ -231,7 +231,25 @@
       <img src={{signature.signature_path}} alt="" />
     </ion-col>
   </ion-row>
- </ion-grid>
+ </ion-grid> -->
+
+
+
+ <ion-row>
+    <ion-col col-12 col-sm-6 *ngFor="let signature of huddle.Signatures let i=index" class="signature-cntr">
+  <ion-row>
+  <ion-col col-12 style="color: #fff;text-align: left;margin: 0 auto;">
+      {{signature.employee_name}}
+  </ion-col>
+  <ion-col col-12>
+     <img style="width: 100%;margin: 0 auto;" class="" src={{signature.signature_path}} alt="" />
+  </ion-col>
+ </ion-row>
+</ion-col>
+</ion-row>
+
+
+
  
   <br>
   <footer> 

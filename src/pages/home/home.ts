@@ -107,9 +107,7 @@ export class HomePage extends Page {
       }
     });
 
-    this.loading = this.loadingCtrl.create({
-      content: 'Sync Started'
-    });
+  
 
   }
 
@@ -183,6 +181,9 @@ export class HomePage extends Page {
         }
         this.ChangeLogsSize = res.rows.length - 1;
 
+        this.loading = this.loadingCtrl.create({
+          content: 'Sync Started'
+        });
         this.loading.present();
         this.setLoadingText("Total "+ res.rows.length+ " Forms to be synced");
         this.PostInsertChangeLogs(res.rows.item(this.ChangeLogsIndex), this.ChangeLogsIndex);
@@ -207,10 +208,11 @@ export class HomePage extends Page {
         }
       } else {
         this.postData.formname = FormSub.FormType;
-        this.postData.formdata = JSON.parse(FormSub.FormJSON);
+        this.postData.formdata = JSON.parse(JSON.stringify(FormSub.FormJSON));
         this.postData.devicepasscode = 'HJ7Y4-75KLJ-B2NNK';
         this.apiHelper.RequestPostHttp(this.postData, "Forms/formSubmission", false).then(result => {
-          if (result.code === "200") {
+          console.log("**MEssage ",result);
+         if (result.code === "200") {
             this.dbHelper.UpdateFormSubmissionIdAndStatus(FormSub.id, result, changelog.id).subscribe(res => {
               console.log("##Form SUBmission UPDate", res);
               if (this.ChangeLogsIndex == this.ChangeLogsSize) {
@@ -229,8 +231,8 @@ export class HomePage extends Page {
           }
         }) .catch(error => {
           this.loading.dismiss();
-          console.log("Error",error.status);
-          console.log("Error error",error.error); // error message as string
+          console.log("Error HOme",error.status);
+          console.log("Error Home",error.error); // error message as string
         });;
       }
     });

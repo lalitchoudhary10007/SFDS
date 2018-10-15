@@ -4,6 +4,12 @@
     max-height: 40px;
     margin-left: 0px;
 }
+.tagline b {
+    font-size: 14px;
+    text-transform: capitalize;
+    display: block;
+    width: 100%;
+}
 .ios ion-nav>.ion-page>ion-header>.toolbar.statusbar-padding:first-child {
     padding-top: 0;
     min-height: unset;
@@ -49,6 +55,7 @@ ion-content.content-md {
     width: 100%;
     float: left;
 }
+ul.breadcums-cntr li.last-li {font-weight: 600 !important;text-decoration: none !important;}
 .ion-navbar {
     width: 100%;
     float: left;

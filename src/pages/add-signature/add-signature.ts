@@ -25,6 +25,9 @@ export class AddSignaturePage extends Page {
   signatureForm = { signature_path: "", signature_employee: "" , employee_name: ""};
   selectedEmployee: any ;
 
+  headerData = { From: 'Add Signature', headericon: 'arrow-back', FormPage: false, backTerms: []} 
+
+
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
   private signaturePadOptions: Object = { // Check out https://github.com/szimek/signature_pad
     'minWidth': 2,
@@ -103,6 +106,13 @@ export class AddSignaturePage extends Page {
 
   clearPad() {
     this.signaturePad.clear();
+  }
+
+  CallBackFromHeader(event) {
+    console.log("***" , event);
+    if(event === 'manualBack'){
+      this.navCtrl.pop();
+    }
   }
 
   // b64toBlob(b64Data, contentType, sliceSize) {

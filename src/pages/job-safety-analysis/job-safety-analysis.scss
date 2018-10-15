@@ -300,7 +300,7 @@ footer {
     background: #000;
     min-width: 60px;
     height: 60px;
-    box-shadow: 7px 7px 7px 5px rgba(255, 255, 255, .6);
+    box-shadow: 0 -3px 12px -4px rgba(255, 255, 255, 0.2);
 }
 .footer-left {
     width: 75px;
@@ -427,8 +427,12 @@ h3 .ion-md-add-circle {
     margin: 4px 0 0 0;
     padding: 6px 6px;
 }
-.protection .item-md {
+.protection .item-md, .protection .item-ios {
     padding-left: 0;
+    display: inline-block;
+    float: left;
+    width: 70px;
+    margin-right: 24px;
 }
 .protection .item-md.item-block .item-inner {
     border-bottom: 0px solid #dedede;
@@ -437,6 +441,17 @@ h3 .ion-md-add-circle {
     text-align: left;
     font-size: 12px;
 }
+.list-ios>.item-block:first-child {
+    border-top: 0px solid #c8c7cc;
+    }
+    .protection .item-ios .radio-ios {
+        position: static;
+        display: block;
+        margin: 8px 0px 8px 0px;
+        }
+        .protection .list-ios>.item-block:last-child, .list-ios>.item-wrapper:last-child .item-block {
+            border-bottom: .55px solid #c8c7cc;
+            }
 @media (max-width: 380px) {
  .footer-right {
     padding-left: 75px;

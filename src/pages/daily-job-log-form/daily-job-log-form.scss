@@ -8,10 +8,6 @@ page-daily-job-log-form {
       canvas {
 		width: 100%;
 	}
-      
-    ion-header {
-        border-bottom: 1px solid #1d72c1;
-    }
      /* Footer new css */
      footer .footer-right  a {
         display: block;
@@ -148,7 +144,7 @@ footer {
     background: #000;
     min-width: 60px;
     height: 60px;
-    box-shadow: 7px 7px 7px 5px rgba(255, 255, 255, .6);
+    box-shadow: 0 -3px 12px -4px rgba(255, 255, 255, 0.2);
 }
 .footer-left {
     width: 75px;
