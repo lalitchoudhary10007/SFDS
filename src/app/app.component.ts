@@ -17,10 +17,9 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleLightContent();
+      statusBar.styleDefault();
       splashScreen.hide();
-      //statusBar.overlaysWebView(true);
-      //statusBar.backgroundColorByHexString('#ffffff');
+      statusBar.overlaysWebView(false);
       this.dbHelper.CreateJobsTable();
       
       this.sessionHelper.GetValuesFromSession("LoginDetails").then((val)=>{

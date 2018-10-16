@@ -1,0 +1,391 @@
+<!-- Generated template for the GeneralIssuesChildComponent component -->
+<div>
+  <div class="inner-cntr">
+    <h3>general issues</h3>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-sm-6>
+          <label style="color: #fff;">have all on-site employees attended orientation:</label>
+        </ion-col>
+        <ion-col col-6 col-sm-6>
+          <ion-list radio-group [(ngModel)]="General_Issues.EmployeeOrientation">
+            <ion-row>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>Yes</ion-label>
+                  <ion-radio value="yes"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="no"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">Comment:</label>
+        </ion-col>
+        <ion-col col-8 col-sm-8>
+          <textarea [(ngModel)]="General_Issues.EmployeeOrientationComment" style="width: 100%; height: 60px;"></textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-sm-6>
+          <label style="color: #fff;">are all employees aware of any permits that are needed:</label>
+        </ion-col>
+        <ion-col col-6 col-sm-6>
+          <ion-list radio-group [(ngModel)]="General_Issues.Permits">
+            <ion-row>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>Yes</ion-label>
+                  <ion-radio value="yes"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="no"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">Comment:</label>
+        </ion-col>
+        <ion-col col-8 col-sm-8>
+          <textarea [(ngModel)]="General_Issues.PermitsComment" style="width: 100%; height: 60px;"></textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-sm-6>
+          <label style="color: #fff;">are all MIOSHA/OSHA forms posted:</label>
+        </ion-col>
+        <ion-col col-6 col-sm-6>
+          <ion-list radio-group [(ngModel)]="General_Issues.OSHA_Forms">
+            <ion-row>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>Yes</ion-label>
+                  <ion-radio value="yes"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="no"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">Comment:</label>
+        </ion-col>
+        <ion-col col-8 col-sm-8>
+          <textarea [(ngModel)]="General_Issues.OSHA_Comment" style="width: 100%; height: 60px;"></textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-sm-6>
+          <label style="color: #fff;">are all emergency numbers posted:</label>
+        </ion-col>
+        <ion-col col-6 col-sm-6>
+          <ion-list radio-group [(ngModel)]="General_Issues.EmergencyNumbers">
+            <ion-row>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>Yes</ion-label>
+                  <ion-radio value="yes"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="no"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">Comment:</label>
+        </ion-col>
+        <ion-col col-8 col-sm-8>
+          <textarea [(ngModel)]="General_Issues.EmergencyNumbersComment" style="width: 100%; height: 60px;"></textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-sm-6>
+          <label style="color: #fff;">is all paperwork up to date:</label>
+        </ion-col>
+        <ion-col col-6 col-sm-6>
+          <ion-list radio-group [(ngModel)]="General_Issues.Paperwork">
+            <ion-row>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>Yes</ion-label>
+                  <ion-radio value="yes"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="no"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">Comment:</label>
+        </ion-col>
+        <ion-col col-8 col-sm-8>
+          <textarea [(ngModel)]="General_Issues.PaperworkComment" style="width: 100%; height: 60px;"></textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-sm-6>
+          <label style="color: #fff;">do all employees know where the muster point is:</label>
+        </ion-col>
+        <ion-col col-6 col-sm-6>
+          <ion-list radio-group [(ngModel)]="General_Issues.MusterPoint">
+            <ion-row>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>Yes</ion-label>
+                  <ion-radio value="yes"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="no"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">Comment:</label>
+        </ion-col>
+        <ion-col col-8 col-sm-8>
+          <textarea [(ngModel)]="General_Issues.MusterPointComment" style="width: 100%; height: 60px;"></textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-sm-6>
+          <label style="color: #fff;">are the SDS sheets on site and easy to locate:</label>
+        </ion-col>
+        <ion-col col-6 col-sm-6>
+          <ion-list radio-group [(ngModel)]="General_Issues.SDS_Sheets">
+            <ion-row>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>Yes</ion-label>
+                  <ion-radio value="yes"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="no"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">Comment:</label>
+        </ion-col>
+        <ion-col col-8 col-sm-8>
+          <textarea [(ngModel)]="General_Issues.SDS_SheetsComment" style="width: 100%; height: 60px;"></textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-sm-6>
+          <label style="color: #fff;">is there a first aid trained competent person on site:</label>
+        </ion-col>
+        <ion-col col-6 col-sm-6>
+          <ion-list radio-group [(ngModel)]="General_Issues.FirstAidPerson">
+            <ion-row>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>Yes</ion-label>
+                  <ion-radio value="yes"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="no"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">Comment:</label>
+        </ion-col>
+        <ion-col col-8 col-sm-8>
+          <textarea [(ngModel)]="General_Issues.FirstAidPersonComment" style="width: 100%; height: 60px;"></textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-sm-6>
+          <label style="color: #fff;">are first aid kits well stocked and easy to locate:</label>
+        </ion-col>
+        <ion-col col-6 col-sm-6>
+          <ion-list radio-group [(ngModel)]="General_Issues.FirstAidKits">
+            <ion-row>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>Yes</ion-label>
+                  <ion-radio value="yes"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="no"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">Comment:</label>
+        </ion-col>
+        <ion-col col-8 col-sm-8>
+          <textarea [(ngModel)]="General_Issues.FirstAidKitsComment" style="width: 100%; height: 60px;"></textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-sm-6>
+          <label style="color: #fff;">have all defective extension cords been taken out of service:</label>
+        </ion-col>
+        <ion-col col-6 col-sm-6>
+          <ion-list radio-group [(ngModel)]="General_Issues.ExtensionCords">
+            <ion-row>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>Yes</ion-label>
+                  <ion-radio value="yes"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="no"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">Comment:</label>
+        </ion-col>
+        <ion-col col-8 col-sm-8>
+          <textarea [(ngModel)]="General_Issues.ExtensionCordsComment" style="width: 100%; height: 60px;"></textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- End Grid -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-sm-6>
+          <label style="color: #fff;">are ground fault circuit interrupters being used:</label>
+        </ion-col>
+        <ion-col col-6 col-sm-6>
+          <ion-list radio-group [(ngModel)]="General_Issues.GroundFaultCircuit">
+            <ion-row>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>Yes</ion-label>
+                  <ion-radio value="yes"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio value="no"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 col-sm-4>
+          <label style="color: #fff;">Comment:</label>
+        </ion-col>
+        <ion-col col-8 col-sm-8>
+          <textarea [(ngModel)]="General_Issues.GroundFaultCircuitComment" style="width: 100%; height: 60px;"></textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- End Grid -->
+  </div>
+</div>

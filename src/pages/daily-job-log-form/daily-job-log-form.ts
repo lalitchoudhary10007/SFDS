@@ -4,6 +4,7 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 import { ApiHelperProvider, DbHelperProvider, AppUtilsProvider, SessionHelperProvider } from '../../providers/providers';
 import { Page } from '../../models/Page';
 import { Navbar } from 'ionic-angular';
+import * as $ from "jquery";
 /**
  * Generated class for the DailyJobLogFormPage page.
  *
@@ -72,6 +73,13 @@ export class DailyJobLogFormPage extends Page {
       this.DailyJobLogs.TimeZone = res ;
       this.TempDailyJobLogs.TimeZone = res ;
     });
+
+    if(this.FromNewOrUpdate == 2){
+      //Submitted Form Not to Edit
+      $(".grid .row").addClass("disabled-all");
+      }else{
+      
+      }
 
     // this.navBar.backButtonClick = (e:UIEvent)=>{
     //   // todo something

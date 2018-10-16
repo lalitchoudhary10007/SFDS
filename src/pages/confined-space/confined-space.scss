@@ -1,5 +1,8 @@
 page-confined-space {
 
+    .disabled-all{
+		pointer-events: none !important;
+	}
     .toolbar {
         .toolbar-background {
           background: #000000;

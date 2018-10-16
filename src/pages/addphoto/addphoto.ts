@@ -23,6 +23,9 @@ export class AddphotoPage extends Page {
   photos: any = [];
   callback: any;
 
+  headerData = { From: 'Add Photo', headericon: 'arrow-back', FormPage: false, backTerms: []} 
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera, private appUtils: AppUtilsProvider,
     public actionSheetCtrl: ActionSheetController, public events: Events, nativePageTransitions: NativePageTransitions) {
       super(nativePageTransitions);
@@ -130,6 +133,11 @@ export class AddphotoPage extends Page {
   }
 
 
-
+  CallBackFromHeader(event) {
+    console.log("***" , event);
+    if(event === 'manualBack'){
+      this.navCtrl.pop();
+    }
+  }
 
 }

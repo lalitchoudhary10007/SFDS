@@ -3,36 +3,37 @@
     <div class="header-logo">
       <img src={{appUtils.LogoUrl}} alt="Logo" />
     </div>
-    <span class="tagline">Construction safety compliance app - {{appUtils.ContractorName}}</span>
+    <span class="tagline">Construction safety compliance app<b class="com-bold">{{appUtils.ContractorName}}</b></span>
     <ion-icon class="as-back-button" (click)="onSubmit('manualBack')" name={{headerData.headericon}}></ion-icon>
-    
+
   </div>
   <div *ngIf="headerData.From === 'Home'; else backTermsAndButtons">
-    
+
   </div>
 
   <ng-template #backTermsAndButtons>
     <div class="ban">
 
-        <ul class="breadcums-cntr">
-            <li (click)="BacktermsClick(backterm)" *ngFor="let backterm of headerData.backTerms">{{backterm.showName}}
-              <span>></span>
-            </li>
-            <!-- <li (click)="goback()">safety forms
+      <ul class="breadcums-cntr">
+        <li (click)="BacktermsClick(backterm)" *ngFor="let backterm of headerData.backTerms; let first = first; let last = last"
+          [class.first-li]="first" [class.last-li]="last">{{backterm.showName}}
+          <span>></span>
+        </li>
+        <!-- <li (click)="goback()">safety forms
               <span>></span>
             </li>
             <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">huddle form
               <span>></span>
             </li> -->
-          </ul>
-          <div class="active-job">active job: {{SelectedJob.jobNumber +"-"+ SelectedJob.jobName}}</div>
-          <div *ngIf="headerData.FormPage">
-            <button class="cancel" (click)="cancel()">cancel</button>
-            <button class="submit" (click)="onSubmit('submit')">submit</button>
-            <button class="submit" (click)="onSubmit('draft')">draft</button>
-          </div>
+      </ul>
+      <div class="active-job">active job: {{SelectedJob.jobNumber +"-"+ SelectedJob.jobName}}</div>
+      <div *ngIf="headerData.FormPage">
+        <button class="cancel" (click)="cancel()">cancel</button>
+        <button class="submit" (click)="onSubmit('submit')">submit</button>
+        <button class="submit" (click)="onSubmit('draft')">draft</button>
+      </div>
 
     </div>
-     </ng-template>
+  </ng-template>
 
 </div>

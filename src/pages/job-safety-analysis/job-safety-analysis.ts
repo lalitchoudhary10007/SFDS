@@ -92,6 +92,13 @@ export class JobSafetyAnalysisPage extends Page {
       this.TempJobSafety.TimeZone = res ;
     });
 
+    if(this.FromNewOrUpdate == 2){
+      //Submitted Form Not to Edit
+      $(".grid .row").addClass("disabled-all");
+      }else{
+      
+      }
+
     // this.navBar.backButtonClick = (e:UIEvent)=>{
     //   console.log("**BACK CLICK",this.TempJobSafety);
     //   console.log("**BACK CLICK",this.JobSafety);
@@ -185,6 +192,7 @@ export class JobSafetyAnalysisPage extends Page {
         this.navCtrl.pop();
       }
 
+    
     }
   }
 

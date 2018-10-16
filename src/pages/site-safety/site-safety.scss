@@ -1,5 +1,7 @@
 page-site-safety {
-
+    .disabled-all{
+		pointer-events: none !important;
+	}
     .toolbar {
         .toolbar-background {
           background: #000000;
@@ -7,11 +9,34 @@ page-site-safety {
       }
       canvas {
 		width: 100%;
-	}
+    }
+    .grid {
+        padding: 0; 
+    }
+    ion-col {
+        padding: 5px 5px 5px 0px;
+    }
       
     ion-header ion-navbar {
         border-bottom: 1px solid #1d72c1;
     }
+        .item-ios {
+            padding-left: 0;
+            padding-left: 0;
+            padding-left: 0;
+            color: #fff;
+            background-color: transparent;
+            font-size: 14px;
+            padding-left: 0;
+        }
+        .list-ios .item-block .item-inner {
+            border-bottom: 0 solid #c8c7cc;
+            }
+            .item-ios .radio-ios {
+                position: static;
+                display: block;
+                margin: 8px 0 8px 0;
+                }
      /* Footer new css */
      footer .footer-right  a {
         display: block;
@@ -41,7 +66,7 @@ page-site-safety {
         display: block;
         float: left;
         margin-top: 7px;
-        font-size: 14px;
+        font-size: 12px;
         width: 100%;
     }
 /* Footer new css ../ */
@@ -51,8 +76,11 @@ page-site-safety {
         font-size: 16px;
         color: #fff;
         margin: 0 0 0px 0;
+    }
+    h3::first-letter { 
         text-transform: capitalize;
     }
+
     .button-as{
         background: #ed1c24;
     color: #fff;
@@ -148,7 +176,7 @@ footer {
     background: #000;
     min-width: 60px;
     height: 60px;
-    border-top: 1px solid #1d72c1;
+    box-shadow: 7px 7px 7px 5px rgba(255, 255, 255, .6);
 }
 .footer-left {
     width: 75px;
@@ -187,7 +215,7 @@ footer {
     display: block;
     float: left;
     margin-top: 7px;
-    font-size: 14px;
+    font-size: 12px;
     width: 100%;
 }
 footer .footer-right a {
@@ -238,9 +266,14 @@ footer .footer-right a {
     color: #fff;
     line-height: normal;
     height: 30px;
-    text-transform: capitalize;
     font-weight: 300;
     font-size: 14px;
+}
+label::first-letter {
+    text-transform: capitalize;
+}
+label:first-letter {
+    text-transform: capitalize;
 }
 /* Input css end */
 input, textarea, select {
@@ -248,10 +281,9 @@ input, textarea, select {
 }
 .main-cnrt .inner-cntr h3 {
     color: #fff;
-text-transform: capitalize;
-font-weight: 400;
-text-align: left;
-font-size: 17px;
+    font-weight: 400;
+    text-align: left;
+    font-size: 17px;
 }
 h3 {
     color: #fff;
@@ -260,6 +292,9 @@ text-align: left;
 font-size: 20px;
 }
 h3::first-letter {
+    text-transform: capitalize;
+}
+h3:first-letter {
     text-transform: capitalize;
 }
 .item-md {
@@ -316,7 +351,7 @@ h3::first-letter {
         .item-inner .input-wrapper {
             text-align: right;
         }
-        @media (max-width: 380px) {
+           @media (max-width: 380px) {
             .footer-right {
                padding-left: 75px;
            }

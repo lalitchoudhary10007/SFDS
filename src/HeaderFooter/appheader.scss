@@ -4,6 +4,16 @@
     max-height: 40px;
     margin-left: 0px;
 }
+.tagline b {
+    font-size: 14px;
+    text-transform: capitalize;
+    display: block;
+    width: 100%;
+}
+.ios ion-nav>.ion-page>ion-header>.toolbar.statusbar-padding:first-child {
+    padding-top: 0;
+    min-height: unset;
+}
 .tagline {
 	width: 160px;
 	display: block;
@@ -45,15 +55,17 @@ ion-content.content-md {
     width: 100%;
     float: left;
 }
+ul.breadcums-cntr li.last-li {font-weight: 600 !important;text-decoration: none !important;}
 .ion-navbar {
     width: 100%;
     float: left;
     border-bottom: 0px solid #1d72c1;
-    padding: 5px 10px 5px 10px;
-    margin: 0 0 0 0;
+    padding: 8px 10px 0px 10px;
+    margin: 0 0 6px 0;
 }
 ion-header {
     background: #000;
+    box-shadow: 5px -6px 7px 5px rgba(255, 255, 255, .6);
 }
 ion-header .toolbar-background-md {
     background: rgba(0, 0, 0, 0.81);

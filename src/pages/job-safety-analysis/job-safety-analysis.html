@@ -5,518 +5,524 @@
   Ionic pages and navigation.
 -->
 <ion-header class="home">
-    <!-- <ion-navbar>
-        <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
-          <span class="tagline">{{appUtils.ContractorName}}</span>
-    </ion-navbar>
-    <div class="ban">
-      <ul class="breadcums-cntr">
-        <li (click)="OpenHome()">home
-          <span>></span>
-        </li>
-        <li (click)="goback()">safety forms
-          <span>></span>
-        </li>
-        <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">safety form analysis
-          <span>></span>
-        </li>
-      </ul>
-      <div class="active-job">active job: {{SelectedJob.jobNumber +"-"+ SelectedJob.jobName}}</div>
-      <button class="cancel" (click)="cancel()">cancel</button>
-      <button class="submit" (click)="SubmitJob('submit')">submit</button>
-      <button class="submit" (click)="SubmitJob('draft')">draft</button>
-      <div class="lock-cntr">
-        <div class="unlock">
-        <a href="javascript:void(0);" class="unlocked">Unlocked</a>
-        <ion-icon name="unlock" style="color:green"></ion-icon>
-        </div>
-        <div class="lock">
-            <a href="javascript:void(0);" class="unlocked">locked</a>
-            <ion-icon name="lock" style="color:red"></ion-icon>
-            </div>
+  <!-- <ion-navbar>
+      <div class="header-logo"><img src={{appUtils.LogoUrl}} alt="Logo" /></div>
+        <span class="tagline">{{appUtils.ContractorName}}</span>
+  </ion-navbar>
+  <div class="ban">
+    <ul class="breadcums-cntr">
+      <li (click)="OpenHome()">home
+        <span>></span>
+      </li>
+      <li (click)="goback()">safety forms
+        <span>></span>
+      </li>
+      <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">safety form analysis
+        <span>></span>
+      </li>
+    </ul>
+    <div class="active-job">active job: {{SelectedJob.jobNumber +"-"+ SelectedJob.jobName}}</div>
+    <button class="cancel" (click)="cancel()">cancel</button>
+    <button class="submit" (click)="SubmitJob('submit')">submit</button>
+    <button class="submit" (click)="SubmitJob('draft')">draft</button>
+    <div class="lock-cntr">
+      <div class="unlock">
+      <a href="javascript:void(0);" class="unlocked">Unlocked</a>
+      <ion-icon name="unlock" style="color:green"></ion-icon>
       </div>
-      <div class="last-opned-detail">
-        <span>2018-09-12</span>
-        <span>15:34:54</span>
-      </div>
-    </div> -->
+      <div class="lock">
+          <a href="javascript:void(0);" class="unlocked">locked</a>
+          <ion-icon name="lock" style="color:red"></ion-icon>
+          </div>
+    </div>
+    <div class="last-opned-detail">
+      <span>2018-09-12</span>
+      <span>15:34:54</span>
+    </div>
+  </div> -->
 
-    <appheader [headerData]="headerData" (CallBackEvent)="CallBackFromHeader($event);"></appheader>
+  <appheader [headerData]="headerData" (CallBackEvent)="CallBackFromHeader($event);"></appheader>
 
 
-  </ion-header>
+</ion-header>
+
+
+<ion-content padding class="new-form">
   
+
   
-  <ion-content padding class="new-form">
-    
-  
-    
-  
-    <ion-row class="job-txt-cntr">
-      <ion-col col-4 col-sm-4>
-        <label style="color: #fff;">Task Description:</label>
-      </ion-col>
-      <ion-col col-8 col-sm-8>
-        <textarea [(ngModel)]="JobSafety.TaskDescription" style="width: 100%; height: 60px;"></textarea>
-      </ion-col>
-      </ion-row>
-      <h3 style="margin: 30px 0 20px 0;width: 100%;text-align: left; position: relative">sequence of steps to complete task<ion-icon (click)="AddNewJobStep()" id="txt-creator" name="add-circle"></ion-icon></h3>
-      <ion-row id="cus-txt" class="custom-textboxes job-txt-cntr" *ngFor="let steps of JobSafety.JobSteps let i=index">
-       <ion-col col-1 col-sm-1>
-          <label style="color: #fff;">{{steps.job_id}}</label>
-        </ion-col>
-        <ion-col col-11 col-sm-11>
-          <input [(ngModel)]="steps.job_comment" type="text" value="" style="width: 100%;" />
-        </ion-col>
-        <br />
-        
+
+  <ion-row class="job-txt-cntr">
+    <ion-col col-4 col-sm-4>
+      <label style="color: #fff;">Task Description:</label>
+    </ion-col>
+    <ion-col col-8 col-sm-8>
+      <textarea [(ngModel)]="JobSafety.TaskDescription" style="width: 100%; height: 60px;"></textarea>
+    </ion-col>
     </ion-row>
-    <br />
-    <br />
-    <ion-grid>
-      <h3>hazards associated with task</h3>
-  
-      <ion-row class="checkboxes-as my-checkboxes">
-         <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Falls</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Falls}} [(ngModel)]="JobSafety.Hazards.Falls" (ionChange)="SelectHazards($event , 'Falls')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Electrical Shock</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Shock}} [(ngModel)]="JobSafety.Hazards.Shock" (ionChange)="SelectHazards($event , 'Electrical Shock')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Cuts/Abrasions</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Cuts}} [(ngModel)]="JobSafety.Hazards.Cuts" (ionChange)="SelectHazards($event , 'Cuts/Abrasions')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Falling Objects</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.FallingObjects}} [(ngModel)]="JobSafety.Hazards.FallingObjects" (ionChange)="SelectHazards($event , 'Falling Objects')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Chem/Rad Exposure</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.ChemExposure}} [(ngModel)]="JobSafety.Hazards.ChemExposure" (ionChange)="SelectHazards($event , 'Chem/Rad Exposure')"  color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Slips/Trips</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Slips}} [(ngModel)]="JobSafety.Hazards.Slips" (ionChange)="SelectHazards($event , 'Slips/Trips')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Crane/Rigging</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Crane}} [(ngModel)]="JobSafety.Hazards.Crane" (ionChange)="SelectHazards($event , 'Crane/Rigging')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Fire/Explosion</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Fire}} [(ngModel)]="JobSafety.Hazards.Fire" (ionChange)="SelectHazards($event , 'Fire/Explosion')"  color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Welding/Burning</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Welding}} [(ngModel)]="JobSafety.Hazards.Welding" (ionChange)="SelectHazards($event , 'Welding/Burning')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Hazardous energy</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Energy}} [(ngModel)]="JobSafety.Hazards.Energy" (ionChange)="SelectHazards($event , 'Hazardous energy')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Heavy Equipment</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.HeavyEquipment}} [(ngModel)]="JobSafety.Hazards.HeavyEquipment" (ionChange)="SelectHazards($event , 'Heavy Equipment')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Power Activated Tools</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.PowerActivatedTools}} [(ngModel)]="JobSafety.Hazards.PowerActivatedTools" (ionChange)="SelectHazards($event , 'Power Activated Tools')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Confined Space</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.ConfinedSpace}} [(ngModel)]="JobSafety.Hazards.ConfinedSpace" (ionChange)="SelectHazards($event , 'Confined Space')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Ladder Use</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.LadderUse}} [(ngModel)]="JobSafety.Hazards.LadderUse" (ionChange)="SelectHazards($event , 'Ladder Use')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Skin Contrator</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.SkinContact}} [(ngModel)]="JobSafety.Hazards.SkinContact" (ionChange)="SelectHazards($event , 'Skin Contrator')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Arial Lifts</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.AerialLifts}} [(ngModel)]="JobSafety.Hazards.AerialLifts" (ionChange)="SelectHazards($event , 'Arial Lifts')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Stains/Sprains</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Strains}} [(ngModel)]="JobSafety.Hazards.Strains" (ionChange)="SelectHazards($event , 'Stains/Sprains')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Excavation/Trench</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Excavation}} [(ngModel)]="JobSafety.Hazards.Excavation" (ionChange)="SelectHazards($event , 'Excavation/Trench')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Shoring</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Shoring}} [(ngModel)]="JobSafety.Hazards.Shoring" (ionChange)="SelectHazards($event , 'Shoring')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Compressed Gas</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Gas}} [(ngModel)]="JobSafety.Hazards.Gas" (ionChange)="SelectHazards($event , 'Compressed Gas')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Respiratory</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Respiratory}} [(ngModel)]="JobSafety.Hazards.Respiratory" (ionChange)="SelectHazards($event , 'Respiratory')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Hand Power Tools</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Tools}} [(ngModel)]="JobSafety.Hazards.Tools" (ionChange)="SelectHazards($event , 'Hand Power Tools')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Hazardous Materials</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.HazardousMat}} [(ngModel)]="JobSafety.Hazards.HazardousMat" (ionChange)="SelectHazards($event , 'Hazardous Materials')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Scaffold</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.Scaffolds}} [(ngModel)]="JobSafety.Hazards.Scaffolds" (ionChange)="SelectHazards($event , 'Scaffold')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Public Exposure</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.PublicExposure}} [(ngModel)]="JobSafety.Hazards.PublicExposure" (ionChange)="SelectHazards($event , 'Public Exposure')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Pinch Points</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.PinchPoints}} [(ngModel)]="JobSafety.Hazards.PinchPoints" (ionChange)="SelectHazards($event , 'Pinch Points')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Vehicle Traffic</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.VehicleTraffic}} [(ngModel)]="JobSafety.Hazards.VehicleTraffic" (ionChange)="SelectHazards($event , 'Vehicle Traffic')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Marials Delivery</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.MaterialDelivery}} [(ngModel)]="JobSafety.Hazards.MaterialDelivery" (ionChange)="SelectHazards($event , 'Marials Delivery')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Material Handling</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.MaterialHandling}} [(ngModel)]="JobSafety.Hazards.MaterialHandling" (ionChange)="SelectHazards($event , 'Material Handling')" color="dark"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 col-sm-4 style="color: #fff;">
-          <ion-item>
-            <ion-label>Others</ion-label>
-            <ion-checkbox checked={{JobSafety.Hazards.OtherHazard}} [(ngModel)]="JobSafety.Hazards.OtherHazard" (ionChange)="SelectHazards($event , 'Others')" color="dark" class="my-checkbox"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-  
-  
-      </ion-row>
-    </ion-grid>
-  
-    <br>
-    <ion-grid>
-      <h3>explain control measure for each hazard identified</h3>
-      <br>
+    <h3 style="margin: 30px 0 20px 0;width: 100%;text-align: left; position: relative">sequence of steps to complete task<ion-icon (click)="AddNewJobStep()" id="txt-creator" name="add-circle"></ion-icon></h3>
+    <ion-row id="cus-txt" class="custom-textboxes job-txt-cntr" *ngFor="let steps of JobSafety.JobSteps let i=index">
+     <ion-col col-1 col-sm-1>
+        <label style="color: #fff;">{{steps.job_id}}</label>
+      </ion-col>
+      <ion-col col-11 col-sm-11>
+        <input [(ngModel)]="steps.job_comment" type="text" value="" style="width: 100%;" />
+      </ion-col>
+      <br />
       
-      <ion-row id="cus-textarea" *ngFor="let hazards of JobSafety.SelectedHazards let i=index">
-        <ion-col col-3 col-sm-3>
-          <label style="color: #fff;">{{hazards.hazard}}</label>
-        </ion-col>
-        <ion-col col-9 col-sm-9>
-          <textarea style="width: 100%; height: 100px;" [(ngModel)]="hazards.Details"></textarea>
-        </ion-col>
-      </ion-row>
+  </ion-row>
+  <br />
+  <br />
+  <ion-grid>
+    <h3>hazards associated with task</h3>
+
+    <ion-row class="checkboxes-as my-checkboxes">
+       <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Falls</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Falls}} [(ngModel)]="JobSafety.Hazards.Falls" (ionChange)="SelectHazards($event , 'Falls')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Electrical Shock</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Shock}} [(ngModel)]="JobSafety.Hazards.Shock" (ionChange)="SelectHazards($event , 'Electrical Shock')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Cuts/Abrasions</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Cuts}} [(ngModel)]="JobSafety.Hazards.Cuts" (ionChange)="SelectHazards($event , 'Cuts/Abrasions')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Falling Objects</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.FallingObjects}} [(ngModel)]="JobSafety.Hazards.FallingObjects" (ionChange)="SelectHazards($event , 'Falling Objects')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Chem/Rad Exposure</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.ChemExposure}} [(ngModel)]="JobSafety.Hazards.ChemExposure" (ionChange)="SelectHazards($event , 'Chem/Rad Exposure')"  color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Slips/Trips</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Slips}} [(ngModel)]="JobSafety.Hazards.Slips" (ionChange)="SelectHazards($event , 'Slips/Trips')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Crane/Rigging</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Crane}} [(ngModel)]="JobSafety.Hazards.Crane" (ionChange)="SelectHazards($event , 'Crane/Rigging')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Fire/Explosion</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Fire}} [(ngModel)]="JobSafety.Hazards.Fire" (ionChange)="SelectHazards($event , 'Fire/Explosion')"  color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Welding/Burning</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Welding}} [(ngModel)]="JobSafety.Hazards.Welding" (ionChange)="SelectHazards($event , 'Welding/Burning')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Hazardous energy</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Energy}} [(ngModel)]="JobSafety.Hazards.Energy" (ionChange)="SelectHazards($event , 'Hazardous energy')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Heavy Equipment</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.HeavyEquipment}} [(ngModel)]="JobSafety.Hazards.HeavyEquipment" (ionChange)="SelectHazards($event , 'Heavy Equipment')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Power Activated Tools</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.PowerActivatedTools}} [(ngModel)]="JobSafety.Hazards.PowerActivatedTools" (ionChange)="SelectHazards($event , 'Power Activated Tools')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Confined Space</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.ConfinedSpace}} [(ngModel)]="JobSafety.Hazards.ConfinedSpace" (ionChange)="SelectHazards($event , 'Confined Space')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Ladder Use</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.LadderUse}} [(ngModel)]="JobSafety.Hazards.LadderUse" (ionChange)="SelectHazards($event , 'Ladder Use')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Skin Contrator</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.SkinContact}} [(ngModel)]="JobSafety.Hazards.SkinContact" (ionChange)="SelectHazards($event , 'Skin Contrator')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Arial Lifts</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.AerialLifts}} [(ngModel)]="JobSafety.Hazards.AerialLifts" (ionChange)="SelectHazards($event , 'Arial Lifts')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Stains/Sprains</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Strains}} [(ngModel)]="JobSafety.Hazards.Strains" (ionChange)="SelectHazards($event , 'Stains/Sprains')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Excavation/Trench</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Excavation}} [(ngModel)]="JobSafety.Hazards.Excavation" (ionChange)="SelectHazards($event , 'Excavation/Trench')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Shoring</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Shoring}} [(ngModel)]="JobSafety.Hazards.Shoring" (ionChange)="SelectHazards($event , 'Shoring')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Compressed Gas</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Gas}} [(ngModel)]="JobSafety.Hazards.Gas" (ionChange)="SelectHazards($event , 'Compressed Gas')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Respiratory</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Respiratory}} [(ngModel)]="JobSafety.Hazards.Respiratory" (ionChange)="SelectHazards($event , 'Respiratory')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Hand Power Tools</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Tools}} [(ngModel)]="JobSafety.Hazards.Tools" (ionChange)="SelectHazards($event , 'Hand Power Tools')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Hazardous Materials</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.HazardousMat}} [(ngModel)]="JobSafety.Hazards.HazardousMat" (ionChange)="SelectHazards($event , 'Hazardous Materials')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Scaffold</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.Scaffolds}} [(ngModel)]="JobSafety.Hazards.Scaffolds" (ionChange)="SelectHazards($event , 'Scaffold')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Public Exposure</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.PublicExposure}} [(ngModel)]="JobSafety.Hazards.PublicExposure" (ionChange)="SelectHazards($event , 'Public Exposure')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Pinch Points</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.PinchPoints}} [(ngModel)]="JobSafety.Hazards.PinchPoints" (ionChange)="SelectHazards($event , 'Pinch Points')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Vehicle Traffic</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.VehicleTraffic}} [(ngModel)]="JobSafety.Hazards.VehicleTraffic" (ionChange)="SelectHazards($event , 'Vehicle Traffic')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Marials Delivery</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.MaterialDelivery}} [(ngModel)]="JobSafety.Hazards.MaterialDelivery" (ionChange)="SelectHazards($event , 'Marials Delivery')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Material Handling</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.MaterialHandling}} [(ngModel)]="JobSafety.Hazards.MaterialHandling" (ionChange)="SelectHazards($event , 'Material Handling')" color="dark"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 col-sm-4 style="color: #fff;">
+        <ion-item>
+          <ion-label>Others</ion-label>
+          <ion-checkbox checked={{JobSafety.Hazards.OtherHazard}} [(ngModel)]="JobSafety.Hazards.OtherHazard" (ionChange)="SelectHazards($event , 'Others')" color="dark" class="my-checkbox"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
+
   <br>
-      <ion-row class="checkboxes-as">
-        <ion-col col-12 col-sm-12>
-          <label style="color: #fff;">Have fall protection anchorage points been identified:</label>
-        </ion-col>
-        </ion-row>
-        <form>
-        <ion-row class="protection" style="margin-top: -10px">
-          
-              <ion-col col-3 col-sm-3>
+  <ion-grid>
+    <h3>explain control measure for each hazard identified</h3>
+    <br>
+    
+    <ion-row id="cus-textarea" *ngFor="let hazards of JobSafety.SelectedHazards let i=index">
+      <ion-col col-3 col-sm-3>
+        <label style="color: #fff;">{{hazards.hazard}}</label>
+      </ion-col>
+      <ion-col col-9 col-sm-9>
+        <textarea style="width: 100%; height: 100px;" [(ngModel)]="hazards.Details"></textarea>
+      </ion-col>
+    </ion-row>
+<br>
+    <ion-row class="checkboxes-as">
+      <ion-col col-12 col-sm-12>
+        <label style="color: #fff;">Have fall protection anchorage points been identified:</label>
+      </ion-col>
+      </ion-row>
+      <ion-row class="protection" style="margin-top: -20px;padding-left: 10px;">  
+      <ion-list radio-group>
             <ion-item>
-              <ion-radio value="Yes"></ion-radio>
               <ion-label style="color: #fff">Yes</ion-label>
+              <ion-radio value="Yes"></ion-radio>
             </ion-item>
-            </ion-col>
-            <ion-col col-3 col-sm-3>
+          
             <ion-item>
               <ion-label style="color: #fff">No</ion-label>
               <ion-radio value="No"></ion-radio>
             </ion-item>
-            </ion-col>
-            <ion-col col-3 col-sm-3>
+          
             <ion-item>
               <ion-label style="color: #fff">N/A</ion-label>
               <ion-radio value="NA"></ion-radio>
             </ion-item>
-            </ion-col>
-          
-            </ion-row>
-          </form>
-            <br>
-      <ion-row>
+          </ion-list>
+          </ion-row>
+          <br>
+    <ion-row>
+      <ion-col col-3 col-sm-3>
+        <label style="color: #fff;">Explain:</label>
+      </ion-col>
+      <ion-col col-9 col-sm-9>
+        <textarea [(ngModel)]="JobSafety.FallProtection.Explain" style="width: 100%; height: 100px;"></textarea>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
         <ion-col col-3 col-sm-3>
-          <label style="color: #fff;">Explain:</label>
+          <label style="color: #fff;">Work Access Issues:</label>
         </ion-col>
         <ion-col col-9 col-sm-9>
-          <textarea [(ngModel)]="JobSafety.FallProtection.Explain" style="width: 100%; height: 100px;"></textarea>
+          <textarea [(ngModel)]="JobSafety.WorkAccessIssues" style="width: 100%; height: 100px;"></textarea>
         </ion-col>
       </ion-row>
-  
-      <ion-row>
-          <ion-col col-3 col-sm-3>
-            <label style="color: #fff;">Work Access Issues:</label>
-          </ion-col>
-          <ion-col col-9 col-sm-9>
-            <textarea [(ngModel)]="JobSafety.WorkAccessIssues" style="width: 100%; height: 100px;"></textarea>
-          </ion-col>
+
+      <ion-row class="checkboxes-as">
+          <h3 style="margin: 30px 0 0 0;">work impact issues</h3>
+        <ion-col col-6 col-sm-4 style="color: #fff;">
+          <ion-item>
+            <ion-label>Other Trades</ion-label>
+            <ion-checkbox checked={{JobSafety.WorkImpactIssues.Trades}} [(ngModel)]="JobSafety.WorkImpactIssues.Trades" color="dark"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6 col-sm-4 style="color: #fff;">
+          <ion-item>
+            <ion-label>Facilities</ion-label>
+            <ion-checkbox checked={{JobSafety.WorkImpactIssues.Facilities}} [(ngModel)]="JobSafety.WorkImpactIssues.Facilities" color="dark"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6 col-sm-4 style="color: #fff;">
+          <ion-item>
+            <ion-label>Environmetal</ion-label>
+            <ion-checkbox checked={{JobSafety.WorkImpactIssues.Environmental}} [(ngModel)]="JobSafety.WorkImpactIssues.Environmental" color="dark"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6 col-sm-4 style="color: #fff;">
+          <ion-item>
+            <ion-label>Public</ion-label>
+            <ion-checkbox checked={{JobSafety.WorkImpactIssues.Public}} [(ngModel)]="JobSafety.WorkImpactIssues.Public" color="dark"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6 col-sm-4 style="color: #fff;">
+          <ion-item>
+            <ion-label>Roads</ion-label>
+            <ion-checkbox checked={{JobSafety.WorkImpactIssues.Roads}} [(ngModel)]="JobSafety.WorkImpactIssues.Roads" color="dark"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6 col-sm-4 style="color: #fff;">
+          <ion-item>
+            <ion-label>Other</ion-label>
+            <ion-checkbox checked={{JobSafety.WorkImpactIssues.OtherIssues}} [(ngModel)]="JobSafety.WorkImpactIssues.OtherIssues" color="dark"></ion-checkbox>
+          </ion-item>
+        </ion-col>
         </ion-row>
-  
-        <ion-row class="checkboxes-as">
-            <h3 style="margin: 30px 0 0 0;">work impact issues</h3>
-          <ion-col col-6 col-sm-4 style="color: #fff;">
-            <ion-item>
-              <ion-label>Other Trades</ion-label>
-              <ion-checkbox checked={{JobSafety.WorkImpactIssues.Trades}} [(ngModel)]="JobSafety.WorkImpactIssues.Trades" color="dark"></ion-checkbox>
-            </ion-item>
-          </ion-col>
-          <ion-col col-6 col-sm-4 style="color: #fff;">
-            <ion-item>
-              <ion-label>Facilities</ion-label>
-              <ion-checkbox checked={{JobSafety.WorkImpactIssues.Facilities}} [(ngModel)]="JobSafety.WorkImpactIssues.Facilities" color="dark"></ion-checkbox>
-            </ion-item>
-          </ion-col>
-          <ion-col col-6 col-sm-4 style="color: #fff;">
-            <ion-item>
-              <ion-label>Environmetal</ion-label>
-              <ion-checkbox checked={{JobSafety.WorkImpactIssues.Environmental}} [(ngModel)]="JobSafety.WorkImpactIssues.Environmental" color="dark"></ion-checkbox>
-            </ion-item>
-          </ion-col>
-          <ion-col col-6 col-sm-4 style="color: #fff;">
-            <ion-item>
-              <ion-label>Public</ion-label>
-              <ion-checkbox checked={{JobSafety.WorkImpactIssues.Public}} [(ngModel)]="JobSafety.WorkImpactIssues.Public" color="dark"></ion-checkbox>
-            </ion-item>
-          </ion-col>
-          <ion-col col-6 col-sm-4 style="color: #fff;">
-            <ion-item>
-              <ion-label>Roads</ion-label>
-              <ion-checkbox checked={{JobSafety.WorkImpactIssues.Roads}} [(ngModel)]="JobSafety.WorkImpactIssues.Roads" color="dark"></ion-checkbox>
-            </ion-item>
-          </ion-col>
-          <ion-col col-6 col-sm-4 style="color: #fff;">
-            <ion-item>
-              <ion-label>Other</ion-label>
-              <ion-checkbox checked={{JobSafety.WorkImpactIssues.OtherIssues}} [(ngModel)]="JobSafety.WorkImpactIssues.OtherIssues" color="dark"></ion-checkbox>
-            </ion-item>
-          </ion-col>
-          </ion-row>
-  
-          <ion-row>
-              <ion-col col-3 col-sm-3>
-                <label style="color: #fff;">Explain:</label>
+
+        <ion-row>
+            <ion-col col-3 col-sm-3>
+              <label style="color: #fff;">Explain:</label>
+            </ion-col>
+            <ion-col col-9 col-sm-9>
+              <textarea [(ngModel)]="JobSafety.WorkImpactIssues.Explain" style="width: 100%; height: 100px;"></textarea>
+            </ion-col>
+            </ion-row>
+
+
+            <ion-row class="checkboxes-as">
+                <h3 style="margin: 30px 0 0 0;">permit required</h3>
+              <ion-col col-6 col-sm-4 style="color: #fff;">
+                <ion-item>
+                  <ion-label>Hot Work</ion-label>
+                  <ion-checkbox checked={{JobSafety.PermitsRequired.HotWorkPermit}} [(ngModel)]="JobSafety.PermitsRequired.HotWorkPermit" color="dark"></ion-checkbox>
+                </ion-item>
               </ion-col>
-              <ion-col col-9 col-sm-9>
-                <textarea [(ngModel)]="JobSafety.WorkImpactIssues.Explain" style="width: 100%; height: 100px;"></textarea>
+              <ion-col col-6 col-sm-4 style="color: #fff;">
+                <ion-item>
+                  <ion-label>Critical Lift</ion-label>
+                  <ion-checkbox checked={{JobSafety.PermitsRequired.CriticalLiftPermit}} [(ngModel)]="JobSafety.PermitsRequired.CriticalLiftPermit" color="dark"></ion-checkbox>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6 col-sm-4 style="color: #fff;">
+                <ion-item>
+                  <ion-label>Guardrail Removal</ion-label>
+                  <ion-checkbox checked={{JobSafety.PermitsRequired.GuardrailRemovalPermit}} [(ngModel)]="JobSafety.PermitsRequired.GuardrailRemovalPermit" color="dark"></ion-checkbox>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6 col-sm-4 style="color: #fff;">
+                <ion-item>
+                  <ion-label>Excavation</ion-label>
+                  <ion-checkbox checked={{JobSafety.PermitsRequired.ExcavationPermit}} [(ngModel)]="JobSafety.PermitsRequired.ExcavationPermit" color="dark"></ion-checkbox>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6 col-sm-4 style="color: #fff;">
+                <ion-item>
+                  <ion-label>Off Hours</ion-label>
+                  <ion-checkbox checked={{JobSafety.PermitsRequired.OffHoursPermit}} [(ngModel)]="JobSafety.PermitsRequired.OffHoursPermit" color="dark"></ion-checkbox>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6 col-sm-4 style="color: #fff;">
+                <ion-item>
+                  <ion-label>Confined Space</ion-label>
+                  <ion-checkbox checked={{JobSafety.PermitsRequired.ConfinedSpacePermit}} [(ngModel)]="JobSafety.PermitsRequired.ConfinedSpacePermit" color="dark"></ion-checkbox>
+                </ion-item>
               </ion-col>
               </ion-row>
-  
-  
+
+
+
+
+
               <ion-row class="checkboxes-as">
-                  <h3 style="margin: 30px 0 0 0;">permit required</h3>
+                  <h3 style="margin: 30px 0 0 0;">requirments</h3>
                 <ion-col col-6 col-sm-4 style="color: #fff;">
                   <ion-item>
-                    <ion-label>Hot Work</ion-label>
-                    <ion-checkbox checked={{JobSafety.PermitsRequired.HotWorkPermit}} [(ngModel)]="JobSafety.PermitsRequired.HotWorkPermit" color="dark"></ion-checkbox>
+                    <ion-label>Fall Equipment</ion-label>
+                    <ion-checkbox checked={{JobSafety.Requirements.FallEquipInsp}} [(ngModel)]="JobSafety.Requirements.FallEquipInsp" color="dark"></ion-checkbox>
                   </ion-item>
                 </ion-col>
                 <ion-col col-6 col-sm-4 style="color: #fff;">
                   <ion-item>
-                    <ion-label>Critical Lift</ion-label>
-                    <ion-checkbox checked={{JobSafety.PermitsRequired.CriticalLiftPermit}} [(ngModel)]="JobSafety.PermitsRequired.CriticalLiftPermit" color="dark"></ion-checkbox>
+                    <ion-label>Scaffold</ion-label>
+                    <ion-checkbox checked={{JobSafety.Requirements.ScaffoldInsp}} [(ngModel)]="JobSafety.Requirements.ScaffoldInsp" color="dark"></ion-checkbox>
                   </ion-item>
                 </ion-col>
                 <ion-col col-6 col-sm-4 style="color: #fff;">
                   <ion-item>
-                    <ion-label>Guardrail Removal</ion-label>
-                    <ion-checkbox checked={{JobSafety.PermitsRequired.GuardrailRemovalPermit}} [(ngModel)]="JobSafety.PermitsRequired.GuardrailRemovalPermit" color="dark"></ion-checkbox>
+                    <ion-label>Ladders</ion-label>
+                    <ion-checkbox checked={{JobSafety.Requirements.LadderInsp}} [(ngModel)]="JobSafety.Requirements.LadderInsp" color="dark"></ion-checkbox>
                   </ion-item>
                 </ion-col>
                 <ion-col col-6 col-sm-4 style="color: #fff;">
                   <ion-item>
-                    <ion-label>Excavation</ion-label>
-                    <ion-checkbox checked={{JobSafety.PermitsRequired.ExcavationPermit}} [(ngModel)]="JobSafety.PermitsRequired.ExcavationPermit" color="dark"></ion-checkbox>
+                    <ion-label>Cranes</ion-label>
+                    <ion-checkbox checked={{JobSafety.Requirements.CrainInsp}} [(ngModel)]="JobSafety.Requirements.CrainInsp" color="dark"></ion-checkbox>
                   </ion-item>
                 </ion-col>
                 <ion-col col-6 col-sm-4 style="color: #fff;">
                   <ion-item>
-                    <ion-label>Off Hours</ion-label>
-                    <ion-checkbox checked={{JobSafety.PermitsRequired.OffHoursPermit}} [(ngModel)]="JobSafety.PermitsRequired.OffHoursPermit" color="dark"></ion-checkbox>
-                  </ion-item>
-                </ion-col>
-                <ion-col col-6 col-sm-4 style="color: #fff;">
-                  <ion-item>
-                    <ion-label>Confined Space</ion-label>
-                    <ion-checkbox checked={{JobSafety.PermitsRequired.ConfinedSpacePermit}} [(ngModel)]="JobSafety.PermitsRequired.ConfinedSpacePermit" color="dark"></ion-checkbox>
+                    <ion-label>Other</ion-label>
+                    <ion-checkbox checked={{JobSafety.Requirements.OtherInsp}} [(ngModel)]="JobSafety.Requirements.OtherInsp" color="dark"></ion-checkbox>
                   </ion-item>
                 </ion-col>
                 </ion-row>
-  
-  
-  
-  
-  
-                <ion-row class="checkboxes-as">
-                    <h3 style="margin: 30px 0 0 0;">requirments</h3>
-                  <ion-col col-6 col-sm-4 style="color: #fff;">
-                    <ion-item>
-                      <ion-label>Fall Equipment</ion-label>
-                      <ion-checkbox checked={{JobSafety.Requirements.FallEquipInsp}} [(ngModel)]="JobSafety.Requirements.FallEquipInsp" color="dark"></ion-checkbox>
-                    </ion-item>
-                  </ion-col>
-                  <ion-col col-6 col-sm-4 style="color: #fff;">
-                    <ion-item>
-                      <ion-label>Scaffold</ion-label>
-                      <ion-checkbox checked={{JobSafety.Requirements.ScaffoldInsp}} [(ngModel)]="JobSafety.Requirements.ScaffoldInsp" color="dark"></ion-checkbox>
-                    </ion-item>
-                  </ion-col>
-                  <ion-col col-6 col-sm-4 style="color: #fff;">
-                    <ion-item>
-                      <ion-label>Ladders</ion-label>
-                      <ion-checkbox checked={{JobSafety.Requirements.LadderInsp}} [(ngModel)]="JobSafety.Requirements.LadderInsp" color="dark"></ion-checkbox>
-                    </ion-item>
-                  </ion-col>
-                  <ion-col col-6 col-sm-4 style="color: #fff;">
-                    <ion-item>
-                      <ion-label>Cranes</ion-label>
-                      <ion-checkbox checked={{JobSafety.Requirements.CrainInsp}} [(ngModel)]="JobSafety.Requirements.CrainInsp" color="dark"></ion-checkbox>
-                    </ion-item>
-                  </ion-col>
-                  <ion-col col-6 col-sm-4 style="color: #fff;">
-                    <ion-item>
-                      <ion-label>Other</ion-label>
-                      <ion-checkbox checked={{JobSafety.Requirements.OtherInsp}} [(ngModel)]="JobSafety.Requirements.OtherInsp" color="dark"></ion-checkbox>
-                    </ion-item>
-                  </ion-col>
-                  </ion-row>
-  
-  
-                  <ion-row>
-                      <ion-col col-3 col-sm-3>
-                          <label style="color: #fff;">Equipment to be used:</label>
-                        </ion-col>
-                        <ion-col col-9 col-sm-9>
-                          <textarea [(ngModel)]="JobSafety.EquipmentsUsed" style="width: 100%; height: 100px;"></textarea>
-                        </ion-col>
-                  </ion-row>
-  
-  
-  
-  
-  
-    </ion-grid>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    <ion-grid>
-      <ion-row>
-        <ion-col col-12 col-sm-12 style="text-align: center;margin: 15px 0 25px 0;">
-          <button class="button-as" (click)="OpenAddPhotoPage()">
-            <ion-icon name="add" style="color: #fff;"></ion-icon> photo({{JobSafety.Photos.length}})</button>
-        </ion-col>
-        <br>
-        <ion-col col-12 col-sm-12>
-          <h3 style="text-align: center;">JSA attendance</h3>
-        </ion-col>
-        <br>
-        <br>
-        <ion-col col-12 col-sm-12 style="text-align: center;">
-          <button class="button-as" (click)="OpenAddSignaturePage()">
-            <ion-icon name="add" style="color: #fff;"></ion-icon> signature</button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  
-    <ion-grid *ngFor="let signature of JobSafety.Signatures let i=index">
-      <ion-row>
-      <ion-col col-5 style="background-color: #fff; color: #000;">
-       {{signature.employee_name}}
+
+
+                <ion-row>
+                    <ion-col col-3 col-sm-3>
+                        <label style="color: #fff;">Equipment to be used:</label>
+                      </ion-col>
+                      <ion-col col-9 col-sm-9>
+                        <textarea [(ngModel)]="JobSafety.EquipmentsUsed" style="width: 100%; height: 100px;"></textarea>
+                      </ion-col>
+                </ion-row>
+
+
+
+
+
+  </ion-grid>
+
+
+
+
+
+
+
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-sm-12 style="text-align: center;margin: 15px 0 25px 0;">
+        <button class="button-as" (click)="OpenAddPhotoPage()">
+          <ion-icon name="add" style="color: #fff;"></ion-icon> photo({{JobSafety.Photos.length}})</button>
       </ion-col>
-      <ion-col col-6>
-         <img class="" src={{signature.signature_path}} alt="" />
-       </ion-col>
-     </ion-row>
-    </ion-grid>
-  
-    <br>
-    <footer>
-        <div class="footer-left">
-          <img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" />
-        </div>
-        <!-- <span class="copy-right">Copyright 2018</span> -->
-        <div class="footer-right">
-          <span class="tag-bottom">Construction Safety Compliance App</span>
-          <a href="http://www.safetyfirstdata.com">Help &amp; Training</a>
-        </div>
-      </footer>
-  </ion-content>
+      <br>
+      <ion-col col-12 col-sm-12>
+        <h3 style="text-align: center;">JSA attendance</h3>
+      </ion-col>
+      <br>
+      <br>
+      <ion-col col-12 col-sm-12 style="text-align: center;">
+        <button class="button-as" (click)="OpenAddSignaturePage()">
+          <ion-icon name="add" style="color: #fff;"></ion-icon> signature</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+
+
+    <ion-row>
+      <ion-col col-12 col-sm-6 *ngFor="let signature of JobSafety.Signatures let i=index">
+    <ion-row>
+    <ion-col col-12 style="color: #fff;text-align: left;margin: 0 auto;">
+     {{signature.employee_name}}
+    </ion-col>
+    <ion-col col-12>
+       <img style="width: 100%;margin: 0 auto;" class="" src={{signature.signature_path}} alt="" />
+    </ion-col>
+   </ion-row>
+  </ion-col>
+  </ion-row>
+
+
+
+
+
+
+  </ion-grid>
+
+  <br>
+  <footer>
+      <div class="footer-left">
+        <img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" />
+      </div>
+      <!-- <span class="copy-right">Copyright 2018</span> -->
+      <div class="footer-right">
+        <span class="tag-bottom">Construction Safety Compliance App</span>
+        <a href="http://www.safetyfirstdata.com">Help &amp; Training</a>
+      </div>
+    </footer>
+</ion-content>
   
   

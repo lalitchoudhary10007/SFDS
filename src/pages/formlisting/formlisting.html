@@ -33,7 +33,7 @@
         </tr>
         <tr *ngFor="let huddle of SavedForms" (click)="OpenRecentForm(huddle.FormJSON , huddle.id , huddle.FormStatus)">
           <td><span class="text-as">{{huddle.SubmittedBy}}</span><span class="slash-as">/</span><span class="text-as">{{huddle.createdAt}}</span></td>
-          <td><span class="text-as">{{huddle.FormStatus}}</span><span class="slash-as">/</span><span class="text-as">{{huddle.updatedAt}}</span></td>
+          <td><span class="text-as">{{huddle.FormStatus+" / "+huddle.FormSubmissionPrimaryKey}}</span><span class="slash-as">/</span><span class="text-as">{{huddle.updatedAt}}</span></td>
         </tr>
       </table>
       <br>

@@ -63,6 +63,13 @@ export class ConfinedSpacePage extends Page {
       this.TempConfinedSpace.TimeZone = res ;
     });
 
+    if(this.FromNewOrUpdate == 2){
+      //Submitted Form Not to Edit
+      $(".grid .row").addClass("disabled-all");
+      }else{
+      
+      }
+
     if(this.FromNewOrUpdate == 1){
       let PickerCurrentDate = this.appUtils.GetCurrentPickerDate();
       let currPickerTime = this.appUtils.GetCurrentPickerTime();

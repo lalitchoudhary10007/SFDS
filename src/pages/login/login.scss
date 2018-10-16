@@ -5,14 +5,15 @@ page-login {
         }
 	  } 
 	  
-	ion-header {
-        border-bottom: 1px solid #1d72c1;
-    }
+	
     /* header css */
     ion-header .header-logo img {
  margin-top: 0px;
  max-height: 50px;
  margin-left: 0px;
+}
+.back-button {
+	display: none !important;
 }
 .login-as .tagline {
 	width: 100%;
@@ -139,6 +140,54 @@ ion-header ion-icon {
     -webkit-box-shadow: unset;
     box-shadow: unset;
 }
+footer {
+	max-height: 60px;
+	width: 100%;
+	padding: 0 27px;
+	background: #000;
+	min-width: 60px;
+	height: 50px;
+	position: absolute;
+	bottom: 0;
+	z-index: 9;
+}
+footer .footer-right a {
+	display: block;
+	width: 100%;
+	float: left;
+	color: #fff;
+	text-decoration: underline;
+	font-weight: 100;
+	margin-top: 3px;
+}
+.footer-left {
+	width: 75px;
+	float: left;
+	min-height: 58px;
+}
+.footer-right {
+	width: 100%;
+	float: left;
+	min-height: 58px;
+	padding-left: 0;
+	margin-left: -75px;
+	text-align: center;
+}
+.footer-logo {
+	max-height: 30px;
+	display: block;
+	float: left;
+	margin-top: 10px;
+}
+.tag-bottom {
+	color: #fff;
+	font-weight: 100;
+	display: block;
+	float: left;
+	margin-top: 7px;
+	font-size: 14px;
+	width: 100%;
+}
 
 /* 10-10-2018  */
 .back-button {
@@ -152,4 +201,9 @@ ion-header ion-icon {
 	border-bottom: 1px solid #dedede;
 }
 /* 10-10-2018 ../ */
+@media (max-width: 380px) {
+	.footer-right {
+		padding-left: 75px;
+	}
+}
 }

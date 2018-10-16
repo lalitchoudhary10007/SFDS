@@ -67,8 +67,7 @@ export class FormlistingPage extends Page {
             });
           });
         break;
-        
-        case 'Site Safety':
+       case 'Site Safety':
         this.apiHelper.GetFormAssets('SiteSafety.json')
           .subscribe((response) => {
             this.navCtrl.push('SiteSafetyPage', {
@@ -98,6 +97,8 @@ export class FormlistingPage extends Page {
      let type = 2 ;
     if(FormStatus === 'Ready To Submit'){
       type = 2 ;
+    }else if(FormStatus === 'Synced'){
+      type = 2 ;  
     }else{
       type = 3 ;
     }
@@ -109,7 +110,7 @@ export class FormlistingPage extends Page {
           FROM: type,
           FormPrimaryID: FormPrimaryId
         }).then(() =>{
-          this.appUtils.presentToast('Page Loaded' , 'bottom');
+        //  this.appUtils.presentToast('Page Loaded' , 'bottom');
         });
         break;
       case 'Job Safety Analysis':

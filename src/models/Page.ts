@@ -19,20 +19,20 @@ export class Page {
        if (this.isCached) {
             this.nativePageTransitions.slide({ 
                 direction: resumeTransition, 
-                iosdelay: 60, 
+                iosdelay: 120, 
                 androiddelay: 10, 
                 slowdownfactor: 1 ,
-                fixedPixelsTop: 63
+                fixedPixelsTop: 0
             });
         }
         // Entering View transition if is created for first time
         else {
             this.nativePageTransitions.slide({ 
                 direction: enterTransition, 
-                iosdelay: 60, 
+                iosdelay: 120, 
                 androiddelay: 10, 
                 slowdownfactor: 1,
-                fixedPixelsTop: 63
+                fixedPixelsTop: 0
             });
             this.isCached = true;
         }   

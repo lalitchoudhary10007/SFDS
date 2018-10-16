@@ -34,18 +34,19 @@ export class ApiHelperProvider {
      this.loading1.present();
     }
 
-    return this.http.post(this.apiUrl+endpoint, data1, header)
+    return this.http.post(this.apiUrl+endpoint, data1, {})
         .then(data => {
-          this.loading1.dismiss();
+         // this.loading1.dismiss();
           console.log("**URL:- "+this.apiUrl+endpoint , "**Response:- "+data.data);
+         
           return JSON.parse(data.data);
         
         })
         .catch(error => {
-          this.loading1.dismiss();
+        //  this.loading1.dismiss();
           console.log("Error",error.status);
           console.log("Error error",error.error); // error message as string
-      
+          return JSON.parse(error);
         });
 
 }

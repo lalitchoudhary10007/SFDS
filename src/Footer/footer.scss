@@ -6,10 +6,10 @@
     background: #000;
     min-width: 60px;
     height: 60px;
-    border-top: 1px solid #1d72c1;
     position: absolute;
     bottom: 0;
     z-index: 9;
+    box-shadow: 7px 7px 7px 5px rgba(255, 255, 255, .6);
 }
 footer .footer-right a {
     display: block;
@@ -45,7 +45,7 @@ footer .footer-right a {
     display: block;
     float: left;
     margin-top: 7px;
-    font-size: 14px;
+    font-size: 12px;
     width: 100%;
 }
 /* Footer new css ../ */

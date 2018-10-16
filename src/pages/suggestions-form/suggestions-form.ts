@@ -76,6 +76,13 @@ export class SuggestionsFormPage extends Page {
       this.TempSuggestions.TimeZone = res ;
     });
 
+    if(this.FromNewOrUpdate == 2){
+      //Submitted Form Not to Edit
+      $(".grid .row").addClass("disabled-all");
+      }else{
+      
+      }
+
     // this.navBar.backButtonClick = (e:UIEvent)=>{
     //   // todo something
     //    if(JSON.stringify(this.TempSuggestions) === JSON.stringify(this.Suggestions)){

@@ -1,4 +1,7 @@
 page-suggestions-form {
+    .disabled-all{
+		pointer-events: none !important;
+	}
     .toolbar {
         .toolbar-background {
           background: #000000;
@@ -7,10 +10,6 @@ page-suggestions-form {
       canvas {
 		width: 100%;
 	}
-      
-    ion-header {
-        border-bottom: 1px solid #1d72c1;
-    }
      /* Footer new css */
      footer .footer-right  a {
         display: block;
@@ -40,7 +39,7 @@ page-suggestions-form {
         display: block;
         float: left;
         margin-top: 7px;
-        font-size: 14px;
+        font-size: 12px;
         width: 100%;
     }
 /* Footer new css ../ */
@@ -64,33 +63,33 @@ page-suggestions-form {
     text-transform: capitalize;
     }
     /* ban css */
-    .ban {
-     background: #fff;
-     padding: 10px 10px;
-     margin: 0px 0 30px 0;
-}
-.active-job {
-    float: left;
-    width: 100%;
-    text-transform: capitalize;
-    margin: 0 0;
-    font-size: 15px;
-    padding: 7px 0;
-}
-.ban .cancel {
-    background: red;
-    color: #fff;
-    padding: 10px 20px;
-    text-transform: capitalize;
-    border-radius: 5px;
-}
-.ban .submit {
-    background: green;
-    color: #fff;
-    padding: 10px 20px;
-    text-transform: capitalize;
-    border-radius: 5px;
-}
+//     .ban {
+//      background: #fff;
+//      padding: 10px 10px;
+//      margin: 0px 0 30px 0;
+// }
+// .active-job {
+//     float: left;
+//     width: 100%;
+//     text-transform: capitalize;
+//     margin: 0 0;
+//     font-size: 15px;
+//     padding: 7px 0;
+// }
+// .ban .cancel {
+//     background: red;
+//     color: #fff;
+//     padding: 10px 20px;
+//     text-transform: capitalize;
+//     border-radius: 5px;
+// }
+// .ban .submit {
+//     background: green;
+//     color: #fff;
+//     padding: 10px 20px;
+//     text-transform: capitalize;
+//     border-radius: 5px;
+// }
 /* ban css ../ */
 /* Header css */
 // ion-header .header-logo img {
@@ -148,7 +147,7 @@ footer {
     background: #000;
     min-width: 60px;
     height: 60px;
-    border-top: 1px solid #1d72c1;
+    box-shadow: 0 -3px 12px -4px rgba(255, 255, 255, 0.2);
 }
 .footer-left {
     width: 75px;

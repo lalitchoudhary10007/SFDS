@@ -5,250 +5,250 @@
   Ionic pages and navigation.
 -->
 <ion-header class="home">
-    <!-- <ion-navbar>
-      <div class="header-logo">
-        <img src={{appUtils.LogoUrl}} alt="Logo" />
-      </div>
-      <span class="tagline">{{appUtils.ContractorName}}</span>
-    </ion-navbar>
-    <div class="ban">
-      <ul class="breadcums-cntr">
-        <li (click)="OpenHome()">home
-          <span>></span>
-        </li>
-        <li (click)="goback()">safety forms
-          <span>></span>
-        </li>
-        <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">daily job log<span>></span>
-        </li>
-      </ul>
-      <div class="active-job">active job: {{SelectedJob.jobNumber +"-"+ SelectedJob.jobName}}</div>
-      <button class="cancel" (click)="cancel()">cancel</button>
-      <button class="submit" (click)="SubmitDailyJobLog('submit')">submit</button>
-      <button class="submit" (click)="SubmitDailyJobLog('draft')">draft</button>
-      
-      <div class="last-opned-detail">
-        <span>2018-09-12</span>
-        <span>15:34:54</span>
-      </div>
-    </div> -->
+  <!-- <ion-navbar>
+    <div class="header-logo">
+      <img src={{appUtils.LogoUrl}} alt="Logo" />
+    </div>
+    <span class="tagline">{{appUtils.ContractorName}}</span>
+  </ion-navbar>
+  <div class="ban">
+    <ul class="breadcums-cntr">
+      <li (click)="OpenHome()">home
+        <span>></span>
+      </li>
+      <li (click)="goback()">safety forms
+        <span>></span>
+      </li>
+      <li style="text-transform: uppercase;text-decoration: none;font-weight:600;">daily job log<span>></span>
+      </li>
+    </ul>
+    <div class="active-job">active job: {{SelectedJob.jobNumber +"-"+ SelectedJob.jobName}}</div>
+    <button class="cancel" (click)="cancel()">cancel</button>
+    <button class="submit" (click)="SubmitDailyJobLog('submit')">submit</button>
+    <button class="submit" (click)="SubmitDailyJobLog('draft')">draft</button>
+    
+    <div class="last-opned-detail">
+      <span>2018-09-12</span>
+      <span>15:34:54</span>
+    </div>
+  </div> -->
 
-    <appheader [headerData]="headerData" (CallBackEvent)="CallBackFromHeader($event);"></appheader>
+  <appheader [headerData]="headerData" (CallBackEvent)="CallBackFromHeader($event);"></appheader>
 
 
-  </ion-header>
-  
-  <ion-content padding>
-     
-  <!-- Middle Content -->
-  
-         <ion-grid>
-          <ion-row>
-              <ion-col col-5 col-sm-5>
+</ion-header>
+
+<ion-content padding>
+   
+<!-- Middle Content -->
+
+       <ion-grid>
+        <ion-row>
+            <ion-col col-5 col-sm-5>
+              <ion-row class="inner-row">
+                <ion-col col-6><label>Weather:</label></ion-col>
+                <ion-col col-6>
+                    <select [(ngModel)]="DailyJobLogs.Environment.Weather">
+                      <option>sunny</option>
+                      <option>cloudy</option>
+                      <option>partly cloudy</option>
+                      <option>snow</option>
+                      <option>rain</option>
+                      <option>windy</option>
+                      <option>sleet</option>
+                    </select>
+                      
+                  </ion-col>
+              </ion-row>
+              </ion-col>
+              <ion-col col-7 col-sm-7>
                 <ion-row class="inner-row">
-                  <ion-col col-6><label>Weather:</label></ion-col>
-                  <ion-col col-6>
-                      <select [(ngModel)]="DailyJobLogs.Environment.Weather">
-                        <option>sunny</option>
-                        <option>cloudy</option>
-                        <option>partly cloudy</option>
-                        <option>snow</option>
-                        <option>rain</option>
-                        <option>windy</option>
-                        <option>sleet</option>
-                      </select>
-                        
-                    </ion-col>
+                <ion-col col-7><label class="pull-right">Temperature:</label></ion-col>
+                <ion-col col-5><input type="number" [(ngModel)]="DailyJobLogs.Environment.Temperature"/></ion-col>
+              </ion-row>
+              </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid>
+        <br>
+          <ion-row>
+              <ion-col col-7 col-sm-6 style="color:#fff;font-size: 16px;">Manpower count</ion-col>
+              <ion-col col-5 col-sm-6 style="color:#fff; padding-left: 15px;font-size: 16px;">Subcontractor</ion-col>
+          </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+          <ion-row>
+              <ion-col col-7 col-sm-6>
+                <ion-row class="inner-row">
+                  <ion-col col-7><label>forman:</label></ion-col>
+                  <ion-col col-5><input type="number" [(ngModel)]="DailyJobLogs.Manpower.Forman" /></ion-col>
                 </ion-row>
                 </ion-col>
-                <ion-col col-7 col-sm-7>
-                  <ion-row class="inner-row">
-                  <ion-col col-7><label class="pull-right">Temperature:</label></ion-col>
-                  <ion-col col-5><input type="number" [(ngModel)]="DailyJobLogs.Environment.Temperature"/></ion-col>
+                <ion-col col-5 col-sm-6>
+                  <ion-row class="inner-row manpower-meg-left">
+                  <ion-col col-12><input type="text" [(ngModel)]="DailyJobLogs.Subcontractor_List.Sub1" /></ion-col>
                 </ion-row>
                 </ion-col>
           </ion-row>
         </ion-grid>
-  
-  
+
         <ion-grid>
-          <br>
-            <ion-row>
-                <ion-col col-7 col-sm-6 style="color:#fff;font-size: 16px;">Manpower count</ion-col>
-                <ion-col col-5 col-sm-6 style="color:#fff; padding-left: 15px;font-size: 16px;">Subcontractor</ion-col>
-            </ion-row>
+          <ion-row>
+              <ion-col col-7 col-sm-6>
+                <ion-row class="inner-row">
+                  <ion-col col-7><label>journey:</label></ion-col>
+                  <ion-col col-5><input type="number" [(ngModel)]="DailyJobLogs.Manpower.Journeyman" /></ion-col>
+                </ion-row>
+                </ion-col>
+                <ion-col col-5 col-sm-6>
+                  <ion-row class="inner-row manpower-meg-left">
+                  <ion-col col-12><input type="text" [(ngModel)]="DailyJobLogs.Subcontractor_List.Sub2" /></ion-col>
+                </ion-row>
+                </ion-col>
+          </ion-row>
         </ion-grid>
-  
+
+        <ion-grid>
+          <ion-row>
+              <ion-col col-7 col-sm-6>
+                <ion-row class="inner-row">
+                  <ion-col col-7><label>apprentice:</label></ion-col>
+                  <ion-col col-5><input type="number" [(ngModel)]="DailyJobLogs.Manpower.Apprentice" /></ion-col>
+                </ion-row>
+                </ion-col>
+                <ion-col col-5 col-sm-6>
+                  <ion-row class="inner-row manpower-meg-left">
+                  <ion-col col-12><input type="text" [(ngModel)]="DailyJobLogs.Subcontractor_List.Sub3" /></ion-col>
+                </ion-row>
+                </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row>
+              <ion-col col-7 col-sm-6>
+                <ion-row class="inner-row">
+                  <ion-col col-7><label>delay on job today:</label></ion-col>
+                  <ion-col col-5>
+                      <select [(ngModel)]="DailyJobLogs.Delays" >
+                          <option>yes</option>
+                          <option>no</option>
+                        </select>
+                  </ion-col>
+                </ion-row>
+                </ion-col>
+                <ion-col col-5 col-sm-6>
+                  <ion-row class="inner-row manpower-meg-left">
+                      <ion-col col-6><label>explain:</label></ion-col>
+                      <ion-col col-6><input type="text" [(ngModel)]="DailyJobLogs.DelaysNote"/></ion-col>
+                </ion-row>
+                </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row>
+              <ion-col col-7 col-sm-6>
+                <ion-row class="inner-row">
+                  <ion-col col-7><label>housekeeping acceptable:</label></ion-col>
+                  <ion-col col-5>
+                      <select [(ngModel)]="DailyJobLogs.HouseKeeping">
+                          <option>yes</option>
+                          <option>no</option>
+                        </select>
+                  </ion-col>
+                </ion-row>
+                </ion-col>
+                <ion-col col-5 col-sm-6>
+                  <ion-row class="inner-row manpower-meg-left">
+                      <ion-col col-6><label>explain:</label></ion-col>
+                      <ion-col col-6><input type="text" [(ngModel)]="DailyJobLogs.HouseKeepingNote" /></ion-col>
+                </ion-row>
+                </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row>
+              <ion-col col-7 col-sm-6>
+                <ion-row class="inner-row">
+                  <ion-col col-7><label>accidents:</label></ion-col>
+                  <ion-col col-5>
+                      <select [(ngModel)]="DailyJobLogs.Accidents">
+                          <option>yes</option>
+                          <option>no</option>
+                        </select>
+                  </ion-col>
+                </ion-row>
+                </ion-col>
+                <ion-col col-5 col-sm-6>
+                  <ion-row class="inner-row manpower-meg-left">
+                      <ion-col col-6><label>explain:</label></ion-col>
+                      <ion-col col-6><input type="text" [(ngModel)]="DailyJobLogs.AccidentsNote" /></ion-col>
+                </ion-row>
+                </ion-col>
+          </ion-row>
+        </ion-grid>
+
         <ion-grid>
             <ion-row>
-                <ion-col col-7 col-sm-6>
-                  <ion-row class="inner-row">
-                    <ion-col col-7><label>forman:</label></ion-col>
-                    <ion-col col-5><input type="number" [(ngModel)]="DailyJobLogs.Manpower.Forman" /></ion-col>
-                  </ion-row>
+                <ion-col col-4 col-sm-4 style="padding-top: 3px;">
+                    <label style="color: #fff;">areas worked and work phase:</label>
                   </ion-col>
-                  <ion-col col-5 col-sm-6>
-                    <ion-row class="inner-row manpower-meg-left">
-                    <ion-col col-12><input type="text" [(ngModel)]="DailyJobLogs.Subcontractor_List.Sub1" /></ion-col>
-                  </ion-row>
+                  <ion-col col-8 col-sm-8>
+                    <textarea [(ngModel)]="DailyJobLogs.AreasWorked" style="width: 100%; height: 100px;"></textarea>
                   </ion-col>
             </ion-row>
           </ion-grid>
-  
-          <ion-grid>
-            <ion-row>
-                <ion-col col-7 col-sm-6>
-                  <ion-row class="inner-row">
-                    <ion-col col-7><label>journey:</label></ion-col>
-                    <ion-col col-5><input type="number" [(ngModel)]="DailyJobLogs.Manpower.Journeyman" /></ion-col>
-                  </ion-row>
-                  </ion-col>
-                  <ion-col col-5 col-sm-6>
-                    <ion-row class="inner-row manpower-meg-left">
-                    <ion-col col-12><input type="text" [(ngModel)]="DailyJobLogs.Subcontractor_List.Sub2" /></ion-col>
-                  </ion-row>
-                  </ion-col>
-            </ion-row>
-          </ion-grid>
-  
-          <ion-grid>
-            <ion-row>
-                <ion-col col-7 col-sm-6>
-                  <ion-row class="inner-row">
-                    <ion-col col-7><label>apprentice:</label></ion-col>
-                    <ion-col col-5><input type="number" [(ngModel)]="DailyJobLogs.Manpower.Apprentice" /></ion-col>
-                  </ion-row>
-                  </ion-col>
-                  <ion-col col-5 col-sm-6>
-                    <ion-row class="inner-row manpower-meg-left">
-                    <ion-col col-12><input type="text" [(ngModel)]="DailyJobLogs.Subcontractor_List.Sub3" /></ion-col>
-                  </ion-row>
-                  </ion-col>
-            </ion-row>
-          </ion-grid>
-  
-          <ion-grid>
-            <ion-row>
-                <ion-col col-7 col-sm-6>
-                  <ion-row class="inner-row">
-                    <ion-col col-7><label>delay on job today:</label></ion-col>
-                    <ion-col col-5>
-                        <select [(ngModel)]="DailyJobLogs.Delays" >
-                            <option>yes</option>
-                            <option>no</option>
-                          </select>
-                    </ion-col>
-                  </ion-row>
-                  </ion-col>
-                  <ion-col col-5 col-sm-6>
-                    <ion-row class="inner-row manpower-meg-left">
-                        <ion-col col-6><label>explain:</label></ion-col>
-                        <ion-col col-6><input type="text" [(ngModel)]="DailyJobLogs.DelaysNote"/></ion-col>
-                  </ion-row>
-                  </ion-col>
-            </ion-row>
-          </ion-grid>
-  
-          <ion-grid>
-            <ion-row>
-                <ion-col col-7 col-sm-6>
-                  <ion-row class="inner-row">
-                    <ion-col col-7><label>housekeeping acceptable:</label></ion-col>
-                    <ion-col col-5>
-                        <select [(ngModel)]="DailyJobLogs.HouseKeeping">
-                            <option>yes</option>
-                            <option>no</option>
-                          </select>
-                    </ion-col>
-                  </ion-row>
-                  </ion-col>
-                  <ion-col col-5 col-sm-6>
-                    <ion-row class="inner-row manpower-meg-left">
-                        <ion-col col-6><label>explain:</label></ion-col>
-                        <ion-col col-6><input type="text" [(ngModel)]="DailyJobLogs.HouseKeepingNote" /></ion-col>
-                  </ion-row>
-                  </ion-col>
-            </ion-row>
-          </ion-grid>
-  
-          <ion-grid>
-            <ion-row>
-                <ion-col col-7 col-sm-6>
-                  <ion-row class="inner-row">
-                    <ion-col col-7><label>accidents:</label></ion-col>
-                    <ion-col col-5>
-                        <select [(ngModel)]="DailyJobLogs.Accidents">
-                            <option>yes</option>
-                            <option>no</option>
-                          </select>
-                    </ion-col>
-                  </ion-row>
-                  </ion-col>
-                  <ion-col col-5 col-sm-6>
-                    <ion-row class="inner-row manpower-meg-left">
-                        <ion-col col-6><label>explain:</label></ion-col>
-                        <ion-col col-6><input type="text" [(ngModel)]="DailyJobLogs.AccidentsNote" /></ion-col>
-                  </ion-row>
-                  </ion-col>
-            </ion-row>
-          </ion-grid>
-  
+
           <ion-grid>
               <ion-row>
-                  <ion-col col-4 col-sm-4 style="padding-top: 3px;">
-                      <label style="color: #fff;">areas worked and work phase:</label>
-                    </ion-col>
-                    <ion-col col-8 col-sm-8>
-                      <textarea [(ngModel)]="DailyJobLogs.AreasWorked" style="width: 100%; height: 100px;"></textarea>
-                    </ion-col>
+                  <ion-col col-12 col-sm-12 style="text-align: center;">
+                      <button class="button-as" (click)="OpenAddPhotoPage()">
+                        <ion-icon name="add" style="color: #fff;"></ion-icon> photo({{DailyJobLogs.Photos.length}})</button>
+                  </ion-col>
               </ion-row>
             </ion-grid>
-  
+
             <ion-grid>
                 <ion-row>
                     <ion-col col-12 col-sm-12 style="text-align: center;">
-                        <button class="button-as" (click)="OpenAddPhotoPage()">
-                          <ion-icon name="add" style="color: #fff;"></ion-icon> photo({{DailyJobLogs.Photos.length}})</button>
-                    </ion-col>
+                        <button class="button-as" (click)="OpenAddSignaturePage()">
+                          <ion-icon name="add" style="color: #fff;"></ion-icon> signature</button>
+                      </ion-col>
+                    <div style="width:320px;text-align:left;margin: 0 auto;">
+                        <label style="color: #fff;">Signature:</label>
+                    </div>
+                      <div style="width: 320px;" *ngIf="DailyJobLogs.Signatures == '';else signature">
+
+                        <!-- <textarea style="width: 100%; height: 100px;"></textarea> -->
+                      </div>
+
+                      
+
                 </ion-row>
               </ion-grid>
-  
-              <ion-grid>
-                  <ion-row>
-                      <ion-col col-12 col-sm-12 style="text-align: center;">
-                          <button class="button-as" (click)="OpenAddSignaturePage()">
-                            <ion-icon name="add" style="color: #fff;"></ion-icon> signature</button>
-                        </ion-col>
-                      <ion-col col-4 col-sm-4>
-                          <label style="color: #fff;">Signature:</label>
-                        </ion-col>
-                        <ion-col col-8 col-sm-8 *ngIf="DailyJobLogs.Signatures == '';else signature">
 
-                          <!-- <textarea style="width: 100%; height: 100px;"></textarea> -->
-                        </ion-col>
+              <ng-template #signature>
+                  <img style="width: 320px;margin: 0 auto" class="" src={{DailyJobLogs.Signatures}} alt="" />
+              </ng-template>
 
-                        
 
-                  </ion-row>
-                </ion-grid>
-  
-                <ng-template #signature>
-                    <img class="" src={{DailyJobLogs.Signatures}} alt="" />
-                </ng-template>
-  
-  
-  <!-- Middle Content End -->
-    <br>
-    <footer>
-        <div class="footer-left">
-          <img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" />
-        </div>
-        <!-- <span class="copy-right">Copyright 2018</span> -->
-        <div class="footer-right">
-          <span class="tag-bottom">Construction Safety Compliance App</span>
-          <a href="http://www.safetyfirstdata.com">Help &amp; Training</a>
-        </div>
-      </footer>
-  </ion-content>
+<!-- Middle Content End -->
+  <br>
+  <footer>
+      <div class="footer-left">
+        <img class="footer-logo" src="../../assets/imgs/logo-bk.png" alt="Company Logo" />
+      </div>
+      <!-- <span class="copy-right">Copyright 2018</span> -->
+      <div class="footer-right">
+        <span class="tag-bottom">Construction Safety Compliance App</span>
+        <a href="http://www.safetyfirstdata.com">Help &amp; Training</a>
+      </div>
+    </footer>
+</ion-content>
   
  
