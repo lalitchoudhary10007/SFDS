@@ -47,7 +47,9 @@ export class HomePage extends Page {
     super(nativePageTransitions);
    
 
-    // this.appUtils.GetContractorLogoAndName();
+     this.appUtils.GetContractorLogoAndName();
+     this.appUtils.GetSelectedJob();
+     this.appUtils.GetSelectedUser();
     
   }
 

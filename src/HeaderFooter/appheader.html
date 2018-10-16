@@ -26,8 +26,8 @@
               <span>></span>
             </li> -->
       </ul>
-      <div class="active-job">active job: {{SelectedJob.jobNumber +"-"+ SelectedJob.jobName}}</div>
-      <div *ngIf="headerData.FormPage">
+      <div class="active-job">active job: {{appUtils.SelectedJob.jobNumber +"-"+ appUtils.SelectedJob.jobName}}</div>
+      <div *ngIf="headerData.FormPage" class="headerbtns-cntr">
         <button class="cancel" (click)="cancel()">cancel</button>
         <button class="submit" (click)="onSubmit('submit')">submit</button>
         <button class="submit" (click)="onSubmit('draft')">draft</button>

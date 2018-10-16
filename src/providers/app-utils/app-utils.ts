@@ -19,6 +19,9 @@ export class AppUtilsProvider {
   LogoUrl : any ;
   ContractorName: any ;
 
+  SelectedUser : any ;
+  SelectedJob : any ;
+
  
   constructor(private datePipe: DatePipe , private decimalPipe: DecimalPipe, public file : File,private globalization: Globalization,
               public sessionHelper: SessionHelperProvider, private toastCtrl: ToastController) {
@@ -49,6 +52,20 @@ export class AppUtilsProvider {
     });
 
   }
+
+  GetSelectedUser(){
+    this.sessionHelper.GetValuesFromSession("SelectedUser").then((val) => {
+      this.SelectedUser = JSON.parse(val);
+    });
+  }
+
+  GetSelectedJob(){
+    this.sessionHelper.GetValuesFromSession("SelectedJob").then((val) => {
+      this.SelectedJob = JSON.parse(val);
+    });
+  }
+  
+ 
 
 
   GetCurrentDateTime(){

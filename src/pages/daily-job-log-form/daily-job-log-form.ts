@@ -77,6 +77,7 @@ export class DailyJobLogFormPage extends Page {
     if(this.FromNewOrUpdate == 2){
       //Submitted Form Not to Edit
       $(".grid .row").addClass("disabled-all");
+      $(".headerbtns-cntr button").addClass("disabled-all");
       }else{
       
       }

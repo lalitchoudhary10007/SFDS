@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 
 /**
  * Generated class for the HouseKeepingChildComponent component.
@@ -12,11 +12,21 @@ import { Component } from '@angular/core';
 })
 export class HouseKeepingChildComponent {
 
-  text: string;
+  @Input() Housekeeping;
+  @Output('CallBackEvent') EventsCallback: EventEmitter<any> = new EventEmitter();
 
   constructor() {
     console.log('Hello HouseKeepingChildComponent Component');
-    this.text = 'Hello World';
+    
+  }
+
+  ngOnInit(){
+    console.log("**GENERAL ISSUES DATA" ,this.Housekeeping);
+ }
+
+  onSubmit(from) {
+    console.log("**ON SUBMIT" ,from);
+    this.EventsCallback.emit(from);
   }
 
 }

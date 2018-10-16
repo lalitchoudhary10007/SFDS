@@ -1,4 +1,356 @@
 <!-- Generated template for the HouseKeepingChildComponent component -->
 <div>
-  {{text}}
+    <div class="inner-cntr">
+        <h3>housekeeping</h3>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 col-sm-6>
+              <label style="color: #fff;">are waste containers provided and used:</label>
+            </ion-col>
+            <ion-col col-6 col-sm-6>
+              <ion-list radio-group [(ngModel)]="Housekeeping.Waste">
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>Yes</ion-label>
+                      <ion-radio value="yes"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>No</ion-label>
+                      <ion-radio value="no"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4 col-sm-4>
+              <label style="color: #fff;">Comment:</label>
+            </ion-col>
+            <ion-col col-8 col-sm-8>
+              <textarea [(ngModel)]="Housekeeping.WasteComment" style="width: 100%; height: 60px;"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- End Grid -->
+  
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 col-sm-6>
+              <label style="color: #fff;">are all passageways stairways, and walkways clear of debris:</label>
+            </ion-col>
+            <ion-col col-6 col-sm-6>
+              <ion-list radio-group [(ngModel)]="Housekeeping.Passageways">
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>Yes</ion-label>
+                      <ion-radio value="yes"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>No</ion-label>
+                      <ion-radio value="no"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4 col-sm-4>
+              <label style="color: #fff;">Comment:</label>
+            </ion-col>
+            <ion-col col-8 col-sm-8>
+              <textarea [(ngModel)]="Housekeeping.PassagewaysComment" style="width: 100%; height: 60px;"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- End Grid -->
+  
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 col-sm-6>
+              <label style="color: #fff;">are nails removed or bent down:</label>
+            </ion-col>
+            <ion-col col-6 col-sm-6>
+              <ion-list radio-group [(ngModel)]="Housekeeping.Nails">
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>Yes</ion-label>
+                      <ion-radio value="yes"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>No</ion-label>
+                      <ion-radio value="no"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4 col-sm-4>
+              <label style="color: #fff;">Comment:</label>
+            </ion-col>
+            <ion-col col-8 col-sm-8>
+              <textarea [(ngModel)]="Housekeeping.NailsComment" style="width: 100%; height: 60px;"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- End Grid -->
+  
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 col-sm-6>
+              <label style="color: #fff;">are all spills cleaned up promptly:</label>
+            </ion-col>
+            <ion-col col-6 col-sm-6>
+              <ion-list radio-group [(ngModel)]="Housekeeping.Spills">
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>Yes</ion-label>
+                      <ion-radio value="yes"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>No</ion-label>
+                      <ion-radio value="no"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4 col-sm-4>
+              <label style="color: #fff;">Comment:</label>
+            </ion-col>
+            <ion-col col-8 col-sm-8>
+              <textarea [(ngModel)]="Housekeeping.SpillsComment" style="width: 100%; height: 60px;"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- End Grid -->
+  
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 col-sm-6>
+              <label style="color: #fff;">are materials properly stored and stacked:</label>
+            </ion-col>
+            <ion-col col-6 col-sm-6>
+              <ion-list radio-group [(ngModel)]="Housekeeping.Materials">
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>Yes</ion-label>
+                      <ion-radio value="yes"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>No</ion-label>
+                      <ion-radio value="no"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4 col-sm-4>
+              <label style="color: #fff;">Comment:</label>
+            </ion-col>
+            <ion-col col-8 col-sm-8>
+              <textarea [(ngModel)]="Housekeeping.MaterialsComment" style="width: 100%; height: 60px;"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- End Grid -->
+  
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 col-sm-6>
+              <label style="color: #fff;">is the general housekeeping neat and orderly:</label>
+            </ion-col>
+            <ion-col col-6 col-sm-6>
+              <ion-list radio-group [(ngModel)]="Housekeeping.Housekeeping">
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>Yes</ion-label>
+                      <ion-radio value="yes"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>No</ion-label>
+                      <ion-radio value="no"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4 col-sm-4>
+              <label style="color: #fff;">Comment:</label>
+            </ion-col>
+            <ion-col col-8 col-sm-8>
+              <textarea [(ngModel)]="Housekeeping.HousekeepingComment" style="width: 100%; height: 60px;"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- End Grid -->
+  
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 col-sm-6>
+              <label style="color: #fff;">is there adequate lighting:</label>
+            </ion-col>
+            <ion-col col-6 col-sm-6>
+              <ion-list radio-group [(ngModel)]="Housekeeping.Lighting">
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>Yes</ion-label>
+                      <ion-radio value="yes"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>No</ion-label>
+                      <ion-radio value="no"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4 col-sm-4>
+              <label style="color: #fff;">Comment:</label>
+            </ion-col>
+            <ion-col col-8 col-sm-8>
+              <textarea [(ngModel)]="Housekeeping.LightingComment" style="width: 100%; height: 60px;"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- End Grid -->
+  
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 col-sm-6>
+              <label style="color: #fff;">are all light bulbs protected from breakage:</label>
+            </ion-col>
+            <ion-col col-6 col-sm-6>
+              <ion-list radio-group [(ngModel)]="Housekeeping.Bulb_breakage">
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>Yes</ion-label>
+                      <ion-radio value="yes"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>No</ion-label>
+                      <ion-radio value="no"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4 col-sm-4>
+              <label style="color: #fff;">Comment:</label>
+            </ion-col>
+            <ion-col col-8 col-sm-8>
+              <textarea [(ngModel)]="Housekeeping.Bulb_breakageComment" style="width: 100%; height: 60px;"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- End Grid -->
+  
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 col-sm-6>
+              <label style="color: #fff;">are all hazardous containers labeled properly:</label>
+            </ion-col>
+            <ion-col col-6 col-sm-6>
+              <ion-list radio-group [(ngModel)]="Housekeeping.Hazards_container">
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>Yes</ion-label>
+                      <ion-radio value="yes"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>No</ion-label>
+                      <ion-radio value="no"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4 col-sm-4>
+              <label style="color: #fff;">Comment:</label>
+            </ion-col>
+            <ion-col col-8 col-sm-8>
+              <textarea [(ngModel)]="Housekeeping.Hazards_containerComment" style="width: 100%; height: 60px;"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- End Grid -->
+  
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 col-sm-6>
+              <label style="color: #fff;">are all floor openings covered and marked or barricaded:</label>
+            </ion-col>
+            <ion-col col-6 col-sm-6>
+              <ion-list radio-group [(ngModel)]="Housekeeping.FloorOpenings">
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>Yes</ion-label>
+                      <ion-radio value="yes"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-6>
+                    <ion-item>
+                      <ion-label>No</ion-label>
+                      <ion-radio value="no"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-4 col-sm-4>
+              <label style="color: #fff;">Comment:</label>
+            </ion-col>
+            <ion-col col-8 col-sm-8>
+              <textarea [(ngModel)]="Housekeeping.FloorOpeningsComment" style="width: 100%; height: 60px;"></textarea>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- End Grid -->
+  
+      </div>
 </div>

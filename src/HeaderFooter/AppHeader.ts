@@ -9,20 +9,20 @@ import { NavController, LoadingController ,AlertController, Header, App } from '
   export class AppheaderComponent {
     @Input() headerData;
     @Output('CallBackEvent') EventsCallback: EventEmitter<any> = new EventEmitter();
-    SelectedUser: any = {};
-    SelectedJob: any = {};
+  //  SelectedUser: any = {};
+  //  SelectedJob: any = {};
     
       
     constructor(private navCtrl: NavController,public appUtils: AppUtilsProvider, public sessionHelper: SessionHelperProvider,
       public appCtrl: App) { 
-        this.appUtils.GetContractorLogoAndName();
+      //  this.appUtils.GetContractorLogoAndName();
 
-        this.sessionHelper.GetValuesFromSession("SelectedUser").then((val) => {
-          this.SelectedUser = JSON.parse(val);
-        });
-        this.sessionHelper.GetValuesFromSession("SelectedJob").then((val) => {
-          this.SelectedJob = JSON.parse(val);
-        });
+        // this.sessionHelper.GetValuesFromSession("SelectedUser").then((val) => {
+        //   this.SelectedUser = JSON.parse(val);
+        // });
+        // this.sessionHelper.GetValuesFromSession("SelectedJob").then((val) => {
+        //   this.SelectedJob = JSON.parse(val);
+        // });
     
 
       }

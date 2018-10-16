@@ -1,7 +1,11 @@
 page-site-safety {
     .disabled-all{
 		pointer-events: none !important;
-	}
+    }
+    
+    button {
+        align-items: baseline;
+    }
     .toolbar {
         .toolbar-background {
           background: #000000;
